@@ -1,84 +1,24 @@
-"use client";
-
-import React, { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import StatsSection from "@/components/StatsSection";
-import ResultsSection from "@/components/ResultsSection";
-import ProtocolSection from "@/components/ProtocolSection";
-import BtsSection from "@/components/BtsSection";
-import PackagesSection from "@/components/PackagesSection";
-import PeakStorySection from "@/components/PeakStorySection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import LeadershipSection from "@/components/LeadershipSection";
-import BonusTicketSection from "@/components/BonusTicketSection";
-import FaqSection from "@/components/FaqSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-import LeadModal from "@/components/LeadModal";
+import Link from 'next/link';
+import { brand, imageFor } from '@/lib/content';
+import Icon from '@/components/Icon';
+import { Button, ClientRail, ClosingCta, Eyebrow, Faq, Industries, Plans } from '@/components/Shared';
+import { GrowthPeak, Pillars, Purpose } from '@/components/GrowthVisuals';
+import { Testimonials } from '@/components/Media';
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  return (
-    <main className="fobet-page-root">
-      {/* Navigation Header */}
-      <Navbar onOpenModal={openModal} />
-
-      {/* Hero Section */}
-      <Hero onOpenModal={openModal} />
-
-      {/* Stats ("Just 2 Days In A Month") */}
-      <StatsSection />
-
-      {/* Results & Shark Tank Showcase */}
-      <ResultsSection />
-
-      {/* Protocol (Systematized Growth Timeline) */}
-      <ProtocolSection />
-
-      {/* Behind The Scenes Masonry */}
-      <BtsSection />
-
-      {/* Packages / Pricing Plans */}
-      <PackagesSection />
-
-      {/* Interactive Feature: Two Paths -> One Peak */}
-      <PeakStorySection />
-
-      {/* Client Video Testimonials */}
-      <TestimonialsSection />
-
-      {/* Leadership (Riya Upreti & Vibhav Raj) */}
-      <LeadershipSection />
-
-      {/* Holographic VIP Bonus Ticket */}
-      <BonusTicketSection onOpenModal={openModal} />
-
-      {/* FAQ Accordion */}
-      <FaqSection />
-
-      {/* Contact Section */}
-      <ContactSection onOpenModal={openModal} />
-
-      {/* Site Footer */}
-      <Footer />
-
-      {/* Strategy Session Booking Modal */}
-      <LeadModal isOpen={isModalOpen} onClose={closeModal} />
-
-      <style jsx>{`
-        .fobet-page-root {
-          min-height: 100vh;
-          background: #0a0d18;
-          color: #ffffff;
-          position: relative;
-          overflow-x: hidden;
-        }
-      `}</style>
-    </main>
-  );
+  return <>
+    <section className="hero container">
+      <div className="hero-topline"><Eyebrow>YOUR BUSINESS. ITS NEXT BIG CHAPTER.</Eyebrow><span className="hero-location">BASED IN PUNE · GROWING BEYOND</span></div>
+      <div className="hero-main"><div className="hero-copy"><h1>TURN YOUR<br /><span>LEADS INTO</span><br /><em>lasting growth.</em></h1><p>Serious about your annual sales goal?<br />Let’s connect your marketing, your sales and your next big opportunity.</p><div className="hero-actions"><Button>Build my growth plan</Button><Link href="/work" className="hero-work-link">See the work <Icon name="diagonal" size={16} /></Link></div><div className="hero-trust"><span className="trust-stars">★★★★★</span><span>Built on trust. Focused on ROI.<br /><strong>Helping business owners since 2016.</strong></span></div></div>
+      <div className="hero-portrait"><div className="portrait-orbit orbit-one" /><div className="portrait-orbit orbit-two" /><div className="portrait-orbit orbit-three" /><span className="portrait-spark"><Icon name="spark" size={36} /></span><span className="portrait-top-label">STRATEGY MEETS<br /><strong>SALES PSYCHOLOGY.</strong></span><img src="/brand/shweta-shah-portrait.webp" alt="Shweta Shah, founder of Business Growth Karma" width="688" height="1300" fetchPriority="high" className="founder-cutout" /><div className="portrait-name"><span>YOUR GROWTH PARTNER</span><strong>Shweta Shah<span>↗</span></strong><p>Founder · Digital Marketing ROI Strategist</p></div><div className="hero-float float-results"><span className="gold-icon"><Icon name="chart" size={21} /></span><div><strong>500+</strong><span>Projects. Real possibilities.</span></div></div><a className="hero-float float-tedx" href={brand.tedx} target="_blank" rel="noreferrer"><span>AS SEEN ON</span><strong>TED<span>×</span></strong><Icon name="diagonal" size={16} /></a></div></div>
+      <div className="hero-bottom"><span><span className="status-dot" />GOOD STRATEGY STARTS WITH A CONVERSATION</span><a href="#framework">SCROLL TO EXPLORE <span>↓</span></a></div>
+    </section>
+    <ClientRail />
+    <section className="section container manifesto"><Eyebrow>MORE THAN A MARKETING CAMPAIGN</Eyebrow><div className="manifesto-grid"><h2 className="reveal">You bring the ambition.<br />We build the <em>momentum.</em></h2><div className="manifesto-copy reveal"><p>Your hard-earned leads deserve a clear path to becoming customers. We bring marketing, branding, sales training and automation into one connected growth system.</p><p>Our framework is designed to handle 80% of marketing-to-sales tasks, while your team focuses on the conversations that need a human touch.</p><Link href="/about" className="text-link">Meet your growth partner <Icon name="diagonal" size={17} /></Link></div></div><div className="outcomes-row">{[['clock','Save time'],['people','Save effort'],['layers','Reduce waste'],['chart','Improve conversion']].map(([icon,label]) => <div key={label}><Icon name={icon} size={23} /><span>{label}</span></div>)}</div></section>
+    <Pillars /><GrowthPeak />
+    <section className="section lead-paths container"><div className="section-heading reveal"><div><Eyebrow>EVERY LEAD HAS A JOURNEY</Eyebrow><h2>Ready now?<br /><em>Or getting there?</em></h2></div><p>Some buyers need a solution today. Others need time and trust. Your growth system should support both.</p></div><div className="lead-path-grid"><article className="lead-path hot reveal"><span className="lead-type"><Icon name="bolt" size={19} /> HOT LEADS</span><h3>Meet the<br /><em>moment.</em></h3><div className="lead-window">24 hours <span>to</span> 25 days</div><p>Respond quickly to buyers with an immediate need. The 3I formula brings instant engagement, team notification and a timely call into one clear process.</p><div className="path-steps"><span>Engage</span><i /><span>Notify</span><i /><span>Connect</span></div></article><article className="lead-path warm reveal"><span className="lead-type"><Icon name="seed" size={19} /> WARM LEADS</span><h3>Build the<br /><em>relationship.</em></h3><div className="lead-window">2 months <span>to</span> 12 months</div><p>Stay useful while prospects research. The 3B formula builds trust, credibility and relationships through meaningful content and consistent nurturing.</p><div className="path-steps"><span>Trust</span><i /><span>Credibility</span><i /><span>Relationships</span></div></article></div><p className="fine-print">Indicative buyer journeys. Actual conversion timing depends on your offer, audience and implementation.</p></section>
+    <Industries /><Purpose />
+    <section className="section container featured-work"><div className="section-heading reveal"><div><Eyebrow>THE WORK BEHIND THE WORDS</Eyebrow><h2>Real businesses.<br /><em>Meaningful progress.</em></h2></div><Button href="/work" secondary>Explore our work</Button></div><div className="featured-results"><Link href="/work#real-estate" className="featured-result reveal"><div className="result-preview"><img src={imageFor('google-ads-for-Realestate.png')} alt="Real estate client case study" width="540" height="675" loading="lazy" /></div><div><span className="micro">REAL ESTATE / V3 PARTNERS</span><h3>From enquiries<br />to a sold-out project.</h3><span className="text-link">View client results <Icon name="diagonal" size={17} /></span></div><span className="result-badge">4<span>MONTHS</span></span></Link><Link href="/work#education" className="featured-result reveal"><div className="result-preview"><img src={imageFor('I-am-Getting-150-Leads-every-Month.png')} alt="Education client lead generation case study" width="540" height="675" loading="lazy" /></div><div><span className="micro">EDUCATION / ADMISSION GROWTH</span><h3>A clearer path<br />from lead to enrolment.</h3><span className="text-link">View client results <Icon name="diagonal" size={17} /></span></div><span className="result-badge">15–25<span>% CLOSING RATIO</span></span></Link></div><p className="fine-print">Published client results. Every business, campaign and outcome is different.</p></section>
+    <Plans compact /><section className="section container" id="testimonials"><div className="section-heading reveal"><div><Eyebrow>IN THEIR OWN WORDS</Eyebrow><h2>Let our clients<br /><em>do the talking.</em></h2></div><Link href="/work#testimonials" className="text-link">More client stories <Icon name="diagonal" size={17} /></Link></div><Testimonials /></section><Faq /><ClosingCta />
+  </>;
 }
