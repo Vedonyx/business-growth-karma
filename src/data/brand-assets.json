@@ -1017,7 +1017,8 @@
         "/"
       ],
       "title": "2 testi",
-      "poster": "/brand/video-uekwqjv1pj.webp"
+      "poster": "/brand/video-uekwqjv1pj.webp",
+      "src": "/brand/video-uekwqjv1pj.mp4"
     },
     {
       "id": "kev7fkk9bp",
@@ -1025,7 +1026,8 @@
         "/"
       ],
       "title": "3 testi",
-      "poster": "/brand/video-kev7fkk9bp.webp"
+      "poster": "/brand/video-kev7fkk9bp.webp",
+      "src": "/brand/video-kev7fkk9bp.mp4"
     },
     {
       "id": "yvqy6p94oi",
@@ -1033,7 +1035,8 @@
         "/"
       ],
       "title": "4 testi",
-      "poster": "/brand/video-yvqy6p94oi.webp"
+      "poster": "/brand/video-yvqy6p94oi.webp",
+      "src": "/brand/video-yvqy6p94oi.mp4"
     },
     {
       "id": "0qi920ke18",
@@ -1041,7 +1044,8 @@
         "/"
       ],
       "title": "5 testi",
-      "poster": "/brand/video-0qi920ke18.webp"
+      "poster": "/brand/video-0qi920ke18.webp",
+      "src": "/brand/video-0qi920ke18.mp4"
     },
     {
       "id": "t24vwggnvm",
@@ -1049,7 +1053,8 @@
         "/"
       ],
       "title": "1 testi",
-      "poster": "/brand/video-t24vwggnvm.webp"
+      "poster": "/brand/video-t24vwggnvm.webp",
+      "src": "/brand/video-t24vwggnvm.mp4"
     },
     {
       "id": "5qnq9h9zpv",
@@ -1057,7 +1062,8 @@
         "/sales-psychology-system/"
       ],
       "title": "Sales Psychology Edited video",
-      "poster": "/brand/video-5qnq9h9zpv.webp"
+      "poster": "/brand/video-5qnq9h9zpv.webp",
+      "src": "/brand/video-5qnq9h9zpv.mp4"
     }
   ],
   "links": [

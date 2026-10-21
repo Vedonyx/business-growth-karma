@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { Navbar, Motion } from '@/components/SiteShell';
-import { Footer } from '@/components/Shared';
+import SiteFrame from '@/components/SiteFrame';
 import { brand } from '@/lib/content';
 import './globals.css';
+import './clone-additions.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shwetashah.in'),
@@ -17,5 +17,5 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const schema = { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: brand.name, founder: { '@type': 'Person', name: 'Shweta Vallabh Shah' }, url: 'https://shwetashah.in', email: brand.email, telephone: '+919920220513', address: { '@type': 'PostalAddress', streetAddress: '207B, 2nd Floor, Rajgruhi Business Hub, Kondhwa Budruk', addressLocality: 'Pune', addressRegion: 'Maharashtra', postalCode: '411048', addressCountry: 'IN' }, sameAs: [brand.linkedIn, 'https://instagram.com/shwetashah.in', 'https://youtube.com/shwetashah'] };
-  return <html lang="en"><head><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} /></head><body id="top"><a className="skip-link" href="#main-content">Skip to content</a><Navbar /><main id="main-content">{children}</main><Footer /><Motion /></body></html>;
+  return <html lang="en"><head><link rel="stylesheet" href="/fonts/clone-fonts.css" /><link rel="stylesheet" href="/fonts/fontawesome.css" /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} /></head><body id="top"><SiteFrame>{children}</SiteFrame></body></html>;
 }

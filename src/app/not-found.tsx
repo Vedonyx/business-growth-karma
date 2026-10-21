@@ -1,2 +1,1 @@
-import { Button, Eyebrow } from '@/components/Shared';
-export default function NotFound() { return <section className="container not-found"><Eyebrow>404 / A SMALL DETOUR</Eyebrow><h1>Let’s get you<br /><em>back on track.</em></h1><p>The page you’re looking for isn’t here. Your next chapter is.</p><Button href="/">Back to home</Button></section>; }
+export default function NotFound() { return <section className="clone-extra-section"><div className="clone-section-header"><div className="section-badge">404 / PAGE NOT FOUND</div><h1>Let’s Get You <span className="gradient-text">Back on Track</span></h1><p>The page you’re looking for isn’t here.</p><a href="/" className="clone-action">Back to Home <i className="fa-solid fa-arrow-right" /></a></div></section>; }
