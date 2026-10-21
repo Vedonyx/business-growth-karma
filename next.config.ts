@@ -1,8 +1,15 @@
 import type { NextConfig } from "next";
 import path from "path";
 
+// Vercel reads the config before and during the build; both phases must use .next.
+// Keep the separate production folder only for local Windows development.
+const isLocalWindowsProduction =
+  process.platform === "win32" &&
+  process.env.NODE_ENV === "production" &&
+  !process.env.VERCEL;
+
 const nextConfig: NextConfig = {
-  distDir: process.env.NEXT_OUTPUT_DIR || (process.env.NODE_ENV === "production" ? ".next-production" : ".next"),
+  distDir: process.env.NEXT_OUTPUT_DIR || (isLocalWindowsProduction ? ".next-production" : ".next"),
   // Keep Windows builds within one process and a small worker pool.
   experimental: {
     cpus: 2,

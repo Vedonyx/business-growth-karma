@@ -16,7 +16,7 @@ npm run build
 npm start
 ```
 
-Production output uses `.next-production`, separate from the development output. `NEXT_OUTPUT_DIR` can override this for isolated review sessions.
+Vercel and other Linux builds use the standard `.next` output throughout deployment. Local Windows production builds use `.next-production`, separate from the development output. `NEXT_OUTPUT_DIR` can override this for isolated review sessions.
 
 ## Content and assets
 
