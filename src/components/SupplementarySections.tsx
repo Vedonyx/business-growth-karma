@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { brand, imageFor, industries, pillars, videos } from "@/lib/content";
+import { brand, imageFor, industries, videos } from "@/lib/content";
 import MediaOverlay from "./MediaOverlay";
 import { useBooking } from "./SiteFrame";
 
 export function ClientLogoRail() {
-  const clients = industries.flatMap(industry => industry.logos.slice(0, 3));
-  return <section className="clone-client-rail" aria-label="Businesses we have worked with"><div className="clone-rail-title"><i className="fa-solid fa-handshake" /> Businesses Across Industries. One Growth Partner.</div><div className="clone-logo-window"><div className="clone-logo-track">{[0, 1].map(copy => <div className="clone-logo-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>{clients.map(source => <div className="clone-client-logo" key={source}><img src={imageFor(source)} alt={source.replace(/\.[^.]+$/, "").replaceAll("-", " ")} width="140" height="65" loading="lazy" /></div>)}</div>)}</div></div></section>;
+  const clients = industries.flatMap(industry => industry.logos.map((source, index) => ({ source, name: industry.clients[index] })));
+  return <section className="clone-client-rail" aria-label="Businesses we have worked with"><h2 className="clone-rail-title">Our Clients</h2><div className="clone-logo-window"><div className="clone-logo-track">{[0, 1].map(copy => <div className="clone-logo-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>{clients.map(client => <div className="clone-client-logo" key={client.source}><img src={imageFor(client.source)} alt={client.name} width="140" height="65" loading="lazy" /></div>)}</div>)}</div></div></section>;
 }
 
 export function PurposeSection() {
@@ -19,15 +19,86 @@ export function PurposeSection() {
 }
 
 export function FourPillarsSection() {
-  const [active, setActive] = useState(0);
   const [reference, setReference] = useState(false);
-  const icons = ["fa-layer-group", "fa-gem", "fa-users", "fa-bullseye"];
-  return <section className="clone-extra-section clone-pillars-section" id="framework"><div className="clone-section-header"><div className="section-badge">THE FOUR PILLARS STRATEGY</div><h2>A Strong Foundation for <span className="gradient-text">Business Sales Growth</span></h2><p>The setup. Strong branding. A strong sales team. Quality lead generation.</p></div><div className="clone-temple"><div className="clone-temple-roof"><i className="fa-solid fa-chart-line" /><span>BUSINESS SALES GROWTH</span></div><div className="clone-pillar-grid">{pillars.map((pillar, index) => <button key={pillar.id} className={"clone-pillar " + (active === index ? "active" : "")} onClick={() => setActive(index)} aria-pressed={active === index}><span className="clone-column-cap" /><span className="clone-pillar-number">{pillar.number}</span><i className={"fa-solid " + icons[index]} /><h3>{pillar.title}</h3><span className="clone-small-label">{pillar.subtitle}</span><p>{pillar.text}</p><span className="clone-column-base" /></button>)}</div><div className="clone-temple-foundation"><i className="fa-solid fa-gears" /> YOUR BUSINESS SALES GROWTH FRAMEWORK <i className="fa-solid fa-chart-line" /></div></div><div className="clone-pillar-detail clone-glass-card"><h3><i className={"fa-solid " + icons[active]} /> {pillars[active].title}</h3><ul>{pillars[active].details.map(detail => <li key={detail}><i className="fa-solid fa-check" />{detail}</li>)}</ul></div><button className="clone-action clone-reference-action" onClick={() => setReference(true)}>View the Complete Framework <i className="fa-solid fa-expand" /></button>{reference && <MediaOverlay src="/brand/four-pillar-detail.webp" title="The complete four-pillar business sales growth framework" onClose={() => setReference(false)} />}</section>;
+  const diagram = "/brand/business-sales-growth-wide.png";
+
+  return (
+    <section className="clone-extra-section clone-pillars-section" id="framework">
+      <div className="clone-section-header">
+        <div className="section-badge">THE FOUR PILLARS STRATEGY</div>
+        <h2>A Strong Foundation for <span className="gradient-text">Business Sales Growth</span></h2>
+        <p>The setup. Strong branding. A strong sales team. Quality lead generation.</p>
+      </div>
+      <button
+        type="button"
+        className="clone-framework-visual"
+        onClick={() => setReference(true)}
+        aria-label="View the complete Business Sales Growth diagram"
+        aria-haspopup="dialog"
+      >
+        <img
+          src={diagram}
+          alt="Business Sales Growth supported by four golden pillars: The Setup, Strong Branding, Strong Sales Team, and Quality Lead Generation. Each pillar explains the service and its benefit. Done-for-you service investment starts from Rs. 10k to 4 Lakh."
+          width="1659"
+          height="948"
+          loading="lazy"
+        />
+      </button>
+      <button type="button" className="clone-action clone-reference-action" onClick={() => setReference(true)}>
+        View the Complete Framework <i className="fa-solid fa-expand" aria-hidden="true" />
+      </button>
+      {reference && (
+        <MediaOverlay
+          src={diagram}
+          title="The complete four-pillar business sales growth framework"
+          onClose={() => setReference(false)}
+        />
+      )}
+    </section>
+  );
 }
 
 export function LeadJourneysSection() {
   const openBooking = useBooking();
-  return <section className="clone-extra-section" id="lead-journeys"><div className="clone-section-header"><div className="section-badge">TWO TYPES OF LEADS. TWO CLEAR JOURNEYS.</div><h2>Convert More <span className="gradient-text">Hot &amp; Warm Leads</span></h2><p>Your hard-earned leads deserve a system that supports them at every stage.</p></div><div className="clone-two-cards"><article className="clone-glass-card clone-journey-card"><div className="clone-icon"><i className="fa-solid fa-bolt" /></div><span className="clone-small-label">HOT LEADS / READY TO BUY</span><h3>24 Hours to 25 Days</h3><p>Help buyers with an immediate need move from enquiry to a meaningful sales conversation. The 3I formula connects engagement, team notification and a timely call.</p><div className="clone-flow"><span>Instant Engage</span><i className="fa-solid fa-arrow-right" /><span>Instant Notify</span><i className="fa-solid fa-arrow-right" /><span>Instant Call</span></div></article><article className="clone-glass-card clone-journey-card"><div className="clone-icon"><i className="fa-solid fa-seedling" /></div><span className="clone-small-label">WARM LEADS / STILL RESEARCHING</span><h3>2 Months to 12 Months</h3><p>Build a relationship while prospects consider their options. Useful content, value-based nurturing and the 3B formula help you stay relevant throughout the buying journey.</p><div className="clone-flow"><span>Build Trust</span><i className="fa-solid fa-arrow-right" /><span>Build Credibility</span><i className="fa-solid fa-arrow-right" /><span>Build Relationships</span></div></article></div><p className="clone-section-note">Indicative buying journeys. Actual conversion timing depends on the business, audience, offer and implementation.</p><div className="clone-goal-prompt"><h3>What Is Your Annual Sales Goal?</h3><p>Choose the right support to help your business work towards it.</p><button className="clone-action" onClick={openBooking}>Discuss My Sales Goal <i className="fa-solid fa-arrow-right" /></button></div></section>;
+  const growthPillars = ["The Setup", "Organic Marketing", "Sales Training", "Quality Lead Generation"];
+
+  return (
+    <section className="clone-extra-section" id="lead-journeys">
+      <div className="clone-section-header">
+        <div className="section-badge">TWO TYPES OF LEADS. TWO CLEAR JOURNEYS.</div>
+        <h2>Convert More <span className="gradient-text">Hot &amp; Warm Leads</span></h2>
+        <p>Your hard-earned leads deserve a system that supports them at every stage.</p>
+      </div>
+      <div className="clone-two-cards">
+        <article className="clone-glass-card clone-journey-card">
+          <div className="clone-icon"><i className="fa-solid fa-bolt" /></div>
+          <span className="clone-small-label">HOT LEADS / READY TO BUY</span>
+          <h3>24 Hours to 25 Days</h3>
+          <p>Help buyers with an immediate need move from enquiry to a meaningful sales conversation. The 3I formula connects engagement, team notification and a timely call.</p>
+          <div className="clone-flow"><span>Instant Engage</span><i className="fa-solid fa-arrow-right" /><span>Instant Notify</span><i className="fa-solid fa-arrow-right" /><span>Instant Call</span></div>
+        </article>
+        <article className="clone-glass-card clone-journey-card">
+          <div className="clone-icon"><i className="fa-solid fa-seedling" /></div>
+          <span className="clone-small-label">WARM LEADS / STILL RESEARCHING</span>
+          <h3>2 Months to 12 Months</h3>
+          <p>Build a relationship while prospects consider their options. Useful content, value-based nurturing and the 3B formula help you stay relevant throughout the buying journey.</p>
+          <div className="clone-flow"><span>Build Trust</span><i className="fa-solid fa-arrow-right" /><span>Build Credibility</span><i className="fa-solid fa-arrow-right" /><span>Build Relationships</span></div>
+        </article>
+      </div>
+      <p className="clone-section-note">Indicative buying journeys. Actual conversion timing depends on the business, audience, offer and implementation.</p>
+      <div className="clone-goal-prompt" id="growth-solutions" aria-labelledby="growth-solutions-title">
+        <h3 id="growth-solutions-title">Choose the Right Solution for Your Business Sales Growth</h3>
+        <p>Select the support that best fits your business goals, team capabilities, and growth ambitions.</p>
+        <p className="clone-goal-pillars-heading">We strengthen your 4 Pillars of Business Growth</p>
+        <ul className="clone-goal-pillars">
+          {growthPillars.map(pillar => <li key={pillar}>{pillar}</li>)}
+        </ul>
+        <button type="button" className="clone-action" onClick={openBooking}>
+          Discuss My Sales Goal <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+        </button>
+      </div>
+    </section>
+  );
 }
 
 export function ServicesDetail() {

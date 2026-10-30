@@ -9,7 +9,7 @@ interface ContactSectionProps {
 
 export default function ContactSection({ onOpenModal }: ContactSectionProps) {
   return (
-    <section className="contact-grid-proof" id="contact">
+    <section className="contact-grid-proof" id="contact" aria-labelledby="growth-access-title">
       {/* Animated Grid Background */}
       <div className="bg-grid-wrap">
         <div className="bg-grid" />
@@ -24,46 +24,41 @@ export default function ContactSection({ onOpenModal }: ContactSectionProps) {
       <div className="p p-5" />
 
       <div className="grid">
+        <h2 className="section-heading" id="growth-access-title">
+          Contact <span className="gradient-text">Us</span>
+        </h2>
         {/* Visual Side */}
         <div className="img-wrap">
           <img
-            src={imageFor("tedx.png")}
-            alt="Shweta Shah speaking at TEDx"
+            src={imageFor("you-get-2-types-of-leads-1.png")}
+            alt="We help you to close both types of leads: hot leads who are ready to buy, and research-based leads who need more time."
+            width="1600"
+            height="1014"
             loading="lazy"
           />
         </div>
 
         {/* Content Side */}
         <div className="text">
-          <div className="badge">GET IN TOUCH</div>
-          <h2>
-            Contact <span className="gradient-text">Us</span>
-          </h2>
-          <p>
-            Have questions about your annual sales goal, your lead quality or the right service plan? Talk to Shweta Shah and the Business Growth Karma team.<br /><br />Call, email or schedule a strategy session. Visit us at 207B, Rajgruhi Business Hub, Kondhwa Budruk, Pune 411048.
-          </p>
+          <ol className="benefits">
+            <li>Learn the 4 Pillars of Business Growth</li>
+            <li>Get access to 20 bite-sized video episodes of 2 min each</li>
+            <li>Just ₹49 one-time investment. From next year 499/-</li>
+            <li>Discover how to get more leads &amp; turn into deals</li>
+            <li>Get a FREE strategy call with Shweta Shah</li>
+            <li>Identify gaps in your marketing and sales process</li>
+            <li>Take the first step towards your annual sales goal</li>
+          </ol>
 
           <div className="btn-group">
-            <a
-              href="https://wa.me/919920220513"
-              className="btn btn-wa"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fa-brands fa-whatsapp" /> Chat on WhatsApp
-            </a>
             <button
               type="button"
-              className="btn btn-call"
+              className="btn btn-access"
               onClick={onOpenModal}
             >
-              <i className="fa-solid fa-phone" /> Book Strategy Call
+              <span>Get access at Rs 49 only, <span className="future-price">Soon 499/-</span></span>
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </button>
-          </div>
-
-          <div className="note">
-            <i className="fa-brands fa-whatsapp" /> WhatsApp:{" "}
-            <strong>+91 99202 20513</strong>
           </div>
         </div>
       </div>
@@ -211,40 +206,37 @@ export default function ContactSection({ onOpenModal }: ContactSectionProps) {
           text-align: left;
         }
 
-        .badge {
-          display: inline-block;
-          padding: 8px 24px;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 50px;
-          font-size: 12px;
-          color: #f5d18a;
-          font-weight: 700;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          margin-bottom: 24px;
-          backdrop-filter: blur(10px);
-        }
-
-        .text h2 {
+        .section-heading {
+          grid-column: 1 / -1;
+          text-align: center;
           font-size: clamp(38px, 4.8vw, 56px);
           font-weight: 900;
           line-height: 1.05;
-          margin: 0 0 20px 0;
+          margin: 0;
           color: #fff8e8;
           font-family: var(--font-montserrat);
         }
 
-        .text p {
+        .benefits {
           font-size: 17px;
-          color: #b2a58c;
+          color: #d0c1a7;
           line-height: 1.65;
-          margin: 0 0 36px 0;
+          margin: 0 0 36px;
+          padding-left: 26px;
         }
 
-        .text p strong {
-          color: #f5d18a;
-          font-weight: 700;
+        .benefits li {
+          padding-left: 8px;
+          margin: 15px 0;
+        }
+
+        .benefits li:first-child {
+          margin-top: 0;
+        }
+
+        .benefits li::marker {
+          color: #edbd55;
+          font-weight: 800;
         }
 
         .btn-group {
@@ -256,61 +248,41 @@ export default function ContactSection({ onOpenModal }: ContactSectionProps) {
         .btn {
           display: inline-flex;
           align-items: center;
-          gap: 10px;
-          padding: 18px 36px;
+          gap: 14px;
+          padding: 22px 32px;
+          min-height: 72px;
           border-radius: 50px;
           font-weight: 800;
-          font-size: 16px;
+          font-size: 18px;
           text-decoration: none;
           transition: all 0.35s ease;
-          text-transform: uppercase;
-          letter-spacing: 1px;
+          text-transform: none;
+          letter-spacing: 0;
+          line-height: 1.5;
+          max-width: 100%;
+          text-align: center;
           font-family: var(--font-montserrat);
           cursor: pointer;
         }
 
-        .btn-wa {
+        .btn-access {
           background: linear-gradient(135deg, #dbb35b, #8c6528);
-          color: #fff8e8;
+          color: #100c06;
           border: none;
           box-shadow: 0 15px 45px rgba(199, 153, 74, 0.4);
         }
 
-        .btn-wa:hover {
+        .btn-access:hover {
           transform: translateY(-4px);
           box-shadow: 0 20px 55px rgba(199, 153, 74, 0.6);
         }
 
-        .btn-call {
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          color: #fff8e8;
+        .btn-access i {
+          flex-shrink: 0;
         }
 
-        .btn-call:hover {
-          background: rgba(255, 255, 255, 0.12);
-          border-color: #edbd55;
-          transform: translateY(-4px);
-        }
-
-        .note {
-          margin-top: 28px;
-          font-size: 15px;
-          color: #ffd985;
-          font-weight: 500;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .note i {
-          color: #dbb35b;
-          font-size: 17px;
-        }
-
-        .note strong {
-          color: white;
-          font-weight: 700;
+        .future-price {
+          white-space: nowrap;
         }
 
         @media (max-width: 968px) {
@@ -325,15 +297,20 @@ export default function ContactSection({ onOpenModal }: ContactSectionProps) {
           .text {
             text-align: center;
           }
+          .benefits {
+            text-align: left;
+            margin-bottom: 32px;
+          }
           .btn-group {
             justify-content: center;
           }
           .btn {
             width: 100%;
             justify-content: center;
-          }
-          .note {
-            justify-content: center;
+            min-height: 84px;
+            padding: 20px 24px;
+            gap: 12px;
+            font-size: 17px;
           }
           .img-wrap {
             max-width: 480px;

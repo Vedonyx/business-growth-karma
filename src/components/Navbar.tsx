@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { imageFor } from "@/lib/content";
 
@@ -42,15 +43,15 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
     <>
       <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
         <div className="header-container">
-          <a href="/" className="header-logo" onClick={closeMobile}>
+          <Link href="/" className="header-logo" onClick={closeMobile}>
             <img
               src={imageFor("Untitled-design-6.png")}
               alt="Business Growth Karma"
             />
-          </a>
+          </Link>
 
           <nav className={`main-nav ${isMobileOpen ? "active" : ""}`} id="mainNav">
-            <ul className="nav-menu">{[['/','Home'],['/about','About Us'],['/work','Our Work'],['/services','Services'],['/contact','Contact Us']].map(([href,label]) => <li key={href}><a href={href} className={pathname === href ? 'active' : ''} onClick={closeMobile}>{label}</a></li>)}</ul>
+            <ul className="nav-menu">{[['/','Home'],['/about','About Us'],['/work','Our Work'],['/services','Services'],['/contact','Contact Us']].map(([href,label]) => <li key={href}><Link href={href} className={pathname === href ? 'active' : ''} onClick={closeMobile}>{label}</Link></li>)}</ul>
 
             <button
               type="button"
@@ -106,7 +107,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           align-items: center;
         }
 
-        .header-logo {
+        .header-container :global(.header-logo) {
           display: flex;
           align-items: center;
           cursor: pointer;
@@ -114,13 +115,13 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           z-index: 10000;
         }
 
-        .header-logo img {
+        .header-container :global(.header-logo) img {
           height: 42px;
           width: auto;
           transition: transform 0.3s ease;
         }
 
-        .header-logo:hover img {
+        .header-container :global(.header-logo:hover) img {
           transform: scale(1.04);
         }
 
@@ -137,7 +138,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           align-items: center;
         }
 
-        .nav-menu a {
+        .nav-menu :global(a) {
           color: rgba(255, 255, 255, 0.85);
           text-decoration: none;
           font-size: 15px;
@@ -150,7 +151,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           font-family: var(--font-space);
         }
 
-        .nav-menu a::after {
+        .nav-menu :global(a)::after {
           content: "";
           position: absolute;
           bottom: 0;
@@ -161,13 +162,13 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           transition: width 0.3s ease;
         }
 
-        .nav-menu a:hover,
-        .nav-menu a.active {
+        .nav-menu :global(a:hover),
+        .nav-menu :global(a.active) {
           color: #edbd55;
         }
 
-        .nav-menu a:hover::after,
-        .nav-menu a.active::after {
+        .nav-menu :global(a:hover)::after,
+        .nav-menu :global(a.active)::after {
           width: 100%;
         }
 
@@ -288,7 +289,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
           }
 
-          .nav-menu a {
+          .nav-menu :global(a) {
             display: block;
             width: 100%;
             padding: 18px 10px;
@@ -300,7 +301,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             justify-content: space-between;
           }
 
-          .nav-menu a::after {
+          .nav-menu :global(a)::after {
             display: none;
           }
 
@@ -314,7 +315,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             display: flex;
           }
         }
-        .header-logo img {height:68px;max-width:150px;object-fit:contain;filter:invert(1) grayscale(1) sepia(1) saturate(2.5) brightness(1.5);mix-blend-mode:screen;}
+        .header-container :global(.header-logo) img {height:68px;max-width:150px;object-fit:contain;filter:invert(1) grayscale(1) sepia(1) saturate(2.5) brightness(1.5);mix-blend-mode:screen;}
       `}</style>
     </>
   );

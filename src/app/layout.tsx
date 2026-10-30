@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import SiteFrame from '@/components/SiteFrame';
+import StyledJsxRegistry from './registry';
 import { brand } from '@/lib/content';
 import './globals.css';
 import './clone-additions.css';
@@ -17,5 +18,5 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const schema = { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: brand.name, founder: { '@type': 'Person', name: 'Shweta Vallabh Shah' }, url: 'https://shwetashah.in', email: brand.email, telephone: '+919920220513', address: { '@type': 'PostalAddress', streetAddress: '207B, 2nd Floor, Rajgruhi Business Hub, Kondhwa Budruk', addressLocality: 'Pune', addressRegion: 'Maharashtra', postalCode: '411048', addressCountry: 'IN' }, sameAs: [brand.linkedIn, 'https://instagram.com/shwetashah.in', 'https://youtube.com/shwetashah'] };
-  return <html lang="en"><head><link rel="stylesheet" href="/fonts/clone-fonts.css" /><link rel="stylesheet" href="/fonts/fontawesome.css" /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} /></head><body id="top"><SiteFrame>{children}</SiteFrame></body></html>;
+  return <html lang="en"><head><link rel="stylesheet" href="/fonts/clone-fonts.css" /><link rel="stylesheet" href="/fonts/fontawesome.css" /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} /></head><body id="top"><StyledJsxRegistry><SiteFrame>{children}</SiteFrame></StyledJsxRegistry></body></html>;
 }

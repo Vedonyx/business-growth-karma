@@ -1,0 +1,112 @@
+.section {
+  overflow: hidden;
+  padding: 36px 0 44px;
+  background: #160f06;
+}
+
+.heading {
+  margin: 0 20px 36px;
+  color: #fff8e8;
+  font-family: var(--font-space);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.ribbon {
+  margin-inline: -8px;
+  padding-block: 19px;
+  background: #edbd55;
+  color: #160f06;
+  transform: rotate(-1.5deg);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: industryRail 60s linear infinite;
+}
+
+.ribbon:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  list-style: none;
+}
+
+.industry {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  font-family: var(--font-montserrat);
+  font-size: clamp(20px, 2.5vw, 36px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.separator {
+  margin-inline: clamp(20px, 2.5vw, 36px);
+}
+
+@keyframes industryRail {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 28px 0 30px;
+  }
+
+  .heading {
+    margin-bottom: 26px;
+  }
+
+  .ribbon {
+    padding-block: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ribbon {
+    margin-inline: 0;
+    padding-inline: 20px;
+    transform: none;
+  }
+
+  .track {
+    width: auto;
+    animation: none;
+  }
+
+  .group {
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+  }
+
+  .group[aria-hidden="true"] {
+    display: none;
+  }
+
+  .industry {
+    display: block;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .separator {
+    display: none;
+  }
+}
