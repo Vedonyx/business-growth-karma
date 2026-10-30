@@ -55,11 +55,11 @@
 .track {
   display: flex;
   width: max-content;
-  animation: growthRail 48s linear infinite;
+  animation: growthRail 42s linear infinite;
 }
 
 .track[data-direction="right"] {
-  animation-duration: 45s;
+  animation-duration: 39s;
   animation-direction: reverse;
 }
 
