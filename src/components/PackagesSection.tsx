@@ -3,9 +3,9 @@ import React from 'react';
 import { plans } from '@/lib/content';
 
 const pricingTiers = [
-  { id: 'setup', tier: 'Silver', subtitle: 'The Setup' },
-  { id: 'training', tier: 'Gold', subtitle: 'DIY – The Setup + Training of other 3 pillars' },
   { id: 'done-for-you', tier: 'Platinum', subtitle: 'Done For You' },
+  { id: 'training', tier: 'Gold', subtitle: 'DIY – The Setup + Training of other 3 pillars' },
+  { id: 'setup', tier: 'Silver', subtitle: 'The Setup' },
 ];
 
 const orderedPlans = pricingTiers.flatMap(tier => {
@@ -21,7 +21,7 @@ export default function PackagesSection() {
       {plan.id!=='setup'&&<div className={'package-tag '+(plan.featured?'tag-popular':'tag-value')}>{plan.featured?'Done for You':'Learn & Implement'}</div>}
       <div className="package-heading"><h3 className="package-tier">{plan.tier}</h3><div className="package-name">{plan.subtitle}</div></div><div className="package-price">₹{plan.price}<span className="price-cycle">{plan.period}</span></div><p className="package-desc">{plan.text}</p><div className="package-line"/><div className="highlight-text">{plan.tag}</div>
       <ul className="package-features">{plan.features.map(feature=><li key={feature}><i className="fa-solid fa-check"/><span>{feature}</span></li>)}</ul>
-      <div className="highlight-text bottom-highlight">{plan.bestFor}</div><div className="package-note-box"><div className="package-note-title"><i className="fa-solid fa-circle-info"/> Scope & investment</div><div className="package-note-text">Applicable taxes, media spend and billing terms are confirmed during your consultation.</div></div>
+      <div className="package-ideal-for"><h4 className="package-ideal-title">Ideal for</h4><div className="highlight-text">{plan.bestFor}</div></div>
       <a href={'/contact?plan='+plan.id} className={'package-btn '+(plan.featured?'btn-filled':'btn-outline')}>{plan.cta}</a>
     </div>)}</div>
       <style jsx>{`
@@ -230,8 +230,17 @@ export default function PackagesSection() {
           line-height: 1.5;
         }
 
-        .bottom-highlight {
+        .package-ideal-for {
           margin-top: auto;
+        }
+
+        .package-ideal-title {
+          margin: 0 0 8px;
+          color: #fff8e8;
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 1.4;
+          font-family: var(--font-montserrat);
         }
 
         .package-features {
@@ -256,33 +265,6 @@ export default function PackagesSection() {
           margin-top: 4px;
           font-size: 12px;
           flex-shrink: 0;
-        }
-
-        .package-note-box {
-          background: rgba(248, 209, 126, 0.05);
-          border: 1px dashed rgba(248, 209, 126, 0.3);
-          padding: 15px;
-          border-radius: 12px;
-          margin-bottom: 25px;
-        }
-
-        .package-note-title {
-          font-size: 13px;
-          font-weight: 700;
-          color: #f5d18a;
-          margin-bottom: 5px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-family: var(--font-montserrat);
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
-
-        .package-note-text {
-          font-size: 13px;
-          color: #fff8e8;
-          line-height: 1.5;
         }
 
         .package-btn {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { brand, imageFor, industries, videos } from "@/lib/content";
+import { brand, imageFor, industries } from "@/lib/content";
 import MediaOverlay from "./MediaOverlay";
 import { useBooking } from "./SiteFrame";
 
@@ -99,26 +99,6 @@ export function LeadJourneysSection() {
       </div>
     </section>
   );
-}
-
-export function ServicesDetail() {
-  const explainer = videos.find(video => video.id === "5qnq9h9zpv")!;
-  const benefits = [
-    ["Better Closing Conversations", "A connected landing page, qualification process and sales system."],
-    ["Fewer Irrelevant Leads", "Clear positioning and intent-based qualification for a better fit."],
-    ["More Qualified Prospects", "Reach relevant buyers and decision-makers across the right channels."],
-    ["Earlier Objection Handling", "Help prospects understand your value before the sales call."],
-    ["Faster Response with 3I", "Aim to engage in a minute, notify in two and connect with a call in five."],
-    ["Reconnect with Older Leads", "Use the 3B formula to build trust, credibility and relationships."],
-    ["Value-Based Nurturing", "Share useful content throughout the buying journey."],
-    ["Custom Lead Magnets", "Give suitable prospects a valuable reason to engage."],
-    ["Clear Lead Tracking", "Har lead ka hisaab. Keep every enquiry visible to your team."],
-  ];
-  return <><section className="clone-extra-section" id="setup"><div className="clone-section-header"><div className="section-badge">THE SALES PSYCHOLOGY SYSTEM</div><h2>Connect Your Leads to <span className="gradient-text">A Better Sales Journey</span></h2><p>Developed by Shweta Shah in 2021 to bring response, qualification and nurturing into one connected process.</p></div><div className="clone-system-video clone-glass-card"><video controls preload="none" poster={explainer.poster}><source src={explainer.src} type="video/mp4" /><track kind="captions" /></video><p>Watch Shweta explain the Sales Psychology System.</p></div><div className="clone-benefits-grid">{benefits.map(([title, text], index) => <article className="clone-glass-card" key={title}><span className="clone-small-label">BENEFIT 0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section><section className="clone-extra-section" id="leads"><div className="clone-section-header"><div className="section-badge">OUR LEAD GENERATION SERVICES</div><h2>The Right Channels. <span className="gradient-text">A Connected System.</span></h2></div><div className="clone-three-cards">{[
-    { icon: "fa-brands fa-google", title: "Google Ads Lead Generation", text: "Reach prospects actively searching for your solution. Intent-based keywords, relevant landing pages, qualification and tracking connect the enquiry to the sales process." },
-    { icon: "fa-brands fa-linkedin", title: "LinkedIn Lead Generation", text: "Connect with B2B decision-makers through precise targeting, thoughtful messaging, authority building and nurturing. Build relationships around the way your buyers think and decide." },
-    { icon: "fa-solid fa-video", title: "Branding, AI & Animated Videos", text: "Build personal, company and product recognition through organic content, Meta campaigns, AI videos and animated explainers. Support your sales team with training and clear SOPs." },
-  ].map(item => <article className="clone-glass-card" key={item.title}><div className="clone-icon"><i className={item.icon} /></div><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section></>;
 }
 
 export function ShwetaStorySection() {

@@ -63,7 +63,7 @@ export default function ResultsSection() {
 
   const [selected,setSelected]=useState<{src:string;alt:string}|null>(null);
   const resultsGrid=images.filter(image=>image.src.includes('whatsapp-roi')).slice(0,12);
-  const featured=[{src:imageFor('I-am-Getting-150-Leads-every-Month.png'),title:'Education & Institutes',highlight:'15–25% Closing Ratio',detail:'Published admission-focused client results'},{src:imageFor('google-ads-for-Realestate.png'),title:'Real Estate / V3 Partners',highlight:'Sold Out in 4 Months',detail:'Landing pages, Google Ads and sales psychology'}];
+  const featured=[{src:imageFor('I-am-Getting-150-Leads-every-Month.png'),title:'Education & Institutes',highlight:'25–30% Closing Ratio',detail:'Published admission-focused client results'},{src:imageFor('google-ads-for-Realestate.png'),title:'Real Estate / V3 Partners',highlight:'Sold Out in 4 Months',detail:'Landing pages, Google Ads and sales psychology'}];
   return (<section className="results-section" id="results" aria-labelledby="fobet-results-title">
     <div className="bg-orb bg-orb-1"/><div className="bg-orb bg-orb-2"/>{[0,1,2,3].map(i=><i key={i} className="sparkle fas fa-star"/>)}
     <div className="results-badge">REAL PEOPLE. REAL RESULTS.</div><h2 className="results-title" id="fobet-results-title">Client <span className="gradient-text">Transformation Results</span></h2><p className="results-subtext">Lead generation and sales results across real estate, manufacturing, education and consulting.</p>

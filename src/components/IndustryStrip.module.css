@@ -25,7 +25,7 @@
 .track {
   display: flex;
   width: max-content;
-  animation: industryRail 60s linear infinite;
+  animation: industryRail 40s linear infinite;
 }
 
 .ribbon:hover .track {
