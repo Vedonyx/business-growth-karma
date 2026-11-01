@@ -9,7 +9,6 @@ import GrowthNumbersSection from "./GrowthNumbersSection";
 import PeakStorySection from "./PeakStorySection";
 import TestimonialsSection from "./TestimonialsSection";
 import LeadershipSection from "./LeadershipSection";
-import BonusTicketSection from "./BonusTicketSection";
 import FaqSection from "./FaqSection";
 import ContactSection from "./ContactSection";
 import { ClientLogoRail, FourPillarsSection, LeadJourneysSection, PurposeSection, ShwetaStorySection, LearningSection } from "./SupplementarySections";
@@ -17,25 +16,24 @@ import { useBooking } from "./SiteFrame";
 
 export default function ClonePage({ page = "home" }: { page?: "home" | "about" | "work" | "services" | "contact" }) {
   const openBooking = useBooking();
-  if (page === "about") return <><LeadershipSection /><ShwetaStorySection /><PurposeSection /><ClientLogoRail /><LearningSection /><BonusTicketSection onOpenModal={openBooking} /><ContactSection onOpenModal={openBooking} /></>;
-  if (page === "work") return <><ResultsSection /><ClientLogoRail /><TestimonialsSection /><BtsSection all /><BonusTicketSection onOpenModal={openBooking} /><ContactSection onOpenModal={openBooking} /></>;
-  if (page === "services") return <><PurposeSection /><FourPillarsSection /><LeadJourneysSection /><PackagesSection /><GrowthNumbersSection /><PeakStorySection /><BonusTicketSection onOpenModal={openBooking} /><FaqSection /><ContactSection onOpenModal={openBooking} /></>;
-  if (page === "contact") return <><ContactSection onOpenModal={openBooking} /><BonusTicketSection onOpenModal={openBooking} /><LearningSection /><FaqSection /></>;
+  if (page === "about") return <><LeadershipSection /><ShwetaStorySection /><PurposeSection /><ClientLogoRail /><LearningSection /><ContactSection onOpenModal={openBooking} /></>;
+  if (page === "work") return <><ResultsSection /><ClientLogoRail /><TestimonialsSection /><BtsSection all /><ContactSection onOpenModal={openBooking} /></>;
+  if (page === "services") return <><PurposeSection /><FourPillarsSection /><PackagesSection /><GrowthNumbersSection /><LeadJourneysSection /><PeakStorySection /><FaqSection /><ContactSection onOpenModal={openBooking} /></>;
+  if (page === "contact") return <><ContactSection onOpenModal={openBooking} /><LearningSection /><FaqSection /></>;
   return <>
     <Hero onOpenModal={openBooking} />
+    <FourPillarsSection />
+    <PackagesSection />
+    <GrowthNumbersSection />
     <IndustryStrip />
     <ClientLogoRail />
     <PurposeSection />
-    <FourPillarsSection />
     <ResultsSection />
     <BtsSection />
-    <PackagesSection />
-    <GrowthNumbersSection />
     <PeakStorySection />
     <LeadJourneysSection />
     <TestimonialsSection />
     <LeadershipSection />
-    <BonusTicketSection onOpenModal={openBooking} />
     <FaqSection />
     <ContactSection onOpenModal={openBooking} />
   </>;

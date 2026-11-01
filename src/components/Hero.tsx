@@ -66,10 +66,17 @@ export default function Hero({ onOpenModal }: HeroProps) {
         <div className="hero-container">
           {/* Left Text Content */}
           <div className="content-wrapper">
+            <p className="hero-intro hero-fade-in delay-1">
+              We do ROI based Digital Marketing and Ai Videos Company
+            </p>
             <div className="logo-badge hero-fade-in delay-1">
               <div className="logo-icon">BG</div>
               <span className="logo-text">BUSINESS GROWTH KARMA</span>
             </div>
+
+            <p className="hero-intro hero-fade-in delay-2">
+              Doing Paid Ads for Lead Generation on Google, Meta, LinkedIn?
+            </p>
 
             <div className="hero-headline hero-fade-in delay-2">
               Turn your hard-earned
@@ -99,7 +106,10 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 Serious about your annual sales goal? You are in the right place.
               </h1>
               <p className="hero-subdescription">
-                We connect your marketing, sales and automation, so your team can <strong>focus on closing deals.</strong>
+                We work on 4 Pillar Strategy to strengthen your Business Growth
+              </p>
+              <p className="hero-subdescription hero-growth-benefit">
+                <strong>Save Time, Money &amp; Effort. Convert More Leads Into Deals.</strong>
               </p>
             </div>
 
@@ -468,6 +478,15 @@ export default function Hero({ onOpenModal }: HeroProps) {
           padding-right: 40px;
         }
 
+        .hero-intro {
+          margin: 0 0 16px;
+          color: #f5d18a;
+          font-size: clamp(14px, 1.2vw, 17px);
+          font-weight: 700;
+          line-height: 1.5;
+          font-family: var(--font-space);
+        }
+
         .logo-badge {
           display: inline-flex;
           align-items: center;
@@ -543,7 +562,12 @@ export default function Hero({ onOpenModal }: HeroProps) {
           font-size: clamp(16px, 1.6vw, 19px);
           color: rgba(255, 255, 255, 0.7);
           margin: 0;
+          line-height: 1.6;
           font-family: var(--font-space);
+        }
+
+        .hero-growth-benefit {
+          margin-top: 8px;
         }
 
         .hero-subdescription strong {
@@ -938,7 +962,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
         /* Responsive */
         @media (max-width: 1024px) {
           .hero-redesigned {
-            padding: 40px 15px 30px;
+            padding: 64px 15px 30px;
             flex-direction: column;
             text-align: center;
           }
