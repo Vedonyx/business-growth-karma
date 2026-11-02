@@ -1,11 +1,11 @@
 "use client";
 import React,{useState} from 'react';
-import {images} from '@/lib/content';
+import {galleryImages} from '@/lib/content';
 import MediaOverlay from './MediaOverlay';
 export default function BtsSection({all=false}:{all?:boolean}) {
   const [limit,setLimit]=useState(24);
   const [selected,setSelected]=useState<{src:string;alt:string}|null>(null);
-  const entries=all?images:images.filter(image=>/whatsapp|leads-every|realestate|placement|clients-i-closed/.test(image.src)).slice(0,12);
+  const entries=all?galleryImages:galleryImages.filter(image=>/leads-every|realestate|placement|clients-i-closed/.test(image.src)).slice(0,12);
   const shown=all?entries.slice(0,limit):entries;
   return (<section className="bts-section" id="gallery">
     <div className="bts-glow glow-top"/><div className="bts-glow glow-bottom-left"/><div className="bts-glow glow-bottom-right"/>

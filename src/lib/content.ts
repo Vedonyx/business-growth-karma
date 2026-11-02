@@ -44,6 +44,34 @@ export const industries = [
   { id: 'consulting', icon: 'briefcase', label: 'Consultants & services', short: 'Consultants & B2C', text: 'Build authority, start better conversations and nurture high-value relationships.', clients: ['Avcore', 'Dkraft', 'Miracles Derma', 'KK International', 'LIC'], result: 'From enquiry to opportunity', detail: 'Landing pages, Google Ads, nurturing, explainer videos and branding for consultants, service providers and B2C brands.', proof: 'Every-Month-Closing-3-clients-for-my-Placement-service.png', logos: ['avcore.png', 'dkraft.png', 'miracles-derma.png', 'kk-internationla.png', 'LIC.png'] },
 ];
 
+function imageIdentity(image: (typeof images)[number]) {
+  return decodeURIComponent(image.source).split('/').pop()!.replace(/\.[^.]+$/, '').replace(/-1$/, '').toLowerCase();
+}
+
+function uniqueImages(entries: typeof images) {
+  const seen = new Set<string>();
+  return entries.filter(image => {
+    const key = imageIdentity(image);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+export const reviewImages = uniqueImages(images.filter(image => image.src.includes('whatsapp-roi')));
+
+export const clientCaseStudies = ['education', 'real-estate', 'manufacturing', 'consulting'].map(id => {
+  const industry = industries.find(industry => industry.id === id)!;
+  return { ...industry, src: imageFor(industry.proof) };
+});
+
+const displayedProofKeys = new Set([
+  ...reviewImages.map(imageIdentity),
+  ...images.filter(image => clientCaseStudies.some(study => study.src === image.src)).map(imageIdentity),
+]);
+
+export const galleryImages = uniqueImages(images.filter(image => !displayedProofKeys.has(imageIdentity(image))));
+
 export const faqs = [
   { q: 'Will this work for my business?', a: 'The framework is built for businesses that generate enquiries and need to convert more of them into customers. We work with real estate, manufacturing, B2B, education, consultants and service businesses. A strategy discussion helps assess your offer, audience, deal value and existing process before recommending a plan.' },
   { q: 'What if I already have a marketing and sales team?', a: 'The Setup connects your existing team to a structured conversion system. DIY + Training adds implementation guidance, while Done for You gives you a team to manage all four pillars. Choose the level of support that fits your people and goals.' },
