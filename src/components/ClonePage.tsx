@@ -5,6 +5,7 @@ import IndustryStrip from "./IndustryStrip";
 import ResultsSection from "./ResultsSection";
 import BtsSection from "./BtsSection";
 import PackagesSection from "./PackagesSection";
+import PlanTransformationSection from "./PlanTransformationSection";
 import GrowthNumbersSection from "./GrowthNumbersSection";
 import PeakStorySection from "./PeakStorySection";
 import TestimonialsSection from "./TestimonialsSection";
@@ -18,18 +19,19 @@ export default function ClonePage({ page = "home" }: { page?: "home" | "about" |
   const openBooking = useBooking();
   if (page === "about") return <><LeadershipSection /><ShwetaStorySection /><PurposeSection /><ClientLogoRail /><LearningSection /><ContactSection onOpenModal={openBooking} /></>;
   if (page === "work") return <><ResultsSection /><ClientLogoRail /><TestimonialsSection /><BtsSection all /><ContactSection onOpenModal={openBooking} /></>;
-  if (page === "services") return <><PurposeSection /><FourPillarsSection /><PackagesSection /><GrowthNumbersSection /><LeadJourneysSection /><PeakStorySection /><FaqSection /><ContactSection onOpenModal={openBooking} /></>;
+  if (page === "services") return <><PurposeSection /><FourPillarsSection /><PackagesSection /><PlanTransformationSection /><LeadJourneysSection /><GrowthNumbersSection /><PeakStorySection /><FaqSection /><ContactSection onOpenModal={openBooking} /></>;
   if (page === "contact") return <><ContactSection onOpenModal={openBooking} /><LearningSection /><FaqSection /></>;
   return <>
     <Hero onOpenModal={openBooking} />
     <FourPillarsSection />
     <PackagesSection />
-    <GrowthNumbersSection />
+    <PlanTransformationSection />
     <IndustryStrip />
     <ClientLogoRail />
     <PurposeSection />
     <ResultsSection />
     <BtsSection />
+    <GrowthNumbersSection />
     <PeakStorySection />
     <LeadJourneysSection />
     <TestimonialsSection />
