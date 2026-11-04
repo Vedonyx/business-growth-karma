@@ -22,7 +22,7 @@ export default function ReviewsSection() {
               event.preventDefault();
               setSelected({ src: image.src, title: `Client WhatsApp review ${index + 1}` });
             }}>
-            <img src={image.src} alt={`Client WhatsApp review ${index + 1}`} width={image.width} height={image.height} loading="lazy" />
+            <img src={image.src} alt={image.alt || `Client WhatsApp review ${index + 1}`} width={image.width} height={image.height} loading="lazy" />
           </a>
         ))}
       </div>

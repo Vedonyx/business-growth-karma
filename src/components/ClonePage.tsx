@@ -34,10 +34,5 @@ export default function ClonePage({ page = "home" }: { page?: "home" | "about" |
     <PurposeSection />
     <GrowthNumbersSection />
     <PeakStorySection />
-    <LeadJourneysSection />
-    <TestimonialsSection />
-    <LeadershipSection />
-    <FaqSection />
-    <ContactSection onOpenModal={openBooking} />
   </>;
 }

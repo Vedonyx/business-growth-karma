@@ -1,16 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { brand, imageFor } from "@/lib/content";
+import React, { useState, useEffect } from "react";
+import WistiaVideo from "./WistiaVideo";
 
 interface HeroProps {
   onOpenModal: () => void;
 }
 
 export default function Hero({ onOpenModal }: HeroProps) {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [cursorPos, setCursorPos] = useState({ x: -500, y: -500 });
-  const touchStartRef = useRef<number>(0);
 
   // Mouse move effect for cursor glow
   useEffect(() => {
@@ -20,27 +18,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  // Auto slide interval
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 4500);
-    return () => clearInterval(timer);
-  }, [currentSlide]);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartRef.current = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const touchEnd = e.changedTouches[0].screenX;
-    if (touchEnd < touchStartRef.current - 50) {
-      setCurrentSlide(1);
-    } else if (touchEnd > touchStartRef.current + 50) {
-      setCurrentSlide(0);
-    }
-  };
 
   return (
     <div className="fobet-hero-wrapper" id="home">
@@ -67,15 +44,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           {/* Left Text Content */}
           <div className="content-wrapper">
             <p className="hero-intro hero-fade-in delay-1">
-              We do ROI based Digital Marketing and Ai Videos Company
-            </p>
-            <div className="logo-badge hero-fade-in delay-1">
-              <div className="logo-icon">BG</div>
-              <span className="logo-text">BUSINESS GROWTH KARMA</span>
-            </div>
-
-            <p className="hero-intro hero-fade-in delay-2">
-              Doing Paid Ads for Lead Generation on Google, Meta, LinkedIn?
+              We do ROI-based lead generation from Google, Meta, etc. and make AI videos for strong branding on social media
             </p>
 
             <div className="hero-headline hero-fade-in delay-2">
@@ -129,33 +98,22 @@ export default function Hero({ onOpenModal }: HeroProps) {
             </div>
           </div>
 
-          {/* Right Founder Slider */}
+          {/* Right founder video */}
           <div
             className="founder-section hero-fade-in delay-3"
-            id="founder-slider"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
+            id="founder-video"
           >
             <div className="founder-stage-container">
               <div className="founder-glow" />
               <div className="founder-arch" />
 
-              <div className="founder-slider-wrapper">
-                {/* Riya Slide */}
-                <div className={`founder-slide ${currentSlide === 0 ? "active" : ""}`}>
-                  <a href={brand.tedx} target="_blank" rel="noreferrer" className="tedx-frame riya" aria-label="Watch Shweta Shah’s TEDx talk"><img src={imageFor('tedx.png')} alt="Shweta Shah speaking on the TEDx stage" fetchPriority="high" /><span className="tedx-watch"><i className="fa-solid fa-play" /> Watch the TEDx talk</span></a>
-                </div>
-
-                {/* Vibhav Slide */}
-                <div className={`founder-slide ${currentSlide === 1 ? "active" : ""}`}>
-                  <a href={brand.tedx} target="_blank" rel="noreferrer" className="tedx-frame vibhav" aria-label="Watch Shweta Shah’s TEDx talk"><img src={imageFor('tedx.png')} alt="Shweta Shah speaking on the TEDx stage" fetchPriority="high" /><span className="tedx-watch"><i className="fa-solid fa-play" /> Watch the TEDx talk</span></a>
-                </div>
+              <div className="founder-player">
+                <WistiaVideo mediaId="jl0gke8f4q" title="Business Growth Karma introduction by Shweta Shah" />
               </div>
 
-              {/* Riya's Floating Cards */}
+              {/* Founder credentials */}
               <div
                 className="float-card card-stats-riya"
-                style={{ display: currentSlide === 0 ? "flex" : "none" }}
               >
                 <div className="stat-icon">
                   <i className="fa-solid fa-star" />
@@ -168,7 +126,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
               <div
                 className="float-card card-social-riya"
-                style={{ display: currentSlide === 0 ? "flex" : "none" }}
               >
                 <div className="social-links">
                   <a
@@ -194,7 +151,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
               <div
                 className="float-card card-views-riya"
-                style={{ display: currentSlide === 0 ? "flex" : "none" }}
               >
                 <div className="stat-icon stat-icon-green">
                   <i className="fa-solid fa-eye" />
@@ -207,75 +163,14 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 </div>
               </div>
 
-              {/* Vibhav's Floating Cards */}
-              <div
-                className="float-card card-stats-vibhav"
-                style={{ display: currentSlide === 1 ? "flex" : "none" }}
-              >
-                <div className="stat-content-text">
-                  <strong>Sales Psychology Creator</strong>
-                </div>
-              </div>
-
-              <div
-                className="float-card card-stats-vibhav-2"
-                style={{ display: currentSlide === 1 ? "flex" : "none" }}
-              >
-                <div className="stat-content-text">Google Ads + LinkedIn + Sales Psychology</div>
-              </div>
-
-              <div
-                className="float-card card-social-vibhav"
-                style={{ display: currentSlide === 1 ? "flex" : "none" }}
-              >
-                <div className="social-links">
-                  <a
-                    href="https://instagram.com/shwetashah.in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    aria-label="Business Growth Karma on Instagram"
-                  >
-                    <i className="fa-brands fa-instagram" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/shweta-shah-digital-marketing/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    aria-label="Shweta on LinkedIn"
-                  >
-                    <i className="fa-brands fa-linkedin" />
-                  </a>
-                </div>
-              </div>
             </div>
 
-            {/* Founder Info & Controls */}
+            {/* Founder info */}
             <div className="founder-info-container hero-fade-in delay-5">
-              <div className={`info-slide ${currentSlide === 0 ? "active" : ""}`}>
-                <p className="founder-label">FOUNDER</p>
+              <div className="info-slide active">
+                <p className="founder-label">FOUNDER &amp; TEDx SPEAKER</p>
                 <h3 className="founder-name">Shweta Shah</h3>
               </div>
-              <div className={`info-slide ${currentSlide === 1 ? "active" : ""}`}>
-                <p className="founder-label">TEDx SPEAKER</p>
-                <h3 className="founder-name">Shweta Shah</h3>
-              </div>
-            </div>
-
-            <div className="slider-controls hero-fade-in delay-5">
-              <button
-                className={`slider-dot ${currentSlide === 0 ? "active" : ""}`}
-                type="button"
-                onClick={() => setCurrentSlide(0)}
-                aria-label="Show Shweta Shah"
-              />
-              <button
-                className={`slider-dot ${currentSlide === 1 ? "active" : ""}`}
-                type="button"
-                onClick={() => setCurrentSlide(1)}
-                aria-label="Show Shweta Shah"
-              />
             </div>
           </div>
         </div>
@@ -629,23 +524,31 @@ export default function Hero({ onOpenModal }: HeroProps) {
         /* Founder Slider Section */
         .founder-section {
           position: relative;
-          width: 580px;
+          width: 44%;
+          max-width: 580px;
+          flex-shrink: 0;
           height: auto;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: flex-end;
           transform: translateX(10px);
-          cursor: grab;
         }
 
         .founder-stage-container {
           position: relative;
           width: 100%;
-          height: 680px;
+          height: auto;
+          padding-top: 110px;
           display: flex;
-          align-items: flex-end;
+          align-items: center;
           justify-content: center;
+        }
+
+        .founder-player {
+          position: relative;
+          width: min(62%, 320px);
+          z-index: 5;
         }
 
         .founder-arch {
@@ -747,8 +650,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
         }
 
         .card-stats-riya {
-          top: 140px;
-          left: -50px;
+          top: 0;
+          left: 0;
           padding: 15px 24px;
           border-right: 4px solid #b38532;
           display: flex;
@@ -764,8 +667,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
         }
 
         .card-views-riya {
-          top: 80px;
-          right: -30px;
+          top: 0;
+          right: 0;
           padding: 15px 24px;
           border-left: 4px solid #d8ac4a;
           display: flex;
@@ -1000,16 +903,24 @@ export default function Hero({ onOpenModal }: HeroProps) {
           }
 
           .founder-stage-container {
-            height: 480px;
+            height: auto;
+            padding: 100px 0 0;
+          }
+
+          .founder-player {
+            width: min(86%, 300px);
           }
 
           .card-stats-riya {
-            top: 50px;
-            left: 10px;
+            top: 0;
+            left: 0;
             transform: scale(0.9);
           }
           .card-views-riya {
             display: none !important;
+          }
+          .card-social-riya {
+            display: none;
           }
           .card-social-riya,
           .card-social-vibhav {
@@ -1030,21 +941,11 @@ export default function Hero({ onOpenModal }: HeroProps) {
         }
 
         @media (max-width: 480px) {
-          .founder-stage-container {
-            height: 400px;
-          }
           .hero-headline {
             font-size: 36px;
           }
         }
 
-        /* The source TEDx photo replaces the clone's cutout in the same slider. */
-        .founder-slide { align-items: center; }
-        .tedx-frame { position:relative;display:block;width:100%;aspect-ratio:1.78;overflow:hidden;border-radius:22px;border:1px solid #c69749;box-shadow:0 25px 70px #0009;pointer-events:auto; }
-        .tedx-frame img { position:absolute;max-width:none;width:104%;height:auto;left:-2%;top:-36%; }
-        .tedx-frame.vibhav img { width:110%;left:-7%;top:-41%; }
-        .tedx-watch { position:absolute;left:0;right:0;bottom:0;padding:25px 18px 13px;background:linear-gradient(transparent,#0c0904e6);font-size:12px;color:#f9d27f;display:flex;gap:10px;align-items:center; }
-        @media(max-width:600px){.tedx-frame{width:94%;border-radius:16px}.tedx-watch{font-size:10px}}
       `}</style>
     </div>
   );

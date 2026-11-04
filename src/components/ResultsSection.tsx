@@ -22,7 +22,7 @@ export default function ResultsSection() {
               event.preventDefault();
               setSelected({ src: study.src, title: study.label + " client case study" });
             }}>
-            <img className={styles.image} src={study.src} alt={study.label + " client result"} width="1080" height="1350" loading="lazy" />
+            <img className={styles.image} src={study.src} alt={study.label + ": " + study.result} width="1080" height="1350" loading="lazy" />
             <div className={styles.info}>
               <span className={styles.badge}><i className="fa-solid fa-crown" aria-hidden="true" /> CLIENT MILESTONE</span>
               <h3>{study.id === "education" ? "Education & Institutes" : study.label}</h3>

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { brand, imageFor, industries } from "@/lib/content";
-import MediaOverlay from "./MediaOverlay";
 import { useBooking } from "./SiteFrame";
+
+export { default as FourPillarsSection } from "./FourPillarsSection";
 
 export function ClientLogoRail() {
   const clients = industries.flatMap(industry => industry.logos.map((source, index) => ({ source, name: industry.clients[index] })));
@@ -16,46 +16,6 @@ export function PurposeSection() {
     { icon: "fa-gears", label: "HOW — THE PROCESS", title: "The Four-Pillar Strategy", text: "A connected framework designed to improve ROI while saving your team time, money and effort." },
     { icon: "fa-chart-line", label: "WHAT — THE RESULT", title: "Digital Marketing That Connects to Sales", text: "ROI-focused digital marketing, sales psychology, automation and AI videos working together for your business." },
   ].map(item => <article className="clone-glass-card clone-purpose-card" key={item.label}><div className="clone-icon"><i className={"fa-solid " + item.icon} /></div><div><span className="clone-small-label">{item.label}</span><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div></div></section>;
-}
-
-export function FourPillarsSection() {
-  const [reference, setReference] = useState(false);
-  const diagram = "/brand/business-sales-growth-wide.png";
-
-  return (
-    <section className="clone-extra-section clone-pillars-section" id="framework">
-      <div className="clone-section-header">
-        <div className="section-badge">THE FOUR PILLARS STRATEGY</div>
-        <h2>A Strong Foundation for <span className="gradient-text">Business Sales Growth</span></h2>
-        <p>The setup. Strong branding. A strong sales team. Quality lead generation.</p>
-      </div>
-      <button
-        type="button"
-        className="clone-framework-visual"
-        onClick={() => setReference(true)}
-        aria-label="View the complete Business Sales Growth diagram"
-        aria-haspopup="dialog"
-      >
-        <img
-          src={diagram}
-          alt="Business Sales Growth supported by four golden pillars: The Setup, Strong Branding, Strong Sales Team, and Quality Lead Generation. Each pillar explains the service and its benefit. Done-for-you service investment starts from Rs. 10k to 4 Lakh."
-          width="1659"
-          height="948"
-          loading="lazy"
-        />
-      </button>
-      <button type="button" className="clone-action clone-reference-action" onClick={() => setReference(true)}>
-        View the Complete Framework <i className="fa-solid fa-expand" aria-hidden="true" />
-      </button>
-      {reference && (
-        <MediaOverlay
-          src={diagram}
-          title="The complete four-pillar business sales growth framework"
-          onClose={() => setReference(false)}
-        />
-      )}
-    </section>
-  );
 }
 
 export function LeadJourneysSection() {

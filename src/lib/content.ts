@@ -58,16 +58,43 @@ function uniqueImages(entries: typeof images) {
   });
 }
 
-export const reviewImages = uniqueImages(images.filter(image => image.src.includes('whatsapp-roi')));
+const importedReviewImages = uniqueImages(images.filter(image => image.src.includes('whatsapp-roi')));
+const warmLeadsReview = {
+  ...importedReviewImages[4],
+  source: 'warm-leads-large-deals-review.jpg',
+  src: '/brand/warm-leads-large-deals-review.jpg',
+  width: 1080,
+  height: 1350,
+  alt: 'Warm leads closed between 2 and 12 months: Rs. 1.75 Crore, Rs. 40 Lakh, Rs. 1 Crore and Rs. 92 Lakh.',
+};
 
-export const clientCaseStudies = ['education', 'real-estate', 'manufacturing', 'consulting'].map(id => {
+export const reviewImages = importedReviewImages.map((image, index) => index === 4 ? warmLeadsReview : image);
+
+export const clientCaseStudies = ['education', 'real-estate', 'manufacturing', 'consulting'].flatMap(id => {
   const industry = industries.find(industry => industry.id === id)!;
-  return { ...industry, src: imageFor(industry.proof) };
+  if (id === 'manufacturing') return [
+    {
+      ...industry,
+      src: '/brand/b2b-shorter-sales-cycle.jpg',
+      result: 'From long sales cycles to shorter sales cycles',
+      text: 'More leads converting into deals in 24 minutes, 24 hours to 20 days. Closing B2B deals of ₹1L, ₹9L and ₹25L.',
+    },
+    {
+      ...industry,
+      id: 'manufacturing-clients',
+      proof: 'This-all-Clients-I-closed-through-Shweta-Shahs-Service.png',
+      src: '/brand/manufacturing-clients-closed.jpg',
+      result: 'Closing ratio have increased from 2% to 11%',
+      text: 'Manufacturing and B2B clients closed with Shweta Shah’s service.',
+    },
+  ];
+  return [{ ...industry, src: imageFor(industry.proof) }];
 });
 
 const displayedProofKeys = new Set([
+  ...importedReviewImages.map(imageIdentity),
   ...reviewImages.map(imageIdentity),
-  ...images.filter(image => clientCaseStudies.some(study => study.src === image.src)).map(imageIdentity),
+  ...images.filter(image => clientCaseStudies.some(study => study.src === image.src || imageFor(study.proof) === image.src)).map(imageIdentity),
 ]);
 
 export const galleryImages = uniqueImages(images.filter(image => !displayedProofKeys.has(imageIdentity(image))));

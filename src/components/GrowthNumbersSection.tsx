@@ -10,19 +10,15 @@ const rows = [
     cards: [
       { label: "Business Growth Karma", value: "10+ years", detail: "Since 2016" },
       { label: "Founder & Strategist", value: "TEDx", detail: "Shweta Shah" },
-      { label: "Projects Delivered", value: "500+", detail: "Across Industries" },
-      { label: "Marketers Trained", value: "1000+", detail: "on 4 Pillars" },
-      { label: "AI videos done", value: "100+", detail: "Organic marketing (Pillar 2)" },
     ],
   },
   {
-    label: "Sales growth framework",
+    label: "Projects, training and AI video milestones",
     direction: "right",
     cards: [
-      { label: "Sales Growth Framework", value: "4 Pillars", detail: "ROI Guaranteed System" },
-      { label: "Hot Lead to deal conversion Window", value: "24hrs.- 25 days", detail: "- The Setup (pillar 1)" },
-      { label: "Research based Lead to deal Conversion Window", value: "2-12 months", detail: "- Organic Marketing (Pillar 2)" },
-      { label: "Get Quality Leads from", value: "Instantly from 1st month", detail: "- Paid Ads (Pillar 4)" },
+      { label: "Projects Delivered", value: "500+", detail: "Across Industries" },
+      { label: "Marketers Trained", value: "1000+", detail: "on 4 Pillars" },
+      { label: "AI videos done", value: "100+", detail: "Organic marketing (Pillar 2)" },
     ],
   },
 ];
@@ -56,8 +52,8 @@ export default function GrowthNumbersSection() {
         {rows.map(row => (
           <div className={styles.window} key={row.direction} role="group" aria-label={row.label}>
             <div className={styles.track} data-direction={row.direction}>
-              {/* Four identical groups keep the loop filled on wide screens. */}
-              {[0, 1, 2, 3].map(copy => (
+              {/* Eight copies fill wide screens even with only two cards in the first row. */}
+              {Array.from({ length: 8 }, (_, copy) => (
                 <ul className={styles.group} key={copy} aria-hidden={copy > 0 ? true : undefined}>
                   {row.cards.map(card => (
                     <li className={styles.card} key={card.label}>
