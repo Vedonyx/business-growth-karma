@@ -1,0 +1,155 @@
+.intro p + p {
+  margin-top: 8px;
+}
+
+.intro .offerTitle {
+  color: #fff8e8;
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.price {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 5px 16px;
+  border: 1px solid #edbd5547;
+  border-radius: 999px;
+  background: #edbd5514;
+  color: #f5d18a;
+  font-weight: 700;
+}
+
+.journey {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.journeyHeading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.journeyHeading h3 {
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.2;
+}
+
+.steps {
+  --step-gap: clamp(22px, 3.5vw, 46px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--step-gap);
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 47px;
+  right: calc(10px - var(--step-gap));
+  left: 46px;
+  height: 1px;
+  background: #edbd5552;
+}
+
+.stepLabel {
+  color: #f5d18a;
+  font-family: var(--font-space);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.stepLabel span {
+  color: #dfd1b6;
+}
+
+.marker {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin: 10px 0 12px;
+  border-radius: 50%;
+  background: #edbd55;
+  color: #1b1205;
+  font-size: 14px;
+}
+
+.step p {
+  color: #e1d5be;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.enquiry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-top: 34px;
+  padding: 16px 20px;
+  border: 1px solid #edbd553b;
+  border-radius: 14px;
+  background: #edbd550d;
+}
+
+.enquiry p {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: #e1d5be;
+  font-size: 14px;
+}
+
+.enquiry p i {
+  color: #edbd55;
+}
+
+button.enquiryButton {
+  margin-top: 0;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .steps {
+    --step-gap: 24px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .step {
+    padding-left: 50px;
+  }
+
+  .step:not(:last-child)::after {
+    top: 42px;
+    right: auto;
+    bottom: calc(8px - var(--step-gap));
+    left: 16px;
+    width: 1px;
+    height: auto;
+  }
+
+  .marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+
+  .stepLabel {
+    margin-bottom: 6px;
+  }
+
+  .enquiry {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+}

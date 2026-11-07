@@ -44,6 +44,46 @@
 .roofLabel { display: block; margin-bottom: 7px; color: #bf9b55; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
 .roof h3 { color: #fff2d3; font-size: clamp(19px, 1.8vw, 25px); font-weight: 800; line-height: 1.2; }
 
+.solution .roof {
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  min-height: clamp(130px, 15vw, 185px);
+  padding: 28px 12% 14px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  text-align: center;
+}
+.solution .roof::before,
+.solution .roof::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: auto;
+}
+.solution .roof::before {
+  z-index: -2;
+  clip-path: polygon(50% 0, 100% 73%, 100% 100%, 0 100%, 0 73%);
+  background: linear-gradient(115deg, #815620, #f6d484 48%, #9d6c2d 82%, #edbd55);
+}
+.solution .roof::after {
+  z-index: -1;
+  clip-path: polygon(50% 4px, calc(100% - 4px) calc(73% + 2px), calc(100% - 4px) calc(100% - 6px), 4px calc(100% - 6px), 4px calc(73% + 2px));
+  background: linear-gradient(180deg, #5e421e, #2b2010 78%, #22180c);
+}
+.solution .roofIcon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: none;
+  font-size: 24px;
+}
+.solution .roofLabel { margin-bottom: 3px; color: #f0c97a; }
+
 .pillars {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -77,6 +117,19 @@
 }
 .pillar::before { top: -6px; }
 .pillar::after { bottom: -6px; }
+.solution .pillars { margin-block: 16px 22px; }
+.solution .pillar {
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, #edbd551a, transparent 18%, transparent 82%, #edbd551a),
+    linear-gradient(170deg, #2b2112, #171108 45%, #1d160b);
+}
+.solution .pillar::before,
+.solution .pillar::after {
+  left: -3px;
+  right: -3px;
+  height: 7px;
+}
 .number { margin-bottom: 15px; color: #b99a62; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; }
 .icon {
   display: grid;
@@ -165,6 +218,7 @@
   .roof { padding: 20px; gap: 14px; border-radius: 16px; }
   .roofLabel { font-size: 9px; letter-spacing: 1px; }
   .roof h3 { font-size: 21px; }
+  .solution .roof h3 { font-size: clamp(17px, 5vw, 21px); }
   .pillars { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-block: 28px; }
   .pillar { padding: 26px; }
   .pillar h4 { min-height: 0; font-size: 20px; margin-bottom: 22px; }

@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { faqs } from "@/lib/content";
+import { experienceFaqs, faqs } from "@/lib/content";
 
-export default function FaqSection() {
+export default function FaqSection({ experience = false }: { experience?: boolean }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-
+  const questions = experience ? experienceFaqs : faqs;
 
   const toggleFaq = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
@@ -22,14 +21,14 @@ export default function FaqSection() {
         <h2 className="faq-title" id="fobet-faq-title">
           Frequently Asked <span className="gradient-text">Questions</span>
         </h2>
-        <p className="faq-desc">Everything you need to know about our service</p>
+        <p className="faq-desc">{experience ? "What to expect from the 3-Day Business Growth Experience" : "Everything you need to know about our service"}</p>
       </div>
 
       <div className="faq-container">
-        {faqs.map((faq, index) => {
+        {questions.map((faq, index) => {
           const isOpen = openIndex === index;
           return (
-            <div key={index} className={`faq-item ${isOpen ? "active" : ""}`}>
+            <div key={faq.q} className={`faq-item ${isOpen ? "active" : ""}`}>
               <button
                 type="button"
                 className="faq-question"
@@ -37,7 +36,7 @@ export default function FaqSection() {
                 aria-expanded={isOpen}
               >
                 <span>{faq.q}</span>
-                <i className={`fa-solid ${isOpen ? "fa-minus" : "fa-plus"}`} />
+                <i className={`fa-solid ${isOpen ? "fa-minus" : "fa-plus"}`} aria-hidden="true" />
               </button>
               {isOpen && (
                 <div className="faq-answer">

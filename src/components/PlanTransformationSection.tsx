@@ -1,13 +1,18 @@
 import { imageFor } from "@/lib/content";
 import styles from "./PlanTransformationSection.module.css";
 
-export default function PlanTransformationSection() {
+export default function PlanTransformationSection({ realTransformation = false }: { realTransformation?: boolean }) {
   return (
     <section className="clone-extra-section" id="plan-transformation" aria-labelledby="plan-transformation-title">
       <div className="clone-section-header">
         <h2 id="plan-transformation-title">
-          Choose any of the above Plan{" "}
-          <span className={styles.headingLine + " gradient-text"}>You will see this transformation</span>
+          {realTransformation ? (
+            <>The Real <span className="gradient-text">Transformation</span></>
+          ) : (
+            <>Choose any of the above Plan{" "}
+              <span className={styles.headingLine + " gradient-text"}>You will see this transformation</span>
+            </>
+          )}
         </h2>
       </div>
 

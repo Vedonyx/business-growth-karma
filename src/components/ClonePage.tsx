@@ -4,6 +4,9 @@ import Hero from "./Hero";
 import IndustryStrip from "./IndustryStrip";
 import ResultsSection from "./ResultsSection";
 import ReviewsSection from "./ReviewsSection";
+import GrowthExperienceSection from "./GrowthExperienceSection";
+import GrowthInvestmentSection from "./GrowthInvestmentSection";
+import AboutShwetaSection from "./AboutShwetaSection";
 import BtsSection from "./BtsSection";
 import PackagesSection from "./PackagesSection";
 import PlanTransformationSection from "./PlanTransformationSection";
@@ -26,13 +29,16 @@ export default function ClonePage({ page = "home" }: { page?: "home" | "about" |
     <Hero onOpenModal={openBooking} />
     <IndustryStrip />
     <ClientLogoRail />
-    <FourPillarsSection />
-    <PackagesSection />
-    <PlanTransformationSection />
-    <ReviewsSection />
+    <FourPillarsSection solution />
+    <ReviewsSection leadConversionProof />
+    <GrowthExperienceSection onOpenModal={openBooking} />
+    <PlanTransformationSection realTransformation />
+    <GrowthInvestmentSection onOpenModal={openBooking} />
+    <AboutShwetaSection />
+    <GrowthNumbersSection />
+    <FaqSection experience />
     <ResultsSection />
     <PurposeSection />
-    <GrowthNumbersSection />
     <PeakStorySection />
   </>;
 }

@@ -1,0 +1,134 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  margin-bottom: 26px;
+  font-size: clamp(29px, 3.5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.offer {
+  padding: clamp(18px, 3.2vw, 38px);
+  border: 1px solid #edbd5566;
+  border-radius: 24px;
+  background: radial-gradient(ellipse at 50% 0, #edbd5515, transparent 56%), #1b140b;
+  box-shadow: 0 18px 48px #0004;
+}
+
+.offerHeading {
+  padding-bottom: 22px;
+  border-bottom: 1px solid #edbd5533;
+  text-align: center;
+}
+
+.offerHeading > span {
+  margin-bottom: 14px;
+  padding-inline: 14px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.offerHeading h3 {
+  font-size: clamp(21px, 2.45vw, 32px);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.price {
+  margin-top: 8px;
+  color: #f5d18a;
+  font-size: clamp(35px, 4.3vw, 52px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.priceNote {
+  margin-top: 6px;
+  color: #c9baa1;
+  font-size: 14px;
+}
+
+.benefits {
+  display: grid;
+  gap: 13px;
+  margin: 22px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #eee2cb;
+  font-size: clamp(14px, 1.35vw, 17px);
+  line-height: 1.5;
+}
+
+.check {
+  display: grid;
+  flex: 0 0 22px;
+  place-items: center;
+  height: 22px;
+  border-radius: 50%;
+  background: #edbd55;
+  color: #1b1205;
+  font-size: 11px;
+}
+
+button.cta {
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  border-radius: 999px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.flow {
+  margin-top: 14px;
+  color: #c9baa1;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.portrait {
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #edbd554d;
+  border-radius: 24px;
+  background: linear-gradient(140deg, #392a15, #1b140b);
+  box-shadow: 0 18px 48px #0004;
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+@media (max-width: 760px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

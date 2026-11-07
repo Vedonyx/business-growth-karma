@@ -32,20 +32,23 @@ const growthPillars = [
   },
 ];
 
-export default function FourPillarsSection() {
+export default function FourPillarsSection({ solution = false }: { solution?: boolean }) {
   const [reference, setReference] = useState(false);
   const diagram = "/brand/business-sales-growth-wide.png";
 
   return (
     <section className="clone-extra-section clone-pillars-section" id="framework" aria-labelledby="framework-title">
       <div className="clone-section-header">
-        <div className="section-badge">THE FOUR PILLARS STRATEGY</div>
-        <h2 id="framework-title">A Strong Foundation for <span className="gradient-text">Business Sales Growth</span></h2>
-        <p>The setup. Strong branding. A strong sales team. Quality lead generation.</p>
+        <div className="section-badge">{solution ? "SOLUTION" : "THE FOUR PILLARS STRATEGY"}</div>
+        <h2 id="framework-title">
+          {solution ? "From Lead Generation to " : "A Strong Foundation for "}
+          <span className="gradient-text">{solution ? "Deal Conversion" : "Business Sales Growth"}</span>
+        </h2>
+        <p>{solution ? "4 Pillar Business Sales Growth Done for you Service" : "The setup. Strong branding. A strong sales team. Quality lead generation."}</p>
       </div>
 
       <div className={styles.layout}>
-        <div className={styles.temple} aria-label="The four pillars of business sales growth">
+        <div className={solution ? `${styles.temple} ${styles.solution}` : styles.temple} aria-label="The four pillars of business sales growth">
           <div className={styles.roof}>
             <span className={styles.roofIcon}><i className="fa-solid fa-chart-line" aria-hidden="true" /></span>
             <div>

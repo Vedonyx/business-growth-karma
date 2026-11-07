@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import LeadModal from "./LeadModal";
+import StickyExperienceCta from "./StickyExperienceCta";
 
 const BookingContext = createContext<() => void>(() => {});
 export const useBooking = () => useContext(BookingContext);
@@ -24,5 +25,16 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
     if (!window.location.hash) window.scrollTo({ top: 0, behavior: "instant" });
   }, [pathname]);
 
-  return <BookingContext.Provider value={openBooking}><div className="fobet-page-root"><a className="clone-skip-link" href="#main-content">Skip to content</a><Navbar onOpenModal={openBooking} /><main id="main-content">{children}</main>{pathname !== "/" && <Footer />}<LeadModal isOpen={open} onClose={closeBooking} initialPlan={plan} /></div></BookingContext.Provider>;
+  return (
+    <BookingContext.Provider value={openBooking}>
+      <div className="fobet-page-root">
+        <a className="clone-skip-link" href="#main-content">Skip to content</a>
+        <Navbar onOpenModal={openBooking} />
+        <main id="main-content">{children}</main>
+        {pathname !== "/" && <Footer />}
+        <StickyExperienceCta onOpenModal={openBooking} />
+        <LeadModal isOpen={open} onClose={closeBooking} initialPlan={plan} />
+      </div>
+    </BookingContext.Provider>
+  );
 }

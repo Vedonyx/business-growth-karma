@@ -47,7 +47,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
               We do ROI-based lead generation from Google, Meta, etc. and make AI videos for strong branding on social media
             </p>
 
-            <div className="hero-headline hero-fade-in delay-2">
+            <h1 className="hero-headline hero-fade-in delay-2" id="fobet-hero-title">
               Turn your hard-earned
               <br />
               <span className="gradient-text">leads into</span>{" "}
@@ -68,34 +68,35 @@ export default function Hero({ onOpenModal }: HeroProps) {
                   />
                 </svg>
               </span>
-            </div>
+            </h1>
 
-            <div className="hero-fade-in delay-3 desc-container">
-              <h1 className="hero-description" id="fobet-hero-title">
-                Serious about your annual sales goal? You are in the right place.
-              </h1>
-              <p className="hero-subdescription">
-                We work on 4 Pillar Strategy to strengthen your Business Growth
+            <section className="hero-offer hero-fade-in delay-3" aria-labelledby="hero-offer-title">
+              <div className="offer-windows">
+                <p><strong>Convert Hot Leads</strong> in 24 hrs to 25 days</p>
+                <p><strong>Convert Warm Leads</strong> between 2 months to 12 months</p>
+              </div>
+              <p className="offer-promise">
+                Stop spending more on ads. Start converting your hard earned leads into deals.
               </p>
-              <p className="hero-subdescription hero-growth-benefit">
-                <strong>Save Time, Money &amp; Effort. Convert More Leads Into Deals.</strong>
-              </p>
-            </div>
 
-            <div className="cta-wrapper hero-fade-in delay-4">
-              <button
-                type="button"
-                onClick={onOpenModal}
-                className="btn-primary"
-              >
-                <span>Start Growing Now</span>
-                <i className="fa-solid fa-arrow-right" />
+              <h2 id="hero-offer-title">3-Day Business Sales Growth Experience with Shweta Shah</h2>
+              <ol className="offer-days">
+                <li><strong className="offer-day-label">Day 1</strong><span>Learn – the 4 Pillars of Marketing &amp; Sales.</span></li>
+                <li><strong className="offer-day-label">Day 2</strong><span>Discover Call with Shweta Shah – Why your leads aren&apos;t converting.</span></li>
+                <li><strong className="offer-day-label">Day 3</strong><span>Sales Strategy Call with Shweta Shah – Get your personalised sales growth strategy.</span></li>
+              </ol>
+
+              <button type="button" onClick={onOpenModal} className="offer-cta">
+                <span>Show me how to convert leads into deals</span>{" "}
+                <strong className="offer-price">Just ₹499/-</strong>
               </button>
-              <a href="#results" className="btn-secondary">
-                <i className="fa-solid fa-play" />
-                <span>See Results</span>
-              </a>
-            </div>
+              <p className="offer-reassurance">
+                No generic marketing advice. | No random lead generation hacks. | No more guessing why leads aren&apos;t converting.
+              </p>
+              <p className="offer-outcome">
+                Just a clear, customised strategy to convert more hot and warm leads into paying customers.
+              </p>
+            </section>
           </div>
 
           {/* Right founder video */}
@@ -438,87 +439,116 @@ export default function Hero({ onOpenModal }: HeroProps) {
           z-index: -1;
         }
 
-        .desc-container {
-          margin-bottom: 38px;
-        }
-
-        .hero-description {
-          font-size: clamp(17px, 1.8vw, 21px);
-          line-height: 1.4;
-          letter-spacing: 0.02em;
-          color: rgba(255, 255, 255, 0.88);
-          max-width: 580px;
-          font-weight: 400;
-          margin: 0 0 8px 0;
+        .hero-offer {
+          width: 100%;
+          max-width: 640px;
+          padding: clamp(16px, 2.3vw, 28px);
+          text-align: left;
+          border: 1px solid rgba(241, 201, 118, 0.3);
+          border-radius: 18px;
+          background: linear-gradient(155deg, #2b2011, #1b140c 75%);
+          box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25);
+          color: #e5d9c3;
+          font-size: 14px;
+          line-height: 1.5;
           font-family: var(--font-space);
         }
 
-        .hero-subdescription {
-          font-size: clamp(16px, 1.6vw, 19px);
-          color: rgba(255, 255, 255, 0.7);
-          margin: 0;
-          line-height: 1.6;
-          font-family: var(--font-space);
+        .offer-windows {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
         }
 
-        .hero-growth-benefit {
-          margin-top: 8px;
+        .offer-windows p {
+          padding: 10px 12px;
+          background: rgba(241, 201, 118, 0.07);
+          border: 1px solid rgba(241, 201, 118, 0.16);
+          border-radius: 10px;
         }
 
-        .hero-subdescription strong {
+        .offer-windows strong {
+          display: block;
+          color: #f5d18a;
+        }
+
+        .offer-promise {
+          margin: 14px 0 16px;
+        }
+
+        .hero-offer h2 {
+          margin-bottom: 10px;
           color: #fff8e8;
+          font-size: clamp(18px, 1.7vw, 23px);
+          line-height: 1.25;
         }
 
-        .cta-wrapper {
+        .offer-days {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .offer-days li {
+          display: grid;
+          grid-template-columns: auto minmax(0, 1fr);
+          align-items: baseline;
+          gap: 12px;
+          padding: 8px 0;
+        }
+
+        .offer-days li + li {
+          border-top: 1px solid rgba(241, 201, 118, 0.14);
+        }
+
+        .offer-day-label {
+          color: #f5d18a;
+          white-space: nowrap;
+        }
+
+        .offer-cta {
           display: flex;
-          gap: 20px;
           align-items: center;
-        }
-
-        .btn-primary {
-          display: inline-flex;
-          align-items: center;
-          gap: 12px;
-          padding: 18px 38px;
+          justify-content: center;
+          gap: 10px 16px;
+          width: 100%;
+          margin: 14px 0 12px;
+          padding: 14px 16px;
+          border: 1px solid #edbd55;
           border-radius: 12px;
-          font-size: 17px;
+          background: linear-gradient(135deg, #f5d18a, #dba22d);
+          color: #1b1205;
+          cursor: pointer;
+          font: inherit;
+          font-size: 15px;
           font-weight: 700;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          background: linear-gradient(135deg, #edbd55, #dba22d);
-          color: #fff;
-          border: none;
-          cursor: pointer;
-          font-family: var(--font-space);
-          box-shadow: 0 10px 25px rgba(241, 201, 118, 0.35);
+          line-height: 1.35;
         }
 
-        .btn-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 15px 35px rgba(241, 201, 118, 0.55);
+        .offer-cta:hover {
+          background: #f5d18a;
         }
 
-        .btn-secondary {
-          display: inline-flex;
-          align-items: center;
-          gap: 12px;
-          padding: 18px 34px;
-          border-radius: 12px;
-          font-size: 17px;
+        .offer-cta:focus-visible,
+        .social-icon:focus-visible {
+          outline: 2px solid #fff8e8;
+          outline-offset: 4px;
+        }
+
+        .offer-price {
+          flex-shrink: 0;
+          white-space: nowrap;
+        }
+
+        .offer-reassurance {
+          color: #c9baa1;
+          font-size: 13px;
+        }
+
+        .offer-outcome {
+          margin-top: 6px;
+          color: #fff8e8;
           font-weight: 600;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.16);
-          color: #fff;
-          cursor: pointer;
-          font-family: var(--font-space);
-        }
-
-        .btn-secondary:hover {
-          background: rgba(255, 255, 255, 0.09);
-          border-color: rgba(241, 201, 118, 0.4);
-          transform: translateY(-2px);
         }
 
         /* Founder Slider Section */
@@ -626,7 +656,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           margin-bottom: -10px;
         }
 
-        /* Floating Cards */
+        /* Founder badges */
         .float-card {
           position: absolute;
           background: rgba(255, 255, 255, 0.05);
@@ -636,17 +666,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
           border-radius: 16px;
           z-index: 10;
           box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-          animation: floatCard 6s ease-in-out infinite;
-        }
-
-        @keyframes floatCard {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
         }
 
         .card-stats-riya {
@@ -715,12 +734,10 @@ export default function Hero({ onOpenModal }: HeroProps) {
           justify-content: center;
           color: white;
           font-size: 16px;
-          transition: all 0.3s ease;
         }
 
         .social-icon:hover {
           background: linear-gradient(135deg, #edbd55, #dba22d);
-          transform: scale(1.1);
         }
 
         .stat-icon {
@@ -855,9 +872,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
         .delay-3 {
           animation-delay: 0.3s;
         }
-        .delay-4 {
-          animation-delay: 0.4s;
-        }
         .delay-5 {
           animation-delay: 0.5s;
         }
@@ -881,19 +895,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
             display: flex;
             flex-direction: column;
             align-items: center;
-          }
-
-          .cta-wrapper {
-            justify-content: center;
-            flex-direction: column;
-            width: 100%;
-            max-width: 400px;
-          }
-
-          .btn-primary,
-          .btn-secondary {
-            width: 100%;
-            justify-content: center;
           }
 
           .founder-section {
@@ -943,6 +944,20 @@ export default function Hero({ onOpenModal }: HeroProps) {
         @media (max-width: 480px) {
           .hero-headline {
             font-size: 36px;
+          }
+
+          .hero-container {
+            padding-inline: 4px;
+          }
+
+          .offer-windows {
+            grid-template-columns: 1fr;
+            gap: 8px;
+          }
+
+          .offer-cta {
+            flex-direction: column;
+            gap: 4px;
           }
         }
 

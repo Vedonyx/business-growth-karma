@@ -99,6 +99,14 @@ const displayedProofKeys = new Set([
 
 export const galleryImages = uniqueImages(images.filter(image => !displayedProofKeys.has(imageIdentity(image))));
 
+export const experienceFaqs = [
+  { q: 'Why do I need to pay ₹499?', a: 'It gives you access to the structured three-day experience, learning resources and two dedicated one-to-one conversations with Shweta Shah.' },
+  { q: 'Is this suitable if I am already running ads?', a: 'Absolutely. This experience is particularly relevant if you are generating leads but want to improve the number of enquiries converting into customers.' },
+  { q: 'Do I need to prepare anything?', a: 'Come prepared to discuss your business, sales goals, current marketing activities and challenges.' },
+  { q: 'Will I get a customised strategy?', a: 'Yes. Your third-day call is designed around your business, based on what we understand during the discovery call.' },
+  { q: 'Will I be required to purchase another programme?', a: 'The ₹499 experience is a standalone starting point. If you need further support, we can discuss suitable implementation options. There is no need to commit to a larger programme to start the experience.' },
+];
+
 export const faqs = [
   { q: 'Will this work for my business?', a: 'The framework is built for businesses that generate enquiries and need to convert more of them into customers. We work with real estate, manufacturing, B2B, education, consultants and service businesses. A strategy discussion helps assess your offer, audience, deal value and existing process before recommending a plan.' },
   { q: 'What if I already have a marketing and sales team?', a: 'The Setup connects your existing team to a structured conversion system. DIY + Training adds implementation guidance, while Done for You gives you a team to manage all four pillars. Choose the level of support that fits your people and goals.' },
