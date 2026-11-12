@@ -45,6 +45,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
         <div className="header-container">
           <Link href="/" className="header-logo" onClick={closeMobile}>
             <img
+              className="brand-logo-artwork"
               src={imageFor("Untitled-design-6.png")}
               alt="Business Growth Karma"
             />
@@ -116,8 +117,10 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
         }
 
         .header-container :global(.header-logo) img {
-          height: 42px;
+          height: 68px;
           width: auto;
+          max-width: 150px;
+          object-fit: contain;
           transition: transform 0.3s ease;
         }
 
@@ -315,7 +318,6 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
             display: flex;
           }
         }
-        .header-container :global(.header-logo) img {height:68px;max-width:150px;object-fit:contain;filter:invert(1) grayscale(1) sepia(1) saturate(2.5) brightness(1.5);mix-blend-mode:screen;}
       `}</style>
     </>
   );

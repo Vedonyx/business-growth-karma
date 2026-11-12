@@ -1,4 +1,4 @@
-import { brand, imageFor } from "@/lib/content";
+import { imageFor } from "@/lib/content";
 import styles from "./AboutShwetaSection.module.css";
 
 export default function AboutShwetaSection() {
@@ -18,13 +18,8 @@ export default function AboutShwetaSection() {
           <p className={styles.emphasis}>Because more leads don&apos;t automatically mean more sales. A better system can make the difference.</p>
         </div>
 
-        <figure className={styles.tedxCard}>
-          <div className={styles.stage}>
-            <img src={imageFor("tedx.png")} alt="Shweta Shah speaking on the TEDx stage" width={644} height={653} loading="lazy" />
-          </div>
-          <figcaption>
-            <a href={brand.tedx} target="_blank" rel="noreferrer"><i className="fa-solid fa-play" aria-hidden="true" /> Watch Shweta Shah’s TEDx talk</a>
-          </figcaption>
+        <figure className={styles.tedxPhoto}>
+          <img src={imageFor("tedx.png")} alt="Shweta Shah speaking on the TEDx stage" width={644} height={653} loading="lazy" />
         </figure>
       </div>
     </section>

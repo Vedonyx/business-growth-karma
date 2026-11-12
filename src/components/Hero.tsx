@@ -126,31 +126,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
               </div>
 
               <div
-                className="float-card card-social-riya"
-              >
-                <div className="social-links">
-                  <a
-                    href="https://instagram.com/shwetashah.in"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    aria-label="Shweta on Instagram"
-                  >
-                    <i className="fa-brands fa-instagram" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/shweta-shah-digital-marketing/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    aria-label="Shweta on LinkedIn"
-                  >
-                    <i className="fa-brands fa-linkedin" />
-                  </a>
-                </div>
-              </div>
-
-              <div
                 className="float-card card-views-riya"
               >
                 <div className="stat-icon stat-icon-green">
@@ -529,8 +504,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           background: #f5d18a;
         }
 
-        .offer-cta:focus-visible,
-        .social-icon:focus-visible {
+        .offer-cta:focus-visible {
           outline: 2px solid #fff8e8;
           outline-offset: 4px;
         }
@@ -666,6 +640,16 @@ export default function Hero({ onOpenModal }: HeroProps) {
           border-radius: 16px;
           z-index: 10;
           box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+          animation: floatCard 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+          0%, 100% { translate: 0 0; }
+          50% { translate: 0 -10px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .float-card { animation: none; }
         }
 
         .card-stats-riya {
@@ -676,13 +660,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
           display: flex;
           align-items: center;
           gap: 15px;
-        }
-
-        .card-social-riya {
-          bottom: 180px;
-          left: -40px;
-          padding: 12px;
-          border-right: 4px solid #dcb160;
         }
 
         .card-views-riya {
@@ -709,35 +686,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
           padding: 15px 25px;
           border-left: 4px solid #d8ac4a;
           max-width: 260px;
-        }
-
-        .card-social-vibhav {
-          bottom: 140px;
-          right: -40px;
-          padding: 12px;
-          border-left: 4px solid #ca9c4d;
-        }
-
-        .social-links {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
-
-        .social-icon {
-          width: 38px;
-          height: 38px;
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 16px;
-        }
-
-        .social-icon:hover {
-          background: linear-gradient(135deg, #edbd55, #dba22d);
         }
 
         .stat-icon {
@@ -919,17 +867,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
           }
           .card-views-riya {
             display: none !important;
-          }
-          .card-social-riya {
-            display: none;
-          }
-          .card-social-riya,
-          .card-social-vibhav {
-            bottom: auto;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 10px;
-            left: auto;
           }
           .card-stats-vibhav {
             top: 30px;

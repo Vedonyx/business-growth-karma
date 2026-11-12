@@ -28,6 +28,29 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
   return (
     <BookingContext.Provider value={openBooking}>
       <div className="fobet-page-root">
+        <svg aria-hidden="true" width="0" height="0" style={{ position: "absolute" }}>
+          <defs>
+            <filter id="brand-logo-remove-white" colorInterpolationFilters="sRGB">
+              {/* Estimate the white matte from the blue channel and subtract it, including at the letter edges. */}
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 1
+                        0 0 0 0 1
+                        0 0 0 0 1
+                        0 0 1.45 0 -0.41"
+                result="whiteMatte"
+              />
+              <feComposite in="SourceGraphic" in2="whiteMatte" operator="arithmetic" k2="1" k3="-1" result="logoArtwork" />
+              {/* Lift the darkest fills to bronze so the letters read against the dark header. */}
+              <feComponentTransfer in="logoArtwork">
+                <feFuncR type="table" tableValues="0.40 0.48 0.57 0.75 1" />
+                <feFuncG type="table" tableValues="0.26 0.34 0.50 0.75 1" />
+                <feFuncB type="table" tableValues="0.12 0.25 0.50 0.75 1" />
+                <feFuncA type="linear" slope="1.12" intercept="-0.12" />
+              </feComponentTransfer>
+            </filter>
+          </defs>
+        </svg>
         <a className="clone-skip-link" href="#main-content">Skip to content</a>
         <Navbar onOpenModal={openBooking} />
         <main id="main-content">{children}</main>

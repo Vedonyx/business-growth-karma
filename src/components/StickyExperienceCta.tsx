@@ -6,7 +6,7 @@ export default function StickyExperienceCta({ onOpenModal }: { onOpenModal: () =
     <>
       <div className={styles.clearance} aria-hidden="true" />
       <aside className={styles.bar} aria-label="Business Growth Experience offer">
-        <img className={styles.logo} src={imageFor("Untitled-design-6.png")} alt="" width={493} height={353} />
+        <img className={`brand-logo-artwork ${styles.logo}`} src={imageFor("Untitled-design-6.png")} alt="" width={493} height={353} />
         <div className={styles.copy}>
           <strong>3-Day Business Growth Experience</strong>
           <p>4 videos and 2 personal calls with Shweta Shah</p>

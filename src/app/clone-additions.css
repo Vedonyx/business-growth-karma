@@ -2,6 +2,7 @@
 .fobet-page-root { min-height:100vh; background:#0c0904; color:#fff8e8; overflow-x:hidden; }
 .clone-skip-link { position:fixed;top:-90px;left:20px;padding:12px 20px;background:#edbd55;color:#100b04;z-index:100000; }
 .clone-skip-link:focus { top:15px; }
+.brand-logo-artwork, .footer-logo img { filter:url(#brand-logo-remove-white); }
 button,input,select,textarea { font:inherit; }
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible { outline:2px solid #edbd55;outline-offset:4px; }
 .clone-extra-section { padding:110px 30px;position:relative;background:radial-gradient(ellipse at 80% 20%,rgba(219,162,45,.065),transparent 55%),#100c06;color:#fff8e8;overflow:hidden; }
@@ -88,7 +89,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible { 
 .clone-media-heading button { display:flex;align-items:center;justify-content:center;width:36px;height:36px;background:#edbd551a;border:1px solid #edbd5555;border-radius:50%;color:#ffdc8e;font-size:26px;cursor:pointer;flex-shrink:0; }
 .clone-media-dialog>img { display:block;width:100%;max-height:76dvh;object-fit:contain;padding:15px; }.clone-media-dialog>a { display:flex;align-items:center;justify-content:center;gap:12px;padding:15px;color:#edbd55;border-top:1px solid #d6a94533;font-size:13px; }
 .bts-item { border:0;font:inherit;text-align:left;cursor:pointer;padding:0; }.clone-gallery-more { position:relative;z-index:2;display:flex;width:fit-content;gap:15px;align-items:center;margin:40px auto 0;padding:15px 25px;border:1px solid #edbd55;border-radius:12px;background:linear-gradient(135deg,#edbd55,#b67b1f);color:#140d03;font-weight:700;font-size:14px;cursor:pointer; }
-.footer-logo img { height:84px!important;filter:invert(1) grayscale(1) sepia(1) saturate(2.5) brightness(1.5);mix-blend-mode:screen; }.site-footer .footer-legal { line-height:1.8; }
+.footer-logo img { height:84px!important; }.site-footer .footer-legal { line-height:1.8; }
 @media(max-width:1000px) {
   .clone-purpose-layout { gap:35px; }.clone-purpose-card { padding:22px;gap:17px; }.clone-purpose-card h3 { font-size:20px; }.clone-purpose-card p { font-size:13px; }.clone-purpose-orbit>span { font-size:15px;margin-top:20px; }.orbit-why strong { font-size:28px; }
   .clone-pillar-grid { gap:22px;padding-inline:16px; }.clone-pillar { padding-inline:13px; }.clone-pillar h3 { font-size:20px; }.clone-pillar p { font-size:12px; }.clone-three-cards { gap:22px; }.clone-glass-card { padding:28px; }.clone-learning-card { flex-direction:column;align-items:start; }.clone-learning-card>img { width:130px; }.clone-benefits-grid { gap:20px; }

@@ -39,7 +39,7 @@ export default function GrowthInvestmentSection({ onOpenModal }: { onOpenModal: 
           </div>
 
           <figure className={styles.portrait}>
-            <img src="/brand/shweta-shah-growth-experience.jpg" alt="Shweta Shah seated at her desk" width={1080} height={1080} loading="lazy" />
+            <img src="/brand/shweta-shah-growth-experience.jpg" alt="Shweta Shah seated at her desk" width={1254} height={1254} loading="lazy" />
           </figure>
         </div>
       </div>
