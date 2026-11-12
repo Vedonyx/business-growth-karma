@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { plans } from '@/lib/content';
+import { useBooking } from './SiteFrame';
 
 const pricingTiers = [
   { id: 'done-for-you', tier: 'Platinum', subtitle: 'Done For You' },
@@ -13,16 +14,17 @@ const orderedPlans = pricingTiers.flatMap(tier => {
   return plan ? [{ ...plan, tier: tier.tier, subtitle: tier.subtitle }] : [];
 });
 
-export default function PackagesSection() {
+export default function PackagesSection({ heading }: { heading?: string } = {}) {
+  const openBooking = useBooking();
   return (<section className="packages-section" id="packages" aria-labelledby="fobet-packages-title">
     <div className="packages-glow glow-center" />
-    <div className="packages-header"><div className="packages-badge">CHOOSE YOUR GROWTH SOLUTION</div><h2 className="packages-title" id="fobet-packages-title">Your Next <span className="gradient-text">Stage of Growth</span></h2><p className="packages-desc">The support that fits your annual sales goal, your team and your ambitions.</p></div>
+    <div className="packages-header"><div className="packages-badge">CHOOSE YOUR GROWTH SOLUTION</div><h2 className="packages-title" id="fobet-packages-title">{heading ?? <>Your Next <span className="gradient-text">Stage of Growth</span></>}</h2><p className="packages-desc">The support that fits your annual sales goal, your team and your ambitions.</p></div>
     <div className="packages-row">{orderedPlans.map(plan=><div key={plan.id} className={'package-card '+(plan.featured?'featured':'')}>
       {plan.id!=='setup'&&<div className={'package-tag '+(plan.featured?'tag-popular':'tag-value')}>{plan.featured?'Done for You':'Learn & Implement'}</div>}
       <div className="package-heading"><h3 className="package-tier">{plan.tier}</h3><div className="package-name">{plan.subtitle}</div></div><div className="package-price">₹{plan.price}<span className="price-cycle">{plan.period}</span></div><p className="package-desc">{plan.text}</p><div className="package-line"/><div className="highlight-text">{plan.tag}</div>
       <ul className="package-features">{plan.features.map(feature=><li key={feature}><i className="fa-solid fa-check"/><span>{feature}</span></li>)}</ul>
       <div className="package-ideal-for"><h4 className="package-ideal-title">Ideal for</h4><div className="highlight-text">{plan.bestFor}</div></div>
-      <a href={'/contact?plan='+plan.id} className={'package-btn '+(plan.featured?'btn-filled':'btn-outline')}>{plan.cta}</a>
+      <button type="button" onClick={() => openBooking(plan.id)} aria-haspopup="dialog" className={'package-btn '+(plan.featured?'btn-filled':'btn-outline')}>{plan.cta}</button>
     </div>)}</div>
       <style jsx>{`
         .packages-section {
@@ -316,6 +318,7 @@ export default function PackagesSection() {
 
           .package-card {
             width: 100%;
+            min-width: 0;
             max-width: 480px;
           }
 

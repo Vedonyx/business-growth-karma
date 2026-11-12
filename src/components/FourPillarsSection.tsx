@@ -32,7 +32,13 @@ const growthPillars = [
   },
 ];
 
-export default function FourPillarsSection({ solution = false }: { solution?: boolean }) {
+export default function FourPillarsSection({
+  solution = false,
+  diagramOnly = false,
+}: {
+  solution?: boolean;
+  diagramOnly?: boolean;
+}) {
   const [reference, setReference] = useState(false);
   const diagram = "/brand/business-sales-growth-wide.png";
 
@@ -47,7 +53,7 @@ export default function FourPillarsSection({ solution = false }: { solution?: bo
         <p>{solution ? "4 Pillar Business Sales Growth Done for you Service" : "The setup. Strong branding. A strong sales team. Quality lead generation."}</p>
       </div>
 
-      <div className={styles.layout}>
+      <div className={diagramOnly ? styles.diagramLayout : styles.layout}>
         <div className={solution ? `${styles.temple} ${styles.solution}` : styles.temple} aria-label="The four pillars of business sales growth">
           <div className={styles.roof}>
             <span className={styles.roofIcon}><i className="fa-solid fa-chart-line" aria-hidden="true" /></span>
@@ -75,15 +81,17 @@ export default function FourPillarsSection({ solution = false }: { solution?: bo
           </ol>
           <div className={styles.foundation}>
             <strong><i className="fa-solid fa-gears" aria-hidden="true" /> Done-for-you service</strong>
-            <span><i className="fa-solid fa-coins" aria-hidden="true" /> Investment: <b>Starts from Rs. 10k to 4 Lakh</b></span>
+            <span><i className="fa-solid fa-coins" aria-hidden="true" /> Investment: <b>Starts from Rs. 10k to 4 Lakh Monthly</b></span>
           </div>
         </div>
 
-        <div className={styles.videoStage}>
-          <div className={styles.video}>
-            <WistiaVideo mediaId="jr3983q8xn" title="The four-pillar business growth strategy video" />
+        {!diagramOnly && (
+          <div className={styles.videoStage}>
+            <div className={styles.video}>
+              <WistiaVideo mediaId="jr3983q8xn" title="The four-pillar business growth strategy video" />
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <button type="button" className="clone-action clone-reference-action" onClick={() => setReference(true)}>

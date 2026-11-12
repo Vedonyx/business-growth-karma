@@ -7,7 +7,7 @@ export { default as FourPillarsSection } from "./FourPillarsSection";
 
 export function ClientLogoRail() {
   const clients = industries.flatMap(industry => industry.logos.map((source, index) => ({ source, name: industry.clients[index] })));
-  return <section className="clone-client-rail" aria-label="Businesses we have worked with"><h2 className="clone-rail-title">Our Clients</h2><div className="clone-logo-window"><div className="clone-logo-track">{[0, 1].map(copy => <div className="clone-logo-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>{clients.map(client => <div className="clone-client-logo" key={client.source}><img src={imageFor(client.source)} alt={client.name} width="140" height="65" loading="lazy" /></div>)}</div>)}</div></div></section>;
+  return <section className="clone-client-rail" id="our-clients" aria-label="Businesses we have worked with"><h2 className="clone-rail-title">Our Clients</h2><div className="clone-logo-window"><div className="clone-logo-track">{[0, 1].map(copy => <div className="clone-logo-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>{clients.map(client => <div className="clone-client-logo" key={client.source}><img src={imageFor(client.source)} alt={client.name} width="140" height="65" loading="lazy" /></div>)}</div>)}</div></div></section>;
 }
 
 export function PurposeSection() {
@@ -53,7 +53,7 @@ export function LeadJourneysSection() {
         <ul className="clone-goal-pillars">
           {growthPillars.map(pillar => <li key={pillar}>{pillar}</li>)}
         </ul>
-        <button type="button" className="clone-action" onClick={openBooking}>
+        <button type="button" className="clone-action" onClick={() => openBooking()}>
           Discuss My Sales Goal <i className="fa-solid fa-arrow-right" aria-hidden="true" />
         </button>
       </div>

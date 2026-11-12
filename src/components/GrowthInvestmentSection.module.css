@@ -88,11 +88,10 @@
   font-size: 11px;
 }
 
-button.cta {
+.offer a.cta {
   width: 100%;
   min-height: 48px;
   margin: 0;
-  border-radius: 999px;
   line-height: 1.45;
   text-align: center;
 }

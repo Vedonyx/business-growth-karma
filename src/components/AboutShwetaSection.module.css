@@ -23,27 +23,6 @@
 .copy p + p { margin-top: 14px; }
 .copy p.emphasis { color: #f5d18a; font-weight: 700; }
 
-.tedxPhoto {
-  position: relative;
-  align-self: center;
-  min-width: 0;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border: 1px solid #edbd5555;
-  border-radius: 22px;
-  background: #0c0904;
-  box-shadow: 0 18px 48px #0004;
-}
-
-.tedxPhoto img {
-  position: absolute;
-  top: -35.6%;
-  left: -1.7%;
-  width: 104%;
-  max-width: none;
-  height: auto;
-}
-
 @media (max-width: 760px) {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .copy p { font-size: 15px; }

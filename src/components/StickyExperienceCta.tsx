@@ -1,7 +1,7 @@
-import { imageFor } from "@/lib/content";
+import { brand, experienceCtaLabel, imageFor } from "@/lib/content";
 import styles from "./StickyExperienceCta.module.css";
 
-export default function StickyExperienceCta({ onOpenModal }: { onOpenModal: () => void }) {
+export default function StickyExperienceCta() {
   return (
     <>
       <div className={styles.clearance} aria-hidden="true" />
@@ -11,9 +11,9 @@ export default function StickyExperienceCta({ onOpenModal }: { onOpenModal: () =
           <strong>3-Day Business Growth Experience</strong>
           <p>4 videos and 2 personal calls with Shweta Shah</p>
         </div>
-        <button type="button" className={`clone-action ${styles.button}`} onClick={onOpenModal} aria-haspopup="dialog">
-          Start for ₹499 <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-        </button>
+        <a className={`clone-action checkout-cta ${styles.button}`} href={brand.experienceCheckout}>
+          {experienceCtaLabel} <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+        </a>
       </aside>
     </>
   );

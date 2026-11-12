@@ -17,7 +17,7 @@ export default function ReviewsSection({ leadConversionProof = false }: { leadCo
             <li>We help you convert more <strong>hot leads</strong> into deals in <strong>24 hours to 25 days</strong>.</li>
             <li>We help you convert more <strong>warm leads</strong> into deals in <strong>2 to 12 months</strong>.</li>
           </ul>
-          <h3 className={styles.proofTitle}>Here is the Proof</h3>
+          <h3 className={styles.proofTitle} id="client-review-proof">Here is the Proof</h3>
         </div>
       ) : (
         <div className="clone-section-header">

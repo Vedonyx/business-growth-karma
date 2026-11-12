@@ -7,6 +7,11 @@
   margin: 0 auto;
 }
 
+.diagramLayout {
+  max-width: 1060px;
+  margin-inline: auto;
+}
+
 .temple { min-width: 0; }
 .roof {
   position: relative;

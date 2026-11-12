@@ -1,3 +1,4 @@
+import { brand } from "@/lib/content";
 import styles from "./GrowthExperienceSection.module.css";
 
 const journeySteps = [
@@ -6,7 +7,7 @@ const journeySteps = [
   "Join a 40-minute personalised strategy call. Discover your business growth gaps and get a customised action plan to convert more leads into deals.",
 ];
 
-export default function GrowthExperienceSection({ onOpenModal }: { onOpenModal: () => void }) {
+export default function GrowthExperienceSection() {
   return (
     <section className="clone-extra-section" id="growth-experience" aria-labelledby="growth-experience-title">
       <header className={`clone-section-header ${styles.intro}`}>
@@ -34,10 +35,10 @@ export default function GrowthExperienceSection({ onOpenModal }: { onOpenModal: 
         </ol>
 
         <div className={styles.enquiry}>
-          <p><i className="fa-solid fa-bolt" aria-hidden="true" /> Start your 3-day journey with Shweta Shah.</p>
-          <button type="button" className={`clone-action ${styles.enquiryButton}`} onClick={onOpenModal}>
-            Enquire About the ₹499 Experience <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-          </button>
+          <p><i className="fa-solid fa-bolt" aria-hidden="true" /> Book Your Call Now. Don’t Let Your Next Big Client Slip Away!</p>
+          <a className={`clone-action checkout-cta ${styles.enquiryButton}`} href={brand.experienceCheckout}>
+            Secure Your Spot for Just ₹499 <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>

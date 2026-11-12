@@ -1,96 +1,89 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { imageFor } from "@/lib/content";
+import { brand, experienceCtaLabel, imageFor } from "@/lib/content";
 
-interface NavbarProps {
-  onOpenModal: () => void;
-}
+const homeTopics = [
+  { id: "reviews", label: "Our USP" },
+  { id: "framework", label: "The Solution" },
+  { id: "plan-transformation", label: "The Transformation" },
+  { id: "about-shweta", label: "About Shweta Shah" },
+  { id: "our-clients", label: "Our Clients" },
+];
 
-export default function Navbar({ onOpenModal }: NavbarProps) {
+const accessTopics = [
+  { id: "pillar-lessons", label: "Videos" },
+  { id: "packages", label: "Our Services" },
+  { id: "plan-transformation", label: "The Transformation" },
+  { id: "reviews", label: "Our USP" },
+  { id: "connect", label: "Contact" },
+];
+
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [activeTopic, setActiveTopic] = useState("");
   const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isAccess = pathname === "/4-pillar-access";
+  const topics = isAccess ? accessTopics : homeTopics;
+  const sectionPrefix = isHome || isAccess ? "" : "/";
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    const updateTopic = () => setActiveTopic(window.location.hash.slice(1));
+    updateTopic();
+    window.addEventListener("hashchange", updateTopic);
+    return () => window.removeEventListener("hashchange", updateTopic);
+  }, [pathname]);
 
-    };
-
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const closeMobile = () => {
-    setIsMobileOpen(false);
-    document.body.style.overflow = "";
-  };
-
-  const toggleMobile = () => {
-    const nextState = !isMobileOpen;
-    setIsMobileOpen(nextState);
-    document.body.style.overflow = nextState ? "hidden" : "";
-  };
-
   return (
-    <>
-      <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
-        <div className="header-container">
-          <Link href="/" className="header-logo" onClick={closeMobile}>
-            <img
-              className="brand-logo-artwork"
-              src={imageFor("Untitled-design-6.png")}
-              alt="Business Growth Karma"
-            />
-          </Link>
+    <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
+      <div className="header-container">
+        <a href={isHome ? "#home" : "/"} className="header-logo">
+          <img
+            className="brand-logo-artwork"
+            src={imageFor("Untitled-design-6.png")}
+            alt="Business Growth Karma home"
+          />
+        </a>
 
-          <nav className={`main-nav ${isMobileOpen ? "active" : ""}`} id="mainNav">
-            <ul className="nav-menu">{[['/','Home'],['/about','About Us'],['/work','Our Work'],['/services','Services'],['/contact','Contact Us']].map(([href,label]) => <li key={href}><Link href={href} className={pathname === href ? 'active' : ''} onClick={closeMobile}>{label}</Link></li>)}</ul>
+        <nav aria-label="Page sections">
+          <ul className="nav-menu">
+            {topics.map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`${sectionPrefix}#${id}`}
+                  aria-current={!sectionPrefix && activeTopic === id ? "location" : undefined}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-            <button
-              type="button"
-              className="header-cta"
-              onClick={() => {
-                closeMobile();
-                onOpenModal();
-              }}
-            >
-              Get Started <i className="fa-solid fa-arrow-right"></i>
-            </button>
-          </nav>
-
-          <button
-            type="button"
-            className={`mobile-toggle ${isMobileOpen ? "active" : ""}`}
-            onClick={toggleMobile}
-            aria-label="Toggle navigation menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </header>
+        <a className="header-cta" href={isAccess ? "#discovery-call" : brand.experienceCheckout}>
+          {isAccess ? "My Discovery Call" : experienceCtaLabel} <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+        </a>
+      </div>
 
       <style jsx>{`
         .site-header {
           position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
+          inset: 0 0 auto;
           z-index: 9999;
           background: rgba(18, 12, 6, 0.85);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-          transition: all 0.3s ease;
+          transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
         .site-header.scrolled {
@@ -102,125 +95,81 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
         .header-container {
           max-width: 1400px;
           margin: 0 auto;
-          padding: 16px 30px;
-          display: flex;
-          justify-content: space-between;
+          padding: 16px clamp(14px, 3vw, 30px);
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto auto;
+          gap: clamp(14px, 2.5vw, 36px);
           align-items: center;
         }
 
-        .header-container :global(.header-logo) {
+        .header-logo {
           display: flex;
-          align-items: center;
-          cursor: pointer;
-          text-decoration: none;
-          z-index: 10000;
+          justify-self: start;
+          background: radial-gradient(ellipse at 27% 34%, #d6ad6499, transparent 72%);
         }
 
-        .header-container :global(.header-logo) img {
-          height: 68px;
+        .header-logo img {
           width: auto;
+          height: 68px;
           max-width: 150px;
           object-fit: contain;
-          transition: transform 0.3s ease;
-        }
-
-        .header-container :global(.header-logo:hover) img {
-          transform: scale(1.04);
-        }
-
-        .main-nav {
-          display: flex;
-          align-items: center;
-          gap: 36px;
         }
 
         .nav-menu {
           display: flex;
-          list-style: none;
-          gap: 32px;
           align-items: center;
+          gap: clamp(14px, 2.5vw, 32px);
+          list-style: none;
         }
 
-        .nav-menu :global(a) {
+        .nav-menu a {
+          display: flex;
+          align-items: center;
+          position: relative;
+          min-height: 40px;
           color: rgba(255, 255, 255, 0.85);
           text-decoration: none;
-          font-size: 15px;
-          font-weight: 600;
-          letter-spacing: 0.4px;
-          transition: all 0.3s ease;
-          position: relative;
-          padding: 5px 0;
-          cursor: pointer;
-          font-family: var(--font-space);
+          white-space: nowrap;
+          font: 600 15px var(--font-space);
+          transition: color 0.2s ease;
         }
 
-        .nav-menu :global(a)::after {
+        .nav-menu a::after {
           content: "";
           position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
+          bottom: 4px;
+          inset-inline: 0;
           height: 2px;
           background: linear-gradient(90deg, #edbd55, #dba22d);
-          transition: width 0.3s ease;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.2s ease;
         }
 
-        .nav-menu :global(a:hover),
-        .nav-menu :global(a.active) {
+        .nav-menu a:hover,
+        .nav-menu a[aria-current="location"] {
           color: #edbd55;
         }
 
-        .nav-menu :global(a:hover)::after,
-        .nav-menu :global(a.active)::after {
-          width: 100%;
-        }
-
-        .careers-link {
-          display: inline-flex !important;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .hiring-badge {
-          display: inline-block;
-          padding: 3px 10px;
-          background: linear-gradient(135deg, #d8ac4a, #a77327);
-          color: #fff;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.5px;
-          border-radius: 12px;
-          text-transform: uppercase;
-          animation: pulse-glow 2s ease-in-out infinite;
-          box-shadow: 0 2px 10px rgba(183, 134, 56, 0.4);
-        }
-
-        @keyframes pulse-glow {
-          0%,
-          100% {
-            box-shadow: 0 2px 10px rgba(183, 134, 56, 0.4);
-          }
-          50% {
-            box-shadow: 0 2px 20px rgba(183, 134, 56, 0.7);
-          }
+        .nav-menu a:hover::after,
+        .nav-menu a[aria-current="location"]::after {
+          transform: scaleX(1);
         }
 
         .header-cta {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          padding: 12px 28px;
+          padding: 12px clamp(16px, 2.2vw, 28px);
           background: linear-gradient(135deg, #edbd55, #dba22d);
-          color: #fff;
-          border: none;
-          text-decoration: none;
+          color: #1b1205;
+          border: 0;
           border-radius: 8px;
-          font-weight: 700;
-          font-size: 14px;
-          transition: all 0.3s ease;
+          white-space: nowrap;
+          font: 700 14px var(--font-space);
           box-shadow: 0 5px 20px rgba(241, 201, 118, 0.3);
           cursor: pointer;
-          font-family: var(--font-space);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .header-cta:hover {
@@ -228,97 +177,46 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           box-shadow: 0 10px 30px rgba(241, 201, 118, 0.5);
         }
 
-        .mobile-toggle {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          cursor: pointer;
-          padding: 8px;
-          z-index: 10000;
-          background: transparent;
-          border: none;
-        }
-
-        .mobile-toggle span {
-          width: 28px;
-          height: 3px;
-          background: #edbd55;
-          border-radius: 2px;
-          transition: all 0.3s ease;
-          display: block;
-        }
-
-        .mobile-toggle.active span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-        .mobile-toggle.active span:nth-child(2) {
-          opacity: 0;
-        }
-        .mobile-toggle.active span:nth-child(3) {
-          transform: rotate(-45deg) translate(7px, -7px);
-        }
-
         @media (max-width: 1024px) {
-          .main-nav {
-            position: fixed;
-            top: 74px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 74px);
-            background: rgba(12, 8, 4, 0.98);
-            backdrop-filter: blur(20px);
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: 40px 25px;
-            gap: 0;
-            transform: translateX(-100%);
-            transition: transform 0.4s ease;
-            border-top: 1px solid rgba(241, 201, 118, 0.2);
-            overflow-y: auto;
+          .header-container {
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 4px 14px;
+            padding-block: 7px;
           }
 
-          .main-nav.active {
-            transform: translateX(0);
+          .header-logo img {
+            height: 42px;
+          }
+
+          nav {
+            grid-column: 1 / -1;
+            grid-row: 2;
           }
 
           .nav-menu {
-            flex-direction: column;
-            gap: 0;
-            width: 100%;
-          }
-
-          .nav-menu li {
-            width: 100%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-          }
-
-          .nav-menu :global(a) {
-            display: block;
-            width: 100%;
-            padding: 18px 10px;
-            font-size: 16px;
-          }
-
-          .careers-link {
-            display: flex !important;
             justify-content: space-between;
+            gap: 5px;
           }
 
-          .nav-menu :global(a)::after {
-            display: none;
+          .nav-menu a {
+            justify-content: center;
+            padding-inline: 1px;
+            font-size: clamp(11px, 3vw, 14px);
+            line-height: 1.2;
+            white-space: normal;
+            text-align: center;
           }
 
           .header-cta {
-            margin-top: 25px;
-            width: 100%;
-            justify-content: center;
-          }
-
-          .mobile-toggle {
-            display: flex;
+            padding: 9px 12px;
+            font-size: clamp(11px, 3vw, 13px);
           }
         }
+
+        @media (max-width: 390px) {
+          .header-cta i { display: none; }
+        }
       `}</style>
-    </>
+    </header>
   );
 }

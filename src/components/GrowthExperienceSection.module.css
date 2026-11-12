@@ -96,7 +96,7 @@
   margin-top: 34px;
   padding: 16px 20px;
   border: 1px solid #edbd553b;
-  border-radius: 14px;
+  border-radius: 8px;
   background: #edbd550d;
 }
 
@@ -112,7 +112,7 @@
   color: #edbd55;
 }
 
-button.enquiryButton {
+.enquiry a.enquiryButton {
   margin-top: 0;
   text-align: center;
 }

@@ -1,13 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import WistiaVideo from "./WistiaVideo";
+import { brand, experienceCtaLabel } from "@/lib/content";
+import TedxPhoto from "./TedxPhoto";
 
-interface HeroProps {
-  onOpenModal: () => void;
-}
-
-export default function Hero({ onOpenModal }: HeroProps) {
+export default function Hero() {
   const [cursorPos, setCursorPos] = useState({ x: -500, y: -500 });
 
   // Mouse move effect for cursor glow
@@ -79,27 +76,24 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 Stop spending more on ads. Start converting your hard earned leads into deals.
               </p>
 
-              <h2 id="hero-offer-title">3-Day Business Sales Growth Experience with Shweta Shah</h2>
+              <h2 id="hero-offer-title">Get 2 Exclusive 1:1 Calls with Shweta Shah</h2>
               <ol className="offer-days">
                 <li><strong className="offer-day-label">Day 1</strong><span>Learn – the 4 Pillars of Marketing &amp; Sales.</span></li>
                 <li><strong className="offer-day-label">Day 2</strong><span>Discover Call with Shweta Shah – Why your leads aren&apos;t converting.</span></li>
                 <li><strong className="offer-day-label">Day 3</strong><span>Sales Strategy Call with Shweta Shah – Get your personalised sales growth strategy.</span></li>
               </ol>
 
-              <button type="button" onClick={onOpenModal} className="offer-cta">
-                <span>Show me how to convert leads into deals</span>{" "}
-                <strong className="offer-price">Just ₹499/-</strong>
-              </button>
+              <a href={brand.experienceCheckout} className="offer-cta">{experienceCtaLabel}</a>
               <p className="offer-reassurance">
-                No generic marketing advice. | No random lead generation hacks. | No more guessing why leads aren&apos;t converting.
+                No generic tips. No random hacks. No more guesswork.
               </p>
               <p className="offer-outcome">
-                Just a clear, customised strategy to convert more hot and warm leads into paying customers.
+                Just a clear strategy to convert leads into paying clients.
               </p>
             </section>
           </div>
 
-          {/* Right founder video */}
+          {/* Founder photo and credentials */}
           <div
             className="founder-section hero-fade-in delay-3"
             id="founder-video"
@@ -108,16 +102,16 @@ export default function Hero({ onOpenModal }: HeroProps) {
               <div className="founder-glow" />
               <div className="founder-arch" />
 
-              <div className="founder-player">
-                <WistiaVideo mediaId="jl0gke8f4q" title="Business Growth Karma introduction by Shweta Shah" />
+              <div className="founder-photo">
+                <TedxPhoto eager />
               </div>
 
               {/* Founder credentials */}
               <div
-                className="float-card card-stats-riya"
+                className="float-card roi-badge"
               >
                 <div className="stat-icon">
-                  <i className="fa-solid fa-star" />
+                  <i className="fa-solid fa-star" aria-hidden="true" />
                 </div>
                 <div className="stat-content">
                   <h4>ROI Strategist</h4>
@@ -126,16 +120,22 @@ export default function Hero({ onOpenModal }: HeroProps) {
               </div>
 
               <div
-                className="float-card card-views-riya"
+                className="float-card projects-badge"
               >
                 <div className="stat-icon stat-icon-green">
-                  <i className="fa-solid fa-eye" />
+                  <i className="fa-solid fa-eye" aria-hidden="true" />
                 </div>
                 <div className="stat-content">
-                  <h4>500+</h4>
-                  <p>
-                    <i className="fa-solid fa-caret-up" /> Projects
-                  </p>
+                  <h4>500+ Projects</h4>
+                </div>
+              </div>
+
+              <div className="float-card expert-badge">
+                <div className="stat-icon">
+                  <i className="fa-solid fa-bullseye" aria-hidden="true" />
+                </div>
+                <div className="stat-content">
+                  <h4>Lead Generation &amp; Sales Expert</h4>
                 </div>
               </div>
 
@@ -490,7 +490,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           margin: 14px 0 12px;
           padding: 14px 16px;
           border: 1px solid #edbd55;
-          border-radius: 12px;
+          border-radius: 8px;
           background: linear-gradient(135deg, #f5d18a, #dba22d);
           color: #1b1205;
           cursor: pointer;
@@ -498,6 +498,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           font-size: 15px;
           font-weight: 700;
           line-height: 1.35;
+          text-align: center;
         }
 
         .offer-cta:hover {
@@ -507,11 +508,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
         .offer-cta:focus-visible {
           outline: 2px solid #fff8e8;
           outline-offset: 4px;
-        }
-
-        .offer-price {
-          flex-shrink: 0;
-          white-space: nowrap;
         }
 
         .offer-reassurance {
@@ -543,15 +539,15 @@ export default function Hero({ onOpenModal }: HeroProps) {
           position: relative;
           width: 100%;
           height: auto;
-          padding-top: 110px;
+          padding: 98px 0 72px;
           display: flex;
           align-items: center;
           justify-content: center;
         }
 
-        .founder-player {
+        .founder-photo {
           position: relative;
-          width: min(62%, 320px);
+          width: min(100%, 500px);
           z-index: 5;
         }
 
@@ -633,6 +629,10 @@ export default function Hero({ onOpenModal }: HeroProps) {
         /* Founder badges */
         .float-card {
           position: absolute;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 12px 16px;
           background: rgba(255, 255, 255, 0.05);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
@@ -652,43 +652,32 @@ export default function Hero({ onOpenModal }: HeroProps) {
           .float-card { animation: none; }
         }
 
-        .card-stats-riya {
+        .roi-badge {
           top: 0;
           left: 0;
-          padding: 15px 24px;
           border-right: 4px solid #b38532;
-          display: flex;
-          align-items: center;
-          gap: 15px;
         }
 
-        .card-views-riya {
+        .projects-badge {
           top: 0;
           right: 0;
-          padding: 15px 24px;
           border-left: 4px solid #d8ac4a;
-          display: flex;
-          align-items: center;
-          gap: 15px;
+          animation-delay: -2s;
         }
 
-        .card-stats-vibhav {
-          top: 100px;
-          left: -70px;
-          padding: 15px 25px;
-          border-right: 4px solid #b38532;
-          max-width: 260px;
+        .expert-badge {
+          bottom: 0;
+          right: 0;
+          border-left: 4px solid #b38532;
+          animation-delay: -4s;
         }
 
-        .card-stats-vibhav-2 {
-          top: 100px;
-          right: -60px;
-          padding: 15px 25px;
-          border-left: 4px solid #d8ac4a;
-          max-width: 260px;
+        @media (min-width: 1025px) {
+          .expert-badge { bottom: 62px; }
         }
 
         .stat-icon {
+          flex-shrink: 0;
           width: 40px;
           height: 40px;
           background: linear-gradient(135deg, #b38532, #e7be6c);
@@ -851,34 +840,14 @@ export default function Hero({ onOpenModal }: HeroProps) {
             transform: none;
           }
 
-          .founder-stage-container {
-            height: auto;
-            padding: 100px 0 0;
-          }
-
-          .founder-player {
-            width: min(86%, 300px);
-          }
-
-          .card-stats-riya {
-            top: 0;
-            left: 0;
-            transform: scale(0.9);
-          }
-          .card-views-riya {
-            display: none !important;
-          }
-          .card-stats-vibhav {
-            top: 30px;
-            left: 10px;
-            transform: scale(0.9);
-          }
-          .card-stats-vibhav-2 {
-            display: none !important;
-          }
         }
 
         @media (max-width: 480px) {
+          .founder-stage-container { padding-block: 75px 60px; }
+          .float-card { padding: 8px 9px; gap: 6px; }
+          .stat-icon { width: 27px; height: 27px; font-size: 13px; }
+          .stat-content h4 { font-size: 12px; }
+          .stat-content p { font-size: 10px; }
           .hero-headline {
             font-size: 36px;
           }

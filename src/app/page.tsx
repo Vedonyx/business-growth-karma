@@ -1,4 +1,2 @@
 import ClonePage from '@/components/ClonePage';
-
-
-export default function Page() { return <ClonePage page="home" />; }
+export default function Page() { return <ClonePage />; }

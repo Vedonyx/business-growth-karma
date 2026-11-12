@@ -1,3 +1,4 @@
+import { brand, experienceCtaLabel } from "@/lib/content";
 import styles from "./GrowthInvestmentSection.module.css";
 
 const programmeBenefits = [
@@ -8,7 +9,7 @@ const programmeBenefits = [
   "Customised marketing and sales recommendations",
 ];
 
-export default function GrowthInvestmentSection({ onOpenModal }: { onOpenModal: () => void }) {
+export default function GrowthInvestmentSection() {
   return (
     <section className="clone-extra-section" id="investment" aria-labelledby="growth-investment-title">
       <div className={styles.container}>
@@ -32,9 +33,9 @@ export default function GrowthInvestmentSection({ onOpenModal }: { onOpenModal: 
               ))}
             </ul>
 
-            <button type="button" className={`clone-action ${styles.cta}`} onClick={onOpenModal} aria-haspopup="dialog">
-              PAY ₹499 &amp; START MY 3-DAY JOURNEY
-            </button>
+            <a className={`clone-action checkout-cta ${styles.cta}`} href={brand.experienceCheckout}>
+              {experienceCtaLabel}
+            </a>
             <p className={styles.flow}>Payment → Video Access → Discovery Call → Strategy Call</p>
           </div>
 

@@ -35,7 +35,7 @@ export default function GrowthNumbersSection() {
     >
       <div className={styles.header}>
         <div className="section-badge">BUSINESS GROWTH KARMA</div>
-        <h2 id="growth-numbers-title">Numbers That Drive <span className="gradient-text">Growth</span></h2>
+        <h2 id="growth-numbers-title">Numbers That <span className="gradient-text">Can&apos;t be Ignored</span></h2>
         <button
           className={styles.motionButton}
           type="button"

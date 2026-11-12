@@ -10,10 +10,13 @@ export const brand = {
   secondEmail: 'shwetavshah23@gmail.com',
   address: '207B, 2nd Floor, Rajgruhi Business Hub, near Go Pune City, Kondhwa Budruk, Pune, Maharashtra 411048',
   booking: 'https://shwetashah.in/book-call.html',
+  experienceCheckout: 'https://shwetashah.in/bootcamp-webinar.html',
   linkedIn: 'https://www.linkedin.com/in/shweta-shah-digital-marketing/',
   ebook: 'https://drive.google.com/file/d/1smkkTmHFV1t0IuGaz352ib7rz_Rel67y/view',
   tedx: 'https://www.youtube.com/watch?v=GfbIvOl_wSA',
 };
+
+export const experienceCtaLabel = 'Book My 2 Personal Calls Now ₹499!';
 
 export const images = assets.images;
 export const videos = assets.videos;
