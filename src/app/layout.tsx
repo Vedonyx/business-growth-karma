@@ -1,9 +1,27 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import SiteFrame from '@/components/SiteFrame';
 import StyledJsxRegistry from './registry';
 import { brand } from '@/lib/content';
 import './globals.css';
 import './clone-additions.css';
+
+const metaPixelId = '3542667689389400';
+const metaPixelScript = `
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];
+  t=b.createElement(e);t.async=!0;
+  t.src=v;
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '${metaPixelId}');
+  fbq('track', 'PageView');
+`;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shwetashah.in'),
@@ -17,6 +35,32 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const showMetaPixel = process.env.NODE_ENV === 'production' && process.env.VERCEL_ENV !== 'preview';
   const schema = { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: brand.name, founder: { '@type': 'Person', name: 'Shweta Vallabh Shah' }, url: 'https://shwetashah.in', email: brand.email, telephone: '+919920220513', address: { '@type': 'PostalAddress', streetAddress: '207B, 2nd Floor, Rajgruhi Business Hub, Kondhwa Budruk', addressLocality: 'Pune', addressRegion: 'Maharashtra', postalCode: '411048', addressCountry: 'IN' }, sameAs: [brand.linkedIn, 'https://instagram.com/shwetashah.in', 'https://youtube.com/shwetashah'] };
-  return <html lang="en"><head><link rel="stylesheet" href="/fonts/clone-fonts.css" /><link rel="stylesheet" href="/fonts/fontawesome.css" /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} /></head><body id="top"><StyledJsxRegistry><SiteFrame>{children}</SiteFrame></StyledJsxRegistry></body></html>;
+  return (
+    <html lang="en">
+      <head>
+        <link rel="stylesheet" href="/fonts/clone-fonts.css" />
+        <link rel="stylesheet" href="/fonts/fontawesome.css" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
+        {showMetaPixel && <Script id="meta-pixel" strategy="beforeInteractive">{metaPixelScript}</Script>}
+      </head>
+      <body id="top">
+        {showMetaPixel && (
+          <noscript>
+            <img
+              src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
+              width={1}
+              height={1}
+              style={{ display: 'none' }}
+              alt=""
+            />
+          </noscript>
+        )}
+        <StyledJsxRegistry>
+          <SiteFrame>{children}</SiteFrame>
+        </StyledJsxRegistry>
+      </body>
+    </html>
+  );
 }

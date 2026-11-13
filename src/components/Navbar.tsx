@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { brand, experienceCtaLabel, imageFor } from "@/lib/content";
 
 const homeTopics = [
-  { id: "reviews", label: "Our USP" },
   { id: "framework", label: "The Solution" },
+  { id: "reviews", label: "Our USP" },
   { id: "plan-transformation", label: "The Transformation" },
   { id: "about-shweta", label: "About Shweta Shah" },
   { id: "our-clients", label: "Our Clients" },

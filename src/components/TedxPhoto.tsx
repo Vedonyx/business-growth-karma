@@ -1,6 +1,6 @@
 import { imageFor } from "@/lib/content";
 
-export default function TedxPhoto({ eager = false }: { eager?: boolean }) {
+export default function TedxPhoto() {
   return (
     <figure className="tedx-photo">
       <img
@@ -8,7 +8,7 @@ export default function TedxPhoto({ eager = false }: { eager?: boolean }) {
         alt="Shweta Shah speaking on the TEDx stage"
         width={644}
         height={653}
-        loading={eager ? "eager" : "lazy"}
+        loading="lazy"
       />
     </figure>
   );

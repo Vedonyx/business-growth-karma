@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { brand, experienceCtaLabel } from "@/lib/content";
-import TedxPhoto from "./TedxPhoto";
+import WistiaVideo from "./WistiaVideo";
 
 export default function Hero() {
   const [cursorPos, setCursorPos] = useState({ x: -500, y: -500 });
@@ -93,7 +93,7 @@ export default function Hero() {
             </section>
           </div>
 
-          {/* Founder photo and credentials */}
+          {/* Founder video and credentials */}
           <div
             className="founder-section hero-fade-in delay-3"
             id="founder-video"
@@ -102,8 +102,8 @@ export default function Hero() {
               <div className="founder-glow" />
               <div className="founder-arch" />
 
-              <div className="founder-photo">
-                <TedxPhoto eager />
+              <div className="founder-player">
+                <WistiaVideo mediaId="jl0gke8f4q" title="Business Growth Karma introduction by Shweta Shah" />
               </div>
 
               {/* Founder credentials */}
@@ -510,6 +510,11 @@ export default function Hero() {
           outline-offset: 4px;
         }
 
+        .offer-reassurance,
+        .offer-outcome {
+          text-align: center;
+        }
+
         .offer-reassurance {
           color: #c9baa1;
           font-size: 13px;
@@ -545,9 +550,9 @@ export default function Hero() {
           justify-content: center;
         }
 
-        .founder-photo {
+        .founder-player {
           position: relative;
-          width: min(100%, 500px);
+          width: min(72%, 320px);
           z-index: 5;
         }
 
@@ -670,10 +675,6 @@ export default function Hero() {
           right: 0;
           border-left: 4px solid #b38532;
           animation-delay: -4s;
-        }
-
-        @media (min-width: 1025px) {
-          .expert-badge { bottom: 62px; }
         }
 
         .stat-icon {
