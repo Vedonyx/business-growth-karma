@@ -15,7 +15,7 @@ export default function GrowthExperienceSection() {
         <p className={styles.offerTitle}>Introducing the 3-Day Business Sales Growth Experience</p>
         <span className={styles.price}>Only ₹499</span>
         <p>Three days. Two exclusive 1:1 calls. Four powerful learning modules.</p>
-        <p>A structured experience to help you understand what is missing in your business growth system.</p>
+        <p className="desktop-detail">A structured experience to help you understand what is missing in your business growth system.</p>
       </header>
 
       <div className={styles.journey}>

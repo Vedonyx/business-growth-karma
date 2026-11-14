@@ -173,6 +173,14 @@ export default function FaqSection({ experience = false }: { experience?: boolea
           animation: slideDown 0.3s ease-out;
         }
 
+        @media (max-width: 600px) {
+          .faq-section { padding: 48px 16px; }
+          .faq-header { margin-bottom: 24px; }
+          .faq-title { font-size: clamp(25px, 6.4vw, 32px); }
+          .faq-question { gap: 12px; padding: 15px 16px; font-size: 15px; }
+          .faq-answer { padding: 0 16px 15px; }
+        }
+
         @keyframes slideDown {
           from {
             opacity: 0;

@@ -49,9 +49,9 @@ export default function PillarAccessPage() {
             You&apos;ve Taken the First Step Towards <span className="gradient-text">Smarter Business Growth!</span>
           </h1>
           <p><strong>Your payment is successful!</strong></p>
-          <p>You&apos;re now ready to discover the right strategies for generating quality leads, improving sales conversions, and growing your business.</p>
+          <p className="desktop-detail">You&apos;re now ready to discover the right strategies for generating quality leads, improving sales conversions, and growing your business.</p>
           <h2>Your 4 Exclusive Learning Videos Are Ready!</h2>
-          <p>Learn the 4 essential pillars of business sales growth, step by step.</p>
+          <p>Learn the 4 pillars of business sales growth, step by step.</p>
           <a className="clone-action" href="#pillar-lessons">
             Watch the 4 Videos <i className="fa-solid fa-arrow-down" aria-hidden="true" />
           </a>
@@ -80,11 +80,11 @@ export default function PillarAccessPage() {
 
         <div className={styles.nextSteps}>
           <h3>Congratulations! You&apos;re Now Equipped With the 4 Pillars!</h3>
-          <p>You now have a better understanding of what works, what doesn&apos;t, and what your business needs to improve its sales conversions.</p>
-          <p>But learning is just the beginning. Implementation is where real growth happens!</p>
+          <p className="desktop-detail">You now have a better understanding of what works, what doesn&apos;t, and what your business needs to improve its sales conversions.</p>
+          <p className="desktop-detail">But learning is just the beginning. Implementation is where real growth happens!</p>
           <h3>Ready to Accelerate Your Business Growth?</h3>
           <p><strong>Get Exclusive Business Growth Guidance with Shweta Shah!</strong></p>
-          <p>Take the next step towards building a predictable lead generation and sales conversion system.</p>
+          <p className="desktop-detail">Take the next step towards building a predictable lead generation and sales conversion system.</p>
           <p>Book an exclusive 1:1 call with Shweta Shah and discuss your business growth challenges.</p>
         </div>
       </section>

@@ -21,9 +21,16 @@
 }
 
 .copy p + p { margin-top: 14px; }
+.copy > div { margin-top: 14px; }
 .copy p.emphasis { color: #f5d18a; font-weight: 700; }
 
 @media (max-width: 760px) {
   .layout { grid-template-columns: minmax(0, 1fr); }
   .copy p { font-size: 15px; }
+}
+
+@media (max-width: 600px) {
+  .layout { gap: 20px; }
+  .copy h2 { margin-bottom: 12px; font-size: clamp(25px, 6.4vw, 32px); }
+  .copy p { line-height: 1.55; }
 }

@@ -5,19 +5,19 @@ import { usePathname } from "next/navigation";
 import { brand, experienceCtaLabel, imageFor } from "@/lib/content";
 
 const homeTopics = [
-  { id: "framework", label: "The Solution" },
-  { id: "reviews", label: "Our USP" },
-  { id: "plan-transformation", label: "The Transformation" },
-  { id: "about-shweta", label: "About Shweta Shah" },
-  { id: "our-clients", label: "Our Clients" },
+  { id: "framework", label: "The Solution", shortLabel: "Solution" },
+  { id: "reviews", label: "Our USP", shortLabel: "USP" },
+  { id: "plan-transformation", label: "The Transformation", shortLabel: "Results" },
+  { id: "about-shweta", label: "About Shweta Shah", shortLabel: "About" },
+  { id: "our-clients", label: "Our Clients", shortLabel: "Clients" },
 ];
 
 const accessTopics = [
-  { id: "pillar-lessons", label: "Videos" },
-  { id: "packages", label: "Our Services" },
-  { id: "plan-transformation", label: "The Transformation" },
-  { id: "reviews", label: "Our USP" },
-  { id: "connect", label: "Contact" },
+  { id: "pillar-lessons", label: "Videos", shortLabel: "Videos" },
+  { id: "packages", label: "Our Services", shortLabel: "Services" },
+  { id: "plan-transformation", label: "The Transformation", shortLabel: "Results" },
+  { id: "reviews", label: "Our USP", shortLabel: "USP" },
+  { id: "connect", label: "Contact", shortLabel: "Contact" },
 ];
 
 export default function Navbar() {
@@ -45,7 +45,7 @@ export default function Navbar() {
 
   return (
     <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
-      <div className="header-container">
+      <div className={`header-container ${isAccess ? "access-header" : "home-header"}`}>
         <a href={isHome ? "#home" : "/"} className="header-logo">
           <img
             className="brand-logo-artwork"
@@ -56,13 +56,14 @@ export default function Navbar() {
 
         <nav aria-label="Page sections">
           <ul className="nav-menu">
-            {topics.map(({ id, label }) => (
+            {topics.map(({ id, label, shortLabel }) => (
               <li key={id}>
                 <a
                   href={`${sectionPrefix}#${id}`}
                   aria-current={!sectionPrefix && activeTopic === id ? "location" : undefined}
                 >
-                  {label}
+                  <span className="desktop-detail">{label}</span>
+                  <span className="phone-only">{shortLabel}</span>
                 </a>
               </li>
             ))}
@@ -216,8 +217,20 @@ export default function Navbar() {
           }
         }
 
-        @media (max-width: 390px) {
-          .header-cta i { display: none; }
+        @media (max-width: 600px) {
+          .header-container { padding: 5px 12px; gap: 2px 10px; }
+          .header-logo img { height: 36px; }
+          .nav-menu { gap: 4px; }
+          .nav-menu a { min-height: 44px; min-width: 44px; padding-inline: 2px; font-size: clamp(11px, 3.2vw, 14px); }
+          .home-header nav { grid-column: 2; grid-row: 1; }
+          .home-header .header-cta { display: none; }
+          .access-header .header-cta { min-height: 44px; }
+        }
+
+        @media (max-width: 360px) {
+          .home-header { padding-inline: 8px; column-gap: 5px; }
+          .home-header .header-logo img { height: 32px; }
+          .home-header .nav-menu { gap: 2px; }
         }
       `}</style>
     </header>

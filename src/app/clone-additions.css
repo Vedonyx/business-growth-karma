@@ -126,4 +126,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible { 
   .clone-temple-roof { height:95px;padding-bottom:12px;gap:6px;border-bottom-width:6px; }.clone-temple-roof>i { font-size:22px; }.clone-temple-roof>span { font-size:15px;letter-spacing:.3px; }.clone-pillar-grid { padding-inline:10px;gap:20px; }.clone-pillar { padding:30px 12px 25px; }.clone-pillar>i { font-size:28px;margin-top:17px; }.clone-pillar-number { font-size:8px;left:8px;top:23px; }.clone-pillar h3 { font-size:19px;min-height:52px; }.clone-pillar .clone-small-label { font-size:8px;letter-spacing:.5px;min-height:32px; }.clone-pillar p { font-size:11px;line-height:1.8; }.clone-column-cap,.clone-column-base { height:10px;left:-6px;right:-6px; }.clone-temple-foundation { font-size:8px;letter-spacing:.2px;gap:10px; }.clone-pillar-detail { padding:23px 20px; }.clone-pillar-detail h3 { font-size:22px; }
   .clone-glass-card { padding:26px 23px; }.clone-glass-card h3 { font-size:23px; }.clone-glass-card p { font-size:14px; }.clone-flow { font-size:10px;gap:8px; }.clone-flow>i { font-size:9px; }.clone-journey-card h3 { font-size:26px; }.clone-learning-card { flex-direction:column;align-items:start; }.clone-learning-card>img { width:125px; }.clone-benefits-grid { grid-template-columns:1fr;gap:20px; }.clone-benefits-grid .clone-glass-card { padding:25px; }.clone-media-heading { padding:12px 15px;font-size:12px; }.clone-media-dialog { border-radius:18px; }.clone-action,.clone-gallery-more { font-size:12px;padding:14px 20px; }.clone-system-video { padding:10px; }.clone-system-video>p { font-size:12px; }
 }
+@media (max-width: 600px) {
+  html { scroll-padding-bottom: 72px; }
+  .clone-extra-section { padding: 48px 16px; }
+  .clone-section-header { margin-bottom: 24px; }
+  .clone-section-header h1, .clone-section-header h2 { font-size: clamp(25px, 6.4vw, 32px); text-wrap: balance; }
+  .clone-section-header p { margin-top: 12px; font-size: 15px; line-height: 1.55; }
+  .clone-purpose-layout { gap: 22px; }
+  .clone-purpose-diagram { max-width: 246px; }
+  .clone-purpose-card { padding: 16px; }
+  .clone-action { min-height: 44px; }
+  .clone-client-rail { padding-block: 22px; }
+}
+
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .clone-logo-track,.clone-purpose-diagram,.clone-pillar>i { animation:none; } }

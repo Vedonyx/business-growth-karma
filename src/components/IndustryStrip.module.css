@@ -63,11 +63,10 @@
 }
 
 @media (max-width: 540px) {
-  .section { padding: 50px 20px 40px; }
-  .section::before { height: 2px; }
-  .heading { margin-bottom: 28px; }
-  .grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .industry { min-height: 62px; padding: 16px; border-radius: 14px; }
+  .section { padding: 42px 16px; }
+  .heading { margin-bottom: 20px; font-size: clamp(20px, 5.2vw, 25px); text-wrap: balance; }
+  .grid { gap: 8px; }
+  .industry { min-height: 52px; padding: 8px; border-radius: 12px; font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1066,14 +1066,21 @@ export default function PeakStorySection() {
         }
 
         @media (max-width: 600px) {
+          .fps-wrap { width: 100%; padding: 48px 16px; }
+          .fps-title { font-size: clamp(25px, 6.4vw, 32px); }
           .fps-stage {
-            height: 470px;
+            height: 330px;
+            margin-bottom: 0;
           }
           .fps-start-card {
-            width: 160px;
+            width: 47%;
             bottom: 15px;
             padding: 10px;
           }
+          .fps-start-head { gap: 6px; }
+          .fps-start-icon { width: 27px; height: 27px; font-size: 13px; border-radius: 8px; }
+          .fps-start-title { font-size: 13px; }
+          .fps-start-meta { font-size: 8px; letter-spacing: 0; }
           .fps-summit {
             top: 55px;
             width: 220px;

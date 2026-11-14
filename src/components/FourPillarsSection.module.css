@@ -219,20 +219,30 @@
   .foundation { flex-direction: column; align-items: flex-start; gap: 13px; }
   .foundation > span { font-size: 13px; }
 }
-@media (max-width: 540px) {
-  .roof { padding: 20px; gap: 14px; border-radius: 16px; }
-  .roofLabel { font-size: 9px; letter-spacing: 1px; }
-  .roof h3 { font-size: 21px; }
+@media (max-width: 600px) {
+  .layout { gap: 20px; }
+  .roof { padding: 14px; gap: 8px; border-radius: 12px; min-height: 78px; }
+  .roofLabel { font-size: 10px; letter-spacing: 1px; }
+  .roof h3 { font-size: 19px; }
+  .solution .roof { min-height: 108px; padding-bottom: 12px; }
   .solution .roof h3 { font-size: clamp(17px, 5vw, 21px); }
-  .pillars { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-block: 28px; }
-  .pillar { padding: 26px; }
-  .pillar h4 { min-height: 0; font-size: 20px; margin-bottom: 22px; }
-  .pillar p { font-size: 15px; }
-  .label { font-size: 11px; }
-  .icon { width: 50px; height: 50px; font-size: 24px; }
-  .foundation { padding: 20px; }
-  .videoStage { padding: 30px 24px; }
-  .video { max-width: 300px; }
+  .pillars { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-block: 16px; }
+  .pillar {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 10px;
+    padding: 12px;
+    animation: none;
+  }
+  .pillar::before, .pillar::after { display: none; }
+  .number { grid-column: 2; margin-bottom: 2px; }
+  .icon { grid-area: 1 / 1 / span 2; width: 34px; height: 34px; margin: 0; font-size: 17px; }
+  .pillar h4 { grid-column: 2; min-height: 0; font-size: 16px; margin: 0; }
+  .summary { grid-column: 2; font-size: 14px; }
+  .foundation { padding: 12px 14px; gap: 5px; }
+  .videoStage { padding: 18px; }
+  .video { max-width: 248px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pillar { animation: none; }

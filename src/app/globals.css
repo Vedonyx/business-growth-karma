@@ -59,6 +59,13 @@ html {
   overflow-x: hidden;
 }
 
+.phone-only { display: none; }
+
+@media (max-width: 600px) {
+  .phone-only { display: revert; }
+  .desktop-detail { display: none; }
+}
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);

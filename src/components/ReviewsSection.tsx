@@ -14,10 +14,19 @@ export default function ReviewsSection({ leadConversionProof = false }: { leadCo
         <div className={`clone-section-header ${styles.proofHeader}`}>
           <h2 id="client-reviews-title">OUR <span className="gradient-text">2 USP</span></h2>
           <ul className={styles.uspList}>
-            <li>We help you convert more <strong>hot leads</strong> into deals in <strong>24 hours to 25 days</strong>.</li>
-            <li>We help you convert more <strong>warm leads</strong> into deals in <strong>2 to 12 months</strong>.</li>
+            <li>
+              <span className="desktop-detail">We help you convert more <strong>hot leads</strong> into deals in </span>
+              <span className="phone-only">Convert hot leads in </span>
+              <strong>24 hours to 25 days</strong>.
+            </li>
+            <li>
+              <span className="desktop-detail">We help you convert more <strong>warm leads</strong> into deals in </span>
+              <span className="phone-only">Convert warm leads in </span>
+              <strong>2 to 12 months</strong>.
+            </li>
           </ul>
           <h3 className={styles.proofTitle} id="client-review-proof">Here is the Proof</h3>
+          <p className="phone-only">Tap any review to enlarge it.</p>
         </div>
       ) : (
         <div className="clone-section-header">

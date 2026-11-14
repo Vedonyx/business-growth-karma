@@ -17,6 +17,7 @@ export const brand = {
 };
 
 export const experienceCtaLabel = 'Book my 2 Exclusive 1:1 Calls with Shweta Shah';
+export const compactExperienceCtaLabel = 'Book 2 Exclusive Calls · ₹499';
 
 export const images = assets.images;
 export const videos = assets.videos;

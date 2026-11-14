@@ -40,15 +40,17 @@
   text-align: center;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 600px) {
+  .clearance { height: calc(72px + env(safe-area-inset-bottom)); }
+
   .bar {
     bottom: calc(8px + env(safe-area-inset-bottom));
     gap: 10px;
     width: calc(100% - 20px);
-    padding: 10px 12px;
+    padding: 5px;
     background: #181209;
   }
 
   .logo, .copy, .button i { display: none; }
-  .bar a.button { width: 100%; max-width: none; padding-inline: 8px; }
+  .bar a.button { width: 100%; max-width: none; padding-inline: 8px; font-size: 14px; }
 }

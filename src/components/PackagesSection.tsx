@@ -334,6 +334,20 @@ export default function PackagesSection({ heading }: { heading?: string } = {}) 
             transform: translateY(-8px);
           }
         }
+
+        @media (max-width: 600px) {
+          .packages-section { padding: 48px 16px; }
+          .packages-header { margin-bottom: 24px; }
+          .packages-title { font-size: clamp(25px, 6.4vw, 32px); }
+          .packages-row { gap: 14px; }
+          .package-card { padding: 18px; }
+          .package-tag { position: static; align-self: flex-start; margin-bottom: 12px; }
+          .package-heading { margin-bottom: 12px; }
+          .package-name { font-size: 18px; }
+          .package-price { font-size: 27px; }
+          .price-cycle { display: inline-block; margin-left: 4px; }
+          .package-ideal-for { margin-bottom: 16px; }
+        }
       `}</style>
     </section>
   );

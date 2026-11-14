@@ -10,24 +10,28 @@ const growthPillars = [
     title: "The Setup",
     icon: "fa-solid fa-gears",
     what: "Landing page integrated with the Sales Psychology System.",
+    summary: "A Sales Psychology landing page that turns enquiries into deals.",
     benefit: "Convert your hot and warm leads into deals.",
   },
   {
     title: "Strong Branding",
     icon: "fa-solid fa-bullhorn",
     what: "Build an organic social media presence with exclusive branding for individuals, companies, products and services.",
+    summary: "Organic social media branding that keeps customers connected.",
     benefit: "Keep old, existing and new clients connected to your brand.",
   },
   {
     title: "Strong Sales Team",
     icon: "fa-solid fa-users",
     what: "Regular sales training on SOPs.",
+    summary: "Sales training and SOPs to help teams close more deals.",
     benefit: "Help your team convert leads into deals.",
   },
   {
     title: "Quality Lead Generation",
     icon: "fa-solid fa-bullseye",
     what: "Paid ads on Google, Meta, ChatGPT and LinkedIn.",
+    summary: "Paid ads on Google, Meta, ChatGPT and LinkedIn to reach ready-to-buy leads.",
     benefit: "Get interested, ready-to-buy leads from the first month.",
   },
 ];
@@ -68,11 +72,12 @@ export default function FourPillarsSection({
                 <span className={styles.number}>PILLAR 0{index + 1}</span>
                 <span className={styles.icon}><i className={pillar.icon} aria-hidden="true" /></span>
                 <h4>{pillar.title}</h4>
-                <div className={styles.what}>
+                <p className={`${styles.summary} phone-only`}>{pillar.summary}</p>
+                <div className={`${styles.what} desktop-detail`}>
                   <span className={styles.label}>What we do</span>
                   <p>{pillar.what}</p>
                 </div>
-                <div className={styles.benefit}>
+                <div className={`${styles.benefit} desktop-detail`}>
                   <span className={styles.label}>Benefit</span>
                   <p>{pillar.benefit}</p>
                 </div>

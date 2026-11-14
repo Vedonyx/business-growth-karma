@@ -1,4 +1,4 @@
-import { brand, experienceCtaLabel, imageFor } from "@/lib/content";
+import { brand, compactExperienceCtaLabel, experienceCtaLabel, imageFor } from "@/lib/content";
 import styles from "./StickyExperienceCta.module.css";
 
 export default function StickyExperienceCta() {
@@ -12,7 +12,9 @@ export default function StickyExperienceCta() {
           <p>4 videos and 2 exclusive 1:1 calls with Shweta Shah</p>
         </div>
         <a className={`clone-action checkout-cta ${styles.button}`} href={brand.experienceCheckout}>
-          {experienceCtaLabel} <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+          <span className="desktop-detail">{experienceCtaLabel}</span>
+          <span className="phone-only">{compactExperienceCtaLabel}</span>
+          <i className="fa-solid fa-arrow-right" aria-hidden="true" />
         </a>
       </aside>
     </>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { brand, experienceCtaLabel } from "@/lib/content";
+import { brand, compactExperienceCtaLabel, experienceCtaLabel } from "@/lib/content";
 import WistiaVideo from "./WistiaVideo";
 
 export default function Hero() {
@@ -40,7 +40,8 @@ export default function Hero() {
           {/* Left Text Content */}
           <div className="content-wrapper">
             <p className="hero-intro hero-fade-in delay-1">
-              We do ROI-based lead generation from Google, Meta, etc. and make AI videos for strong branding on social media
+              <span className="desktop-detail">We do ROI-based lead generation from Google, Meta, etc. and make AI videos for strong branding on social media</span>
+              <span className="phone-only">ROI-based lead generation on Google and Meta, plus AI videos for social media branding.</span>
             </p>
 
             <h1 className="hero-headline hero-fade-in delay-2" id="fobet-hero-title">
@@ -68,22 +69,33 @@ export default function Hero() {
 
             <section className="hero-offer hero-fade-in delay-3" aria-labelledby="hero-offer-title">
               <div className="offer-windows">
-                <p><strong>Convert Hot Leads</strong> in 24 hrs to 25 days</p>
-                <p><strong>Convert Warm Leads</strong> between 2 months to 12 months</p>
+                <p><strong>Convert Hot Leads</strong><span className="desktop-detail">in </span>24 hrs to 25 days</p>
+                <p><strong>Convert Warm Leads</strong><span className="desktop-detail">between 2 months to 12 months</span><span className="phone-only">2 to 12 months</span></p>
               </div>
-              <p className="offer-promise">
+              <p className="offer-promise desktop-detail">
                 Stop spending more on ads. Start converting your hard earned leads into deals.
               </p>
 
               <h2 id="hero-offer-title">Get 2 Exclusive 1:1 Calls with Shweta Shah</h2>
               <ol className="offer-days">
-                <li><strong className="offer-day-label">Day 1</strong><span>Learn – the 4 Pillars of Marketing &amp; Sales.</span></li>
-                <li><strong className="offer-day-label">Day 2</strong><span>Discover Call with Shweta Shah – Why your leads aren&apos;t converting.</span></li>
-                <li><strong className="offer-day-label">Day 3</strong><span>Sales Strategy Call with Shweta Shah – Get an exclusive sales growth strategy tailored to your business.</span></li>
+                <li><strong className="offer-day-label">Day 1</strong><span>Learn the 4 Pillars of Marketing &amp; Sales.</span></li>
+                <li>
+                  <strong className="offer-day-label">Day 2</strong>
+                  <span className="desktop-detail">Discover Call with Shweta Shah – Why your leads aren&apos;t converting.</span>
+                  <span className="phone-only">Discovery call to see why leads aren&apos;t converting.</span>
+                </li>
+                <li>
+                  <strong className="offer-day-label">Day 3</strong>
+                  <span className="desktop-detail">Sales Strategy Call with Shweta Shah – Get an exclusive sales growth strategy tailored to your business.</span>
+                  <span className="phone-only">Strategy call for a tailored sales growth plan.</span>
+                </li>
               </ol>
 
-              <a href={brand.experienceCheckout} className="offer-cta">{experienceCtaLabel}</a>
-              <p className="offer-reassurance">
+              <a href={brand.experienceCheckout} className="offer-cta">
+                <span className="desktop-detail">{experienceCtaLabel}</span>
+                <span className="phone-only">{compactExperienceCtaLabel}</span>
+              </a>
+              <p className="offer-reassurance desktop-detail">
                 No generic tips. No random hacks. No more guesswork.
               </p>
               <p className="offer-outcome">
@@ -819,29 +831,34 @@ export default function Hero() {
 
         }
 
-        @media (max-width: 480px) {
-          .founder-stage-container { padding-top: 75px; }
+        @media (max-width: 600px) {
+          .hero-fade-in { animation: none; }
+          .fobet-hero-wrapper { padding-top: 55px; }
+          .hero-redesigned { min-height: 0; padding: 28px 16px 30px; }
+          .hero-container { padding-inline: 0; gap: 20px; }
+          .hero-intro { margin-bottom: 12px; }
+          .hero-headline { font-size: clamp(29px, 8.2vw, 42px); text-wrap: balance; margin-bottom: 18px; }
+          .hero-offer { padding: 14px; }
+          .hero-offer h2 { margin-top: 14px; }
+          .offer-windows { gap: 8px; }
+          .offer-windows p { padding: 8px; font-size: 13px; }
+          .offer-days li { gap: 9px; padding-block: 6px; }
+          .offer-cta { min-height: 44px; padding: 10px; }
+          .founder-stage-container { padding-top: 62px; padding-bottom: 6px; }
+          .founder-player { width: min(100%, 248px); }
+          .founder-info-container { height: auto; }
+          .info-slide { position: relative; }
+          .founder-expertise {
+            width: fit-content;
+            padding: 8px 12px;
+            gap: 9px;
+            font-size: 14px;
+          }
+          .founder-expertise .stat-icon { width: 30px; height: 30px; font-size: 15px; }
           .float-card { padding: 8px 9px; gap: 6px; }
           .stat-icon { width: 27px; height: 27px; font-size: 13px; }
           .stat-content h4 { font-size: 12px; }
           .stat-content p { font-size: 10px; }
-          .hero-headline {
-            font-size: 36px;
-          }
-
-          .hero-container {
-            padding-inline: 4px;
-          }
-
-          .offer-windows {
-            grid-template-columns: 1fr;
-            gap: 8px;
-          }
-
-          .offer-cta {
-            flex-direction: column;
-            gap: 4px;
-          }
         }
 
       `}</style>
