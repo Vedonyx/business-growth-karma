@@ -105,6 +105,15 @@ export default function Hero() {
                 <WistiaVideo mediaId="jl0gke8f4q" title="Business Growth Karma introduction by Shweta Shah" />
               </div>
 
+              <div className="founder-socials" role="group" aria-label="Follow Shweta Shah">
+                <a href={brand.linkedIn} target="_blank" rel="noreferrer" aria-label="Shweta Shah on LinkedIn">
+                  <i className="fa-brands fa-linkedin" aria-hidden="true" />
+                </a>
+                <a href="https://instagram.com/shwetashah.in" target="_blank" rel="noreferrer" aria-label="Shweta Shah on Instagram">
+                  <i className="fa-brands fa-instagram" aria-hidden="true" />
+                </a>
+              </div>
+
               {/* Founder credentials */}
               <div
                 className="float-card roi-badge"
@@ -126,15 +135,6 @@ export default function Hero() {
                 </div>
                 <div className="stat-content">
                   <h4>500+ Projects</h4>
-                </div>
-              </div>
-
-              <div className="float-card expert-badge">
-                <div className="stat-icon">
-                  <i className="fa-solid fa-bullseye" aria-hidden="true" />
-                </div>
-                <div className="stat-content">
-                  <h4>Lead Generation &amp; Sales Expert</h4>
                 </div>
               </div>
 
@@ -499,16 +499,46 @@ export default function Hero() {
           position: relative;
           width: 100%;
           height: auto;
-          padding: 98px 0 72px;
-          display: flex;
+          padding: 98px 0 20px;
+          display: grid;
+          grid-template-columns: 1fr min(72%, 320px, calc(100% - 128px)) 1fr;
           align-items: center;
-          justify-content: center;
         }
 
         .founder-player {
           position: relative;
-          width: min(72%, 320px);
+          grid-area: 1 / 2;
           z-index: 5;
+        }
+
+        .founder-socials {
+          grid-area: 1 / 1;
+          justify-self: center;
+          display: grid;
+          gap: 8px;
+          padding: 6px 4px;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-right: 3px solid #d8ac4a;
+          border-radius: 14px;
+          background: rgba(255, 255, 255, 0.06);
+          z-index: 5;
+        }
+
+        .founder-socials a {
+          display: grid;
+          place-items: center;
+          width: 44px;
+          height: 44px;
+          border-radius: 9px;
+          background: rgba(255, 255, 255, 0.1);
+          color: #fff8e8;
+          font-size: 18px;
+        }
+
+        .founder-socials a:hover,
+        .founder-socials a:focus-visible {
+          background: #edbd55;
+          color: #160f06;
         }
 
         .founder-arch {
@@ -623,13 +653,6 @@ export default function Hero() {
           right: 0;
           border-left: 4px solid #d8ac4a;
           animation-delay: -2s;
-        }
-
-        .expert-badge {
-          bottom: 0;
-          right: 0;
-          border-left: 4px solid #b38532;
-          animation-delay: -4s;
         }
 
         .stat-icon {
@@ -799,7 +822,12 @@ export default function Hero() {
         }
 
         @media (max-width: 480px) {
-          .founder-stage-container { padding-block: 75px 60px; }
+          .founder-stage-container {
+            padding-top: 75px;
+            grid-template-columns: 64px minmax(0, 1fr) 16px;
+          }
+          .founder-info-container { padding-left: 48px; }
+          .info-slide { position: relative; }
           .float-card { padding: 8px 9px; gap: 6px; }
           .stat-icon { width: 27px; height: 27px; font-size: 13px; }
           .stat-content h4 { font-size: 12px; }
