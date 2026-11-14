@@ -3,8 +3,8 @@ import styles from "./GrowthInvestmentSection.module.css";
 
 const programmeBenefits = [
   "4 exclusive learning videos (35 minutes total)",
-  "40-minute personal discovery call",
-  "40-minute personalised strategy call",
+  "40-minute exclusive 1:1 discovery call",
+  "40-minute exclusive 1:1 strategy call",
   "Business growth gap analysis",
   "Customised marketing and sales recommendations",
 ];

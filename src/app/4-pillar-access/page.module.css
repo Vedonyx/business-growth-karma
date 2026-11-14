@@ -1,7 +1,14 @@
+.accessPage > section:nth-child(odd) {
+  background: radial-gradient(ellipse at 50% 0, #261a10, transparent 70%), #140d08;
+}
+
+.accessPage > section:nth-child(even) {
+  background: linear-gradient(155deg, #3a2815, #2b1d10);
+}
+
 .hero {
   padding-top: clamp(125px, 13vw, 190px);
   padding-bottom: clamp(55px, 7vw, 95px);
-  background: radial-gradient(ellipse at top, #4b3618 0, transparent 68%), #100c06;
   border-bottom: 1px solid #edbd5533;
 }
 

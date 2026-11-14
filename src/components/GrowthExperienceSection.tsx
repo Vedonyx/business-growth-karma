@@ -4,7 +4,7 @@ import styles from "./GrowthExperienceSection.module.css";
 const journeySteps = [
   "Pay ₹499. Get instant access to 4 exclusive videos (35 minutes) explaining the 4 Pillars of Marketing & Sales.",
   "Join a 40-minute one-on-one discovery call with Shweta Shah to understand your business, sales goals and lead conversion challenges.",
-  "Join a 40-minute personalised strategy call. Discover your business growth gaps and get a customised action plan to convert more leads into deals.",
+  "Join a 40-minute exclusive 1:1 strategy call. Discover your business growth gaps and get a customised action plan to convert more leads into deals.",
 ];
 
 export default function GrowthExperienceSection() {
@@ -14,7 +14,7 @@ export default function GrowthExperienceSection() {
         <h2 id="growth-experience-title">Want to get this kind of <span className="gradient-text">results?</span></h2>
         <p className={styles.offerTitle}>Introducing the 3-Day Business Sales Growth Experience</p>
         <span className={styles.price}>Only ₹499</span>
-        <p>Three days. Two personal conversations. Four powerful learning modules.</p>
+        <p>Three days. Two exclusive 1:1 calls. Four powerful learning modules.</p>
         <p>A structured experience to help you understand what is missing in your business growth system.</p>
       </header>
 

@@ -41,7 +41,7 @@ const discoveryHref = `https://wa.me/919920220513?text=${discoveryMessage}`;
 
 export default function PillarAccessPage() {
   return (
-    <>
+    <div className={styles.accessPage}>
       <section className={`clone-extra-section ${styles.hero}`} aria-labelledby="pillar-access-title">
         <header className={`clone-section-header ${styles.heroHeading}`}>
           <p className={styles.congratulations}>🎉 Congratulations!</p>
@@ -83,9 +83,9 @@ export default function PillarAccessPage() {
           <p>You now have a better understanding of what works, what doesn&apos;t, and what your business needs to improve its sales conversions.</p>
           <p>But learning is just the beginning. Implementation is where real growth happens!</p>
           <h3>Ready to Accelerate Your Business Growth?</h3>
-          <p><strong>Get Personalised Business Growth Guidance with Shweta Shah!</strong></p>
+          <p><strong>Get Exclusive Business Growth Guidance with Shweta Shah!</strong></p>
           <p>Take the next step towards building a predictable lead generation and sales conversion system.</p>
-          <p>Book a personal appointment with Shweta Shah and discuss your business growth challenges.</p>
+          <p>Book an exclusive 1:1 call with Shweta Shah and discuss your business growth challenges.</p>
         </div>
       </section>
 
@@ -123,6 +123,6 @@ export default function PillarAccessPage() {
           </ul>
         </div>
       </section>
-    </>
+    </div>
   );
 }

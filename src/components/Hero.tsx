@@ -79,7 +79,7 @@ export default function Hero() {
               <ol className="offer-days">
                 <li><strong className="offer-day-label">Day 1</strong><span>Learn – the 4 Pillars of Marketing &amp; Sales.</span></li>
                 <li><strong className="offer-day-label">Day 2</strong><span>Discover Call with Shweta Shah – Why your leads aren&apos;t converting.</span></li>
-                <li><strong className="offer-day-label">Day 3</strong><span>Sales Strategy Call with Shweta Shah – Get your personalised sales growth strategy.</span></li>
+                <li><strong className="offer-day-label">Day 3</strong><span>Sales Strategy Call with Shweta Shah – Get an exclusive sales growth strategy tailored to your business.</span></li>
               </ol>
 
               <a href={brand.experienceCheckout} className="offer-cta">{experienceCtaLabel}</a>

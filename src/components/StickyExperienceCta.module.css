@@ -32,11 +32,12 @@
 .copy p { margin-top: 4px; color: #c9baa1; font-size: 13px; }
 
 .bar a.button {
-  flex-shrink: 0;
+  flex: 0 1 auto;
+  max-width: 65%;
   min-height: 44px;
   margin: 0;
   padding: 10px 20px;
-  white-space: nowrap;
+  text-align: center;
 }
 
 @media (max-width: 540px) {
@@ -49,5 +50,5 @@
   }
 
   .logo, .copy, .button i { display: none; }
-  .bar a.button { width: 100%; padding-inline: 8px; white-space: normal; text-align: center; }
+  .bar a.button { width: 100%; max-width: none; padding-inline: 8px; }
 }

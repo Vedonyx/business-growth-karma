@@ -15,7 +15,7 @@ const growthPillars = [
   {
     title: "Strong Branding",
     icon: "fa-solid fa-bullhorn",
-    what: "Organic social media presence through personal, company, product and service branding.",
+    what: "Build an organic social media presence with exclusive branding for individuals, companies, products and services.",
     benefit: "Keep old, existing and new clients connected to your brand.",
   },
   {

@@ -11,7 +11,7 @@ export default function ProtocolSection() {
   const steps = [
     {num:'01',icon:'fa-solid fa-bullseye',title:'Your Annual Sales Goal',desc:'We understand your business, your offer, your customers and the conversion gaps between marketing and sales.',img:imageFor('you-get-2-types-of-leads-1.png')},
     {num:'02',icon:'fa-solid fa-layer-group',title:'The Setup',desc:'A conversion-focused landing page, integrated with the Sales Psychology System, gives every enquiry a clear path forward.',img:imageFor('The-Setup-5.png')},
-    {num:'03',icon:'fa-solid fa-gem',title:'Strong Branding',desc:'Personal, company and product branding builds trust and credibility before a prospect speaks to your team.',img:imageFor('Lead-to-Deal-Generation-2.png')},
+    {num:'03',icon:'fa-solid fa-gem',title:'Strong Branding',desc:'Exclusive branding for individuals, companies and products builds trust and credibility before a prospect speaks to your team.',img:imageFor('Lead-to-Deal-Generation-2.png')},
     {num:'04',icon:'fa-solid fa-users',title:'A Strong Sales Team',desc:'Regular sales psychology training and clear SOPs help your people qualify opportunities, handle objections and close deals.',img:imageFor('sales-psycholgo-ysystem.png')},
     {num:'05',icon:'fa-solid fa-magnet',title:'Quality Lead Generation',desc:'Google, Meta and LinkedIn campaigns bring relevant prospects to your business. We connect the campaigns to a conversion system.',img:imageFor('Lead-Genertaion.png')},
     {num:'06',icon:'fa-solid fa-gears',title:'3I + 3B Nurturing',desc:'Respond promptly to urgent buyers. Build trust, credibility and relationships with prospects who are still researching.',img:imageFor('hot-lead-buys-in-24-hours.png')},

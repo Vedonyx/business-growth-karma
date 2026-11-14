@@ -177,9 +177,9 @@ export default function Navbar() {
           box-shadow: 0 10px 30px rgba(241, 201, 118, 0.5);
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1100px) {
           .header-container {
-            grid-template-columns: minmax(0, 1fr) auto;
+            grid-template-columns: auto minmax(0, 1fr);
             gap: 4px 14px;
             padding-block: 7px;
           }
@@ -208,6 +208,9 @@ export default function Navbar() {
           }
 
           .header-cta {
+            justify-self: end;
+            white-space: normal;
+            text-align: center;
             padding: 9px 12px;
             font-size: clamp(11px, 3vw, 13px);
           }

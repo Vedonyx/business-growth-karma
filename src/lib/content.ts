@@ -16,7 +16,7 @@ export const brand = {
   tedx: 'https://www.youtube.com/watch?v=GfbIvOl_wSA',
 };
 
-export const experienceCtaLabel = 'Book My 2 Personal Calls Now ₹499!';
+export const experienceCtaLabel = 'Book my 2 Exclusive 1:1 Calls with Shweta Shah';
 
 export const images = assets.images;
 export const videos = assets.videos;
@@ -29,7 +29,7 @@ export function imageFor(fragment: string) {
 
 export const pillars = [
   { id: 'setup', number: '01', icon: 'layers', title: 'The setup', subtitle: 'Build your foundation.', text: 'A conversion-focused landing page, connected to the Sales Psychology System. Every enquiry has a clear next step.', details: ['Conversion-focused landing pages', 'Lead capture and qualification', 'CRM and WhatsApp, SMS & email automation', '3I response and 3B nurturing workflows'] },
-  { id: 'branding', number: '02', icon: 'spark', title: 'Strong branding', subtitle: 'Become the obvious choice.', text: 'Personal, company and product branding that builds recognition, credibility and trust before your first conversation.', details: ['Personal, product and company positioning', 'Organic content and social storytelling', 'AI and animated explainer videos', 'Authority and reputation building'] },
+  { id: 'branding', number: '02', icon: 'spark', title: 'Strong branding', subtitle: 'Become the obvious choice.', text: 'Exclusive branding for individuals, companies and products that builds recognition, credibility and trust before your first conversation.', details: ['Exclusive positioning for individuals, products and companies', 'Organic content and social storytelling', 'AI and animated explainer videos', 'Authority and reputation building'] },
   { id: 'sales', number: '03', icon: 'people', title: 'A strong sales team', subtitle: 'Turn conversations into clients.', text: 'Regular training, clear SOPs and sales psychology help your team handle objections and convert qualified opportunities.', details: ['Sales psychology training for your team', 'Qualification and objection-handling frameworks', 'Sales SOPs and response processes', 'Lead tracking and conversion reviews'] },
   { id: 'leads', number: '04', icon: 'target', title: 'Quality lead generation', subtitle: 'Reach the right people.', text: 'Intent-led Google, Meta and LinkedIn campaigns that bring your business in front of buyers who need what you offer.', details: ['Google Search and intent-based advertising', 'LinkedIn targeting and relationship building', 'Meta campaigns and remarketing', 'Campaign tracking and lead quality optimisation'] },
 ];
@@ -37,7 +37,7 @@ export const pillars = [
 export const plans = [
   { id: 'setup', tag: 'YOU HAVE THE TEAM', title: 'The Setup', price: '1,20,000', period: '/ year', text: 'Your team runs the marketing. We build the conversion foundation.', features: ['Conversion-focused landing page', 'Sales Psychology System integration', 'Lead capture and nurturing setup', 'Setup training and annual support'], bestFor: 'Businesses with an existing marketing and sales team.', cta: 'Build my foundation', featured: false },
   { id: 'training', tag: 'BUILD YOUR CAPABILITY', title: 'DIY + Training', price: '2,40,000', period: 'programme investment', text: 'Learn the framework. Equip your people. Own your growth.', features: ['Everything in The Setup', 'Branding implementation training', 'Sales team training and SOPs', 'Paid lead generation training', 'AI video training'], bestFor: 'Owners who want a capable, independent in-house team.', cta: 'Empower my team', featured: false },
-  { id: 'done-for-you', tag: 'YOUR COMPLETE GROWTH PARTNER', title: 'Done for You', price: '4,00,000', period: '/ month', text: 'You focus on your business. We manage all four growth pillars.', features: ['Complete setup and system integration', 'Personal, company and product branding', 'Regular sales training and SOPs', 'Paid campaigns and ongoing optimisation'], bestFor: 'Business owners who want an expert team to manage the system.', cta: 'Let’s grow together', featured: true },
+  { id: 'done-for-you', tag: 'YOUR COMPLETE GROWTH PARTNER', title: 'Done for You', price: '4,00,000', period: '/ month', text: 'You focus on your business. We manage all four growth pillars.', features: ['Complete setup and system integration', 'Exclusive branding for individuals, companies and products', 'Regular sales training and SOPs', 'Paid campaigns and ongoing optimisation'], bestFor: 'Business owners who want an expert team to manage the system.', cta: 'Let’s grow together', featured: true },
 ];
 
 export const industries = [
