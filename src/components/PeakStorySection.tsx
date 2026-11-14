@@ -449,18 +449,6 @@ export default function PeakStorySection() {
             linear-gradient(180deg, #020101 0%, #030201 100%);
         }
 
-        #fobet-peak-story:before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          opacity: 0.14;
-          background-image: linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-          background-size: 62px 62px;
-          mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4) 72%, transparent);
-        }
-
         .fps-wrap {
           width: min(1500px, calc(100% - 44px));
           position: relative;

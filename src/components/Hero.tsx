@@ -28,7 +28,6 @@ export default function Hero() {
       />
 
       <section className="hero-redesigned" aria-labelledby="fobet-hero-title">
-        <div className="particles" />
         <div className="gradient-orb orb-1" />
         <div className="gradient-orb orb-2" />
         <div className="bg-elements">
@@ -191,50 +190,6 @@ export default function Hero() {
         @media (max-width: 768px) {
           .cursor-light {
             display: none;
-          }
-        }
-
-        .particles {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 1;
-        }
-
-        .particles::before,
-        .particles::after {
-          content: "";
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          background: rgba(241, 201, 118, 0.4);
-          border-radius: 50%;
-          animation: floatParticle 10s infinite ease-in-out;
-          box-shadow: 0 0 8px rgba(241, 201, 118, 0.3);
-        }
-
-        .particles::after {
-          left: 75%;
-          top: 25%;
-          animation-duration: 12s;
-        }
-        .particles::before {
-          left: 15%;
-          top: 70%;
-        }
-
-        @keyframes floatParticle {
-          0%,
-          100% {
-            transform: translateY(0) scale(1);
-            opacity: 0.2;
-          }
-          50% {
-            transform: translateY(-40px) scale(1.2);
-            opacity: 0.5;
           }
         }
 

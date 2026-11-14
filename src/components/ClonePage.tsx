@@ -10,9 +10,10 @@ import GrowthNumbersSection from "./GrowthNumbersSection";
 import PeakStorySection from "./PeakStorySection";
 import FaqSection from "./FaqSection";
 import { ClientLogoRail, FourPillarsSection, PurposeSection } from "./SupplementarySections";
+import styles from "./ClonePage.module.css";
 
 export default function ClonePage() {
-  return <>
+  return <div className={styles.homepage}>
     <Hero />
     <IndustryStrip />
     <ClientLogoRail />
@@ -27,5 +28,5 @@ export default function ClonePage() {
     <ResultsSection />
     <PurposeSection />
     <PeakStorySection />
-  </>;
+  </div>;
 }
