@@ -93,8 +93,13 @@ export default function Hero() {
           </div>
 
           <p className="founder-expertise">
-            Lead Generation<br />
-            &amp; Sales Expert
+            <span className="stat-icon">
+              <i className="fa-solid fa-bullseye" aria-hidden="true" />
+            </span>
+            <span>
+              Lead Generation<br />
+              &amp; Sales Expert
+            </span>
           </p>
 
           {/* Founder video and credentials */}
@@ -502,19 +507,32 @@ export default function Hero() {
         }
 
         .founder-expertise {
-          justify-self: center;
-          padding: 10px 7px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          border-right: 3px solid #d8ac4a;
+          position: relative;
+          justify-self: start;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          width: clamp(232px, 20vw, 264px);
+          margin-inline-end: -110px;
+          padding: 14px 16px;
+          border: 1px solid rgba(216, 172, 74, 0.48);
           border-radius: 14px;
-          background: rgba(255, 255, 255, 0.07);
+          background: rgba(45, 33, 18, 0.94);
+          box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
           color: #fff8e8;
-          font-size: 13px;
+          font-size: clamp(16px, 1.4vw, 19px);
           font-weight: 700;
-          line-height: 1.4;
+          line-height: 1.3;
           text-align: center;
-          white-space: nowrap;
-          z-index: 5;
+          z-index: 12;
+          pointer-events: none;
+        }
+
+        .founder-expertise .stat-icon {
+          width: 44px;
+          height: 44px;
+          font-size: 20px;
         }
 
         .founder-arch {
@@ -787,6 +805,12 @@ export default function Hero() {
             display: flex;
             flex-direction: column;
             align-items: center;
+          }
+
+          .founder-expertise {
+            justify-self: center;
+            width: min(100%, 250px);
+            margin-inline-end: 0;
           }
 
           .founder-section {
