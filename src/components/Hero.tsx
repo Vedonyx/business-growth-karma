@@ -92,6 +92,11 @@ export default function Hero() {
             </section>
           </div>
 
+          <p className="founder-expertise">
+            Lead Generation<br />
+            &amp; Sales Expert
+          </p>
+
           {/* Founder video and credentials */}
           <div
             className="founder-section hero-fade-in delay-3"
@@ -103,15 +108,6 @@ export default function Hero() {
 
               <div className="founder-player">
                 <WistiaVideo mediaId="jl0gke8f4q" title="Business Growth Karma introduction by Shweta Shah" />
-              </div>
-
-              <div className="founder-socials" role="group" aria-label="Follow Shweta Shah">
-                <a href={brand.linkedIn} target="_blank" rel="noreferrer" aria-label="Shweta Shah on LinkedIn">
-                  <i className="fa-brands fa-linkedin" aria-hidden="true" />
-                </a>
-                <a href="https://instagram.com/shwetashah.in" target="_blank" rel="noreferrer" aria-label="Shweta Shah on Instagram">
-                  <i className="fa-brands fa-instagram" aria-hidden="true" />
-                </a>
               </div>
 
               {/* Founder credentials */}
@@ -291,9 +287,10 @@ export default function Hero() {
           width: 100%;
           position: relative;
           z-index: 10;
-          display: flex;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto minmax(0, 39%);
+          gap: clamp(12px, 1.5vw, 24px);
           align-items: center;
-          justify-content: space-between;
           padding: 0 20px;
         }
 
@@ -301,7 +298,6 @@ export default function Hero() {
           max-width: 650px;
           width: 100%;
           z-index: 20;
-          padding-right: 40px;
         }
 
         .hero-intro {
@@ -484,61 +480,41 @@ export default function Hero() {
         /* Founder Slider Section */
         .founder-section {
           position: relative;
-          width: 44%;
+          width: 100%;
           max-width: 580px;
-          flex-shrink: 0;
-          height: auto;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: flex-end;
-          transform: translateX(10px);
         }
 
         .founder-stage-container {
           position: relative;
           width: 100%;
-          height: auto;
           padding: 98px 0 20px;
-          display: grid;
-          grid-template-columns: 1fr min(72%, 320px, calc(100% - 128px)) 1fr;
-          align-items: center;
+          display: flex;
+          justify-content: center;
         }
 
         .founder-player {
           position: relative;
-          grid-area: 1 / 2;
+          width: min(100%, 320px);
           z-index: 5;
         }
 
-        .founder-socials {
-          grid-area: 1 / 1;
+        .founder-expertise {
           justify-self: center;
-          display: grid;
-          gap: 8px;
-          padding: 6px 4px;
+          padding: 10px 7px;
           border: 1px solid rgba(255, 255, 255, 0.15);
           border-right: 3px solid #d8ac4a;
           border-radius: 14px;
-          background: rgba(255, 255, 255, 0.06);
-          z-index: 5;
-        }
-
-        .founder-socials a {
-          display: grid;
-          place-items: center;
-          width: 44px;
-          height: 44px;
-          border-radius: 9px;
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.07);
           color: #fff8e8;
-          font-size: 18px;
-        }
-
-        .founder-socials a:hover,
-        .founder-socials a:focus-visible {
-          background: #edbd55;
-          color: #160f06;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 1.4;
+          text-align: center;
+          white-space: nowrap;
+          z-index: 5;
         }
 
         .founder-arch {
@@ -801,12 +777,12 @@ export default function Hero() {
           }
 
           .hero-container {
-            flex-direction: column;
-            gap: 40px;
+            grid-template-columns: minmax(0, 1fr);
+            justify-items: center;
+            gap: 24px;
           }
 
           .content-wrapper {
-            padding-right: 0;
             max-width: 100%;
             display: flex;
             flex-direction: column;
@@ -814,20 +790,13 @@ export default function Hero() {
           }
 
           .founder-section {
-            width: 100%;
             max-width: 460px;
-            transform: none;
           }
 
         }
 
         @media (max-width: 480px) {
-          .founder-stage-container {
-            padding-top: 75px;
-            grid-template-columns: 64px minmax(0, 1fr) 16px;
-          }
-          .founder-info-container { padding-left: 48px; }
-          .info-slide { position: relative; }
+          .founder-stage-container { padding-top: 75px; }
           .float-card { padding: 8px 9px; gap: 6px; }
           .stat-icon { width: 27px; height: 27px; font-size: 13px; }
           .stat-content h4 { font-size: 12px; }

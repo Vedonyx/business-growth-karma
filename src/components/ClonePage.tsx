@@ -13,7 +13,7 @@ import { ClientLogoRail, FourPillarsSection, PurposeSection } from "./Supplement
 import styles from "./ClonePage.module.css";
 
 export default function ClonePage() {
-  return <div className={styles.homepage}>
+  return <div className={`alternating-section-backgrounds ${styles.homepage}`}>
     <Hero />
     <IndustryStrip />
     <ClientLogoRail />

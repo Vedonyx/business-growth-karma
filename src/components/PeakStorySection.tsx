@@ -445,8 +445,6 @@ export default function PeakStorySection() {
           overflow: hidden;
           color: #fff;
           font-family: var(--font-space);
-          background: radial-gradient(circle at 50% 41%, rgba(218, 175, 94, 0.065), transparent 31%),
-            linear-gradient(180deg, #020101 0%, #030201 100%);
         }
 
         .fps-wrap {

@@ -41,7 +41,7 @@ const discoveryHref = `https://wa.me/919920220513?text=${discoveryMessage}`;
 
 export default function PillarAccessPage() {
   return (
-    <div className={styles.accessPage}>
+    <div className="alternating-section-backgrounds">
       <section className={`clone-extra-section ${styles.hero}`} aria-labelledby="pillar-access-title">
         <header className={`clone-section-header ${styles.heroHeading}`}>
           <p className={styles.congratulations}>🎉 Congratulations!</p>

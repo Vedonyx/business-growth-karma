@@ -40,10 +40,6 @@
   animation: rise 20s linear infinite;
 }
 
-.homepage > :nth-child(3n) {
-  background: var(--bg-surface);
-}
-
 @keyframes rise {
   to { transform: translateY(calc(-1 * var(--dot-repeat))); }
 }

@@ -5,6 +5,8 @@
 :root {
   --bg-dark: #0c0904;
   --bg-surface: #100c06;
+  --bg-section-dark: radial-gradient(ellipse at 50% 0, #261a10, transparent 70%), #140d08;
+  --bg-section-gold: linear-gradient(155deg, #4b341b, #382615);
   --bg-card: rgba(18, 12, 6, 0.7);
   --bg-card-border: rgba(255, 255, 255, 0.08);
   --bg-card-hover-border: rgba(241, 201, 118, 0.4);
@@ -31,6 +33,14 @@
 
   --shadow-glow: 0 0 30px rgba(241, 201, 118, 0.35);
   --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.alternating-section-backgrounds > :is(section, div):nth-child(odd) {
+  background: var(--bg-section-dark);
+}
+
+.alternating-section-backgrounds > :is(section, div):nth-child(even) {
+  background: var(--bg-section-gold);
 }
 
 * {
