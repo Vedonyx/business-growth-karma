@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { brand, discoveryCall, experienceCtaLabel, imageFor } from "@/lib/content";
+import { brand, discoveryCall, experienceCtaLabel } from "@/lib/content";
 
 const homeTopics = [
   { id: "framework", label: "The Solution", shortLabel: "Solution" },
@@ -14,9 +14,9 @@ const homeTopics = [
 
 const accessTopics = [
   { id: "pillar-lessons", label: "Videos", shortLabel: "Videos" },
+  { id: "goal-faq", label: "FAQs", shortLabel: "FAQs" },
   { id: "packages", label: "Our Services", shortLabel: "Services" },
   { id: "plan-transformation", label: "The Transformation", shortLabel: "Results" },
-  { id: "goal-faq", label: "FAQs", shortLabel: "FAQs" },
   { id: "reviews", label: "Our USP", shortLabel: "USP" },
   { id: "connect", label: "Contact", shortLabel: "Contact" },
 ];
@@ -49,9 +49,10 @@ export default function Navbar() {
       <div className={`header-container ${isAccess ? "access-header" : "home-header"}`}>
         <a href={isHome ? "#home" : "/"} className="header-logo">
           <img
-            className="brand-logo-artwork"
-            src={imageFor("Untitled-design-6.png")}
+            src={brand.logo}
             alt="Business Growth Karma home"
+            width={384}
+            height={343}
           />
         </a>
 
@@ -113,7 +114,6 @@ export default function Navbar() {
         .header-logo {
           display: flex;
           justify-self: start;
-          background: radial-gradient(ellipse at 27% 34%, #d6ad6499, transparent 72%);
         }
 
         .header-logo img {
@@ -121,6 +121,7 @@ export default function Navbar() {
           height: 68px;
           max-width: 150px;
           object-fit: contain;
+          border-radius: 7px;
         }
 
         .nav-menu {

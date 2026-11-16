@@ -3,6 +3,7 @@
    ========================================================= */
 
 :root {
+  --gold-card-glow: 0 0 18px #f2c56938, inset 0 0 12px #f2c56912;
   --bg-dark: #0c0904;
   --bg-surface: #100c06;
   --bg-section-dark: radial-gradient(ellipse at 50% 0, #261a10, transparent 70%), #140d08;

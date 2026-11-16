@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Shweta Shah' }],
   openGraph: { type: 'website', locale: 'en_IN', siteName: brand.name, title: 'Business Growth Karma — Your Next Chapter', description: 'You bring the ambition. We build the momentum. Digital marketing, sales psychology and growth systems with Shweta Shah.', images: [{ url: '/brand/social-cover.png', width: 1200, height: 630, alt: 'Business Growth Karma by Shweta Shah' }] },
   twitter: { card: 'summary_large_image', images: ['/brand/social-cover.png'] },
-  icons: { icon: '/icon.svg' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

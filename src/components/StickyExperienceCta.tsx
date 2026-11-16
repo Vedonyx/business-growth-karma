@@ -1,4 +1,4 @@
-import { brand, compactExperienceCtaLabel, experienceCtaLabel, imageFor } from "@/lib/content";
+import { brand, compactExperienceCtaLabel, experienceCtaLabel } from "@/lib/content";
 import styles from "./StickyExperienceCta.module.css";
 
 export default function StickyExperienceCta() {
@@ -6,7 +6,7 @@ export default function StickyExperienceCta() {
     <>
       <div className={styles.clearance} aria-hidden="true" />
       <aside className={styles.bar} aria-label="Business Growth Experience offer">
-        <img className={`brand-logo-artwork ${styles.logo}`} src={imageFor("Untitled-design-6.png")} alt="" width={493} height={353} />
+        <img className={styles.logo} src={brand.logo} alt="" width={384} height={343} />
         <div className={styles.copy}>
           <strong>3-Day Business Growth Experience</strong>
           <p>4 videos and 2 exclusive 1:1 calls with Shweta Shah</p>

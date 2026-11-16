@@ -20,7 +20,7 @@ export default function ClonePage() {
     <FourPillarsSection solution />
     <ReviewsSection leadConversionProof />
     <GrowthExperienceSection />
-    <PlanTransformationSection realTransformation />
+    <PlanTransformationSection />
     <GrowthInvestmentSection />
     <AboutShwetaSection />
     <GrowthNumbersSection />

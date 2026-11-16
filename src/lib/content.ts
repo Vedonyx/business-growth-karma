@@ -2,6 +2,7 @@ import assets from '@/data/brand-assets.json';
 
 export const brand = {
   name: 'Business Growth Karma',
+  logo: '/brand/shweta-shah-founder-logo.webp',
   founder: 'Shweta Shah',
   phone: '+91 99202 20513',
   phoneHref: 'tel:+919920220513',

@@ -1,28 +1,28 @@
 import { imageFor } from "@/lib/content";
+import GoldConfetti from "./GoldConfetti";
 import styles from "./PlanTransformationSection.module.css";
 
-export default function PlanTransformationSection({
-  realTransformation = false,
-  planPrompt = "Choose any of the above Plan",
-}: {
-  realTransformation?: boolean;
-  planPrompt?: string;
-}) {
+const roiMetrics = [
+  { label: "Lead Leakage", before: "Yes", after: "No" },
+  { label: "Closing Ratio", before: "2%–4%", after: "8%–25%" },
+  { label: "Staff Dependency", before: "100%", after: "20%" },
+  { label: "Manual Follow-up", before: "100%", after: "20%" },
+];
+
+export default function PlanTransformationSection({ afterServiceOptions = false }: { afterServiceOptions?: boolean }) {
   return (
     <section className="clone-extra-section" id="plan-transformation" aria-labelledby="plan-transformation-title">
       <div className="clone-section-header">
         <h2 id="plan-transformation-title">
-          {realTransformation ? (
-            <>The Real <span className="gradient-text">Transformation</span></>
+          {afterServiceOptions ? (
+            <>Select any of the above 2, and you will get this <span className="gradient-text">Transformation Immediately</span></>
           ) : (
-            <>{planPrompt}{" "}
-              <span className={styles.headingLine + " gradient-text"}>you will see this transformation</span>
-            </>
+            <>The Real <span className="gradient-text">Transformation</span></>
           )}
         </h2>
       </div>
 
-      <div className={styles.grid}>
+      <div className={afterServiceOptions ? `${styles.grid} ${styles.glowingCards}` : styles.grid}>
         <figure className={styles.imageCard}>
           <figcaption className={styles.label}>Before us</figcaption>
           <img
@@ -50,14 +50,30 @@ export default function PlanTransformationSection({
         </figure>
 
         <figure className={styles.imageCard + " " + styles.roiCard}>
-          <img
-            src={imageFor("b4a4.png")}
-            alt="ROI before and after: lead leakage changes from Yes to No; closing ratio from 2%–4% to 8%–25%; staff dependency and manual follow-up from 100% to 20%."
-            width="388"
-            height="171"
-            loading="lazy"
-          />
+          {afterServiceOptions ? (
+            <table className={styles.roiTable} aria-label="ROI before and after">
+              <thead><tr><th scope="col">ROI</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+              <tbody>
+                {roiMetrics.map(metric => (
+                  <tr key={metric.label}>
+                    <th scope="row">{metric.label}</th>
+                    <td>{metric.before}</td>
+                    <td>{metric.after}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <img
+              src={imageFor("b4a4.png")}
+              alt="ROI before and after: lead leakage changes from Yes to No; closing ratio from 2%–4% to 8%–25%; staff dependency and manual follow-up from 100% to 20%."
+              width="388"
+              height="171"
+              loading="lazy"
+            />
+          )}
           <figcaption className={styles.profitCaption}>More Revenue + Less Expense = Bigger Profit</figcaption>
+          {afterServiceOptions && <GoldConfetti />}
         </figure>
 
         <figure className={styles.imageCard + " " + styles.storyCard}>
@@ -68,6 +84,7 @@ export default function PlanTransformationSection({
             height="941"
             loading="lazy"
           />
+          {afterServiceOptions && <GoldConfetti />}
         </figure>
       </div>
     </section>

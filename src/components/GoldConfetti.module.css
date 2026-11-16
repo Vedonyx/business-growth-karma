@@ -1,0 +1,26 @@
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.particle {
+  position: absolute;
+  bottom: 17%;
+  width: 7px;
+  height: 13px;
+  opacity: 0;
+  animation: confettiBurst 2.7s ease-in-out var(--delay) both;
+}
+
+@keyframes confettiBurst {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  12% { opacity: 1; }
+  42% { transform: translate(var(--spread), var(--lift)) rotate(calc(var(--spin) / 2)); opacity: 0.95; }
+  100% { transform: translate(calc(var(--spread) * 1.35), 100px) rotate(var(--spin)); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confetti { display: none; }
+}
