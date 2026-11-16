@@ -1,7 +1,7 @@
 .page > section { isolation: isolate; }
 
 .page > section:is(:first-of-type, :nth-of-type(3n + 2))::before,
-.page > section:nth-of-type(3n)::after {
+.page > section::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -17,11 +17,44 @@
   mask-image: linear-gradient(180deg, #000 20%, #0003 65%, transparent);
 }
 
+.page > section::after {
+  inset-block: -32px;
+  background-image:
+    radial-gradient(circle at 7% 56px, #f5c563bf 1px, #f5c56326 2px, transparent 3.5px),
+    radial-gradient(circle at 16% 288px, #ffe0ab99 1px, transparent 2px),
+    radial-gradient(circle at 36% 178px, #edb34d80 1px, transparent 2.5px),
+    radial-gradient(circle at 65% 325px, #ffd28180 1px, transparent 2.5px),
+    radial-gradient(circle at 81% 102px, #f7c36eb3 1.5px, #f7c36e26 3px, transparent 4px),
+    radial-gradient(circle at 93% 252px, #ffe6b3a6 1px, transparent 2px);
+  background-size: 100% 410px;
+  animation: floatParticles 8s ease-in-out infinite alternate;
+}
+
+.page > section:nth-of-type(even)::after { animation-delay: -4s; }
+
 .page > section:nth-of-type(3n)::after {
+  --bubble-drift: clamp(12px, 3vw, 34px);
+  inset: 0;
   background:
-    radial-gradient(circle at center, #f5ca6b22 33px, #f5ca6b3d 34px, transparent 36px) 7% 22% / 76px 76px no-repeat,
-    radial-gradient(circle at center, #edbd551a 54px, #f5ca6b30 55px, transparent 57px) 95% 68% / 120px 120px no-repeat,
+    radial-gradient(circle at center, #f5ca6b22 33px, #f5ca6b3d 34px, transparent 36px) 9% 22% / 76px 76px no-repeat,
+    radial-gradient(circle at center, #edbd551a 54px, #f5ca6b30 55px, transparent 57px) 92% 68% / 120px 120px no-repeat,
     radial-gradient(circle at center, #edbd5520 13px, #f5ca6b35 14px, transparent 16px) 87% 18% / 34px 34px no-repeat;
+  animation: driftBubbles 9s ease-in-out infinite alternate;
+}
+
+@keyframes floatParticles {
+  from { transform: translate3d(-4px, 18px, 0); }
+  to { transform: translate3d(6px, -24px, 0); }
+}
+
+@keyframes driftBubbles {
+  from { transform: translateX(calc(-1 * var(--bubble-drift))); }
+  to { transform: translateX(var(--bubble-drift)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page > section::after,
+  .page > section:nth-of-type(3n)::after { animation: none; }
 }
 
 .cursorGlow { display: none; }

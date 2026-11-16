@@ -52,7 +52,7 @@ div.proofHeader { margin-bottom: 28px; }
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: conic-gradient(from var(--review-photo-angle), #a8763e 0deg, #b58446 244deg, #ffdc94 307deg, #a8763e 360deg);
+  background: conic-gradient(from var(--review-photo-angle), #bc7325 0deg, #d68c21 222deg, #ffac28 268deg, #ffdb79 305deg, #f69717 333deg, #bc7325 360deg);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
   animation: reviewPhotoOrbit 6s linear infinite;
