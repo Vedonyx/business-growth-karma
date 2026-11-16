@@ -17,6 +17,10 @@ export const brand = {
 };
 
 export const experienceCtaLabel = 'Book my 2 Exclusive 1:1 Calls with Shweta Shah';
+export const discoveryCall = {
+  label: 'Book My Exclusive 1:1 Discovery Call',
+  href: 'https://calendly.com/shwetavshah23/day-2-exclusive-discovery-call-with-shweta-shah',
+};
 export const compactExperienceCtaLabel = 'Book 2 Exclusive Calls · ₹499';
 
 export const images = assets.images;

@@ -7,11 +7,6 @@
   margin: 0 auto;
 }
 
-.diagramLayout {
-  max-width: 1060px;
-  margin-inline: auto;
-}
-
 .temple { min-width: 0; }
 .roof {
   position: relative;
@@ -48,46 +43,6 @@
 }
 .roofLabel { display: block; margin-bottom: 7px; color: #bf9b55; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
 .roof h3 { color: #fff2d3; font-size: clamp(19px, 1.8vw, 25px); font-weight: 800; line-height: 1.2; }
-
-.solution .roof {
-  isolation: isolate;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 6px;
-  min-height: clamp(130px, 15vw, 185px);
-  padding: 28px 12% 14px;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  text-align: center;
-}
-.solution .roof::before,
-.solution .roof::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  height: auto;
-}
-.solution .roof::before {
-  z-index: -2;
-  clip-path: polygon(50% 0, 100% 73%, 100% 100%, 0 100%, 0 73%);
-  background: linear-gradient(115deg, #815620, #f6d484 48%, #9d6c2d 82%, #edbd55);
-}
-.solution .roof::after {
-  z-index: -1;
-  clip-path: polygon(50% 4px, calc(100% - 4px) calc(73% + 2px), calc(100% - 4px) calc(100% - 6px), 4px calc(100% - 6px), 4px calc(73% + 2px));
-  background: linear-gradient(180deg, #5e421e, #2b2010 78%, #22180c);
-}
-.solution .roofIcon {
-  flex: none;
-  width: 34px;
-  height: 34px;
-  border: 0;
-  background: none;
-  font-size: 24px;
-}
-.solution .roofLabel { margin-bottom: 3px; color: #f0c97a; }
 
 .pillars {
   display: grid;
@@ -224,8 +179,6 @@
   .roof { padding: 14px; gap: 8px; border-radius: 12px; min-height: 78px; }
   .roofLabel { font-size: 10px; letter-spacing: 1px; }
   .roof h3 { font-size: 19px; }
-  .solution .roof { min-height: 108px; padding-bottom: 12px; }
-  .solution .roof h3 { font-size: clamp(17px, 5vw, 21px); }
   .pillars { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-block: 16px; }
   .pillar {
     display: grid;

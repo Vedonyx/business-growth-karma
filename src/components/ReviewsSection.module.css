@@ -38,6 +38,29 @@ div.proofHeader { margin-bottom: 28px; }
 }
 .card:hover { transform: translateY(-4px); border-color: #edbd55; }
 .card img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
+
+@property --review-photo-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.card.animatedPhoto { border: 0; }
+.animatedPhoto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--review-photo-angle), #a8763e 0deg, #b58446 244deg, #ffdc94 307deg, #a8763e 360deg);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: reviewPhotoOrbit 6s linear infinite;
+  pointer-events: none;
+}
+
+.animatedPhoto:nth-child(even)::after { animation-delay: -3s; }
+@keyframes reviewPhotoOrbit { to { --review-photo-angle: 360deg; } }
 @media (max-width: 1000px) {
   .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 }
@@ -52,4 +75,5 @@ div.proofHeader { margin-bottom: 28px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .card { transition: none; }
+  .animatedPhoto::after { animation: none; }
 }

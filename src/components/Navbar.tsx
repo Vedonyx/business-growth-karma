@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { brand, experienceCtaLabel, imageFor } from "@/lib/content";
+import { brand, discoveryCall, experienceCtaLabel, imageFor } from "@/lib/content";
 
 const homeTopics = [
   { id: "framework", label: "The Solution", shortLabel: "Solution" },
@@ -16,6 +16,7 @@ const accessTopics = [
   { id: "pillar-lessons", label: "Videos", shortLabel: "Videos" },
   { id: "packages", label: "Our Services", shortLabel: "Services" },
   { id: "plan-transformation", label: "The Transformation", shortLabel: "Results" },
+  { id: "goal-faq", label: "FAQs", shortLabel: "FAQs" },
   { id: "reviews", label: "Our USP", shortLabel: "USP" },
   { id: "connect", label: "Contact", shortLabel: "Contact" },
 ];
@@ -70,8 +71,14 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        <a className="header-cta" href={isAccess ? "#discovery-call" : brand.experienceCheckout}>
-          {isAccess ? "My Discovery Call" : experienceCtaLabel} <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+        <a className="header-cta" href={isAccess ? discoveryCall.href : brand.experienceCheckout}>
+          {isAccess ? (
+            <>
+              <span className="desktop-detail">{discoveryCall.label}</span>
+              <span className="phone-only">Book 1:1 Discovery Call</span>
+            </>
+          ) : experienceCtaLabel}
+          <i className="fa-solid fa-arrow-right" aria-hidden="true" />
         </a>
       </div>
 

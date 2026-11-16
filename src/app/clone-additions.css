@@ -64,6 +64,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible { 
 .clone-purpose-card h3 { font-size:23px;margin:10px 0; }
 .clone-purpose-card p { font-size:14px; }
 .clone-pillars-section { background:radial-gradient(ellipse at 50% 80%,#b4821822,transparent 65%),#100c06; }
+.pillar-roof-artwork {
+  display: block;
+  width: 100%;
+  height: auto;
+  clip-path: polygon(49.75% 5.8%, 97.85% 83.5%, 97.85% 89.3%, 96.4% 92%, 3.2% 92%, 1.75% 89.3%, 1.75% 83.35%);
+}
 .clone-framework-visual { display:flex;justify-content:center;width:70vw;margin:0 auto;padding:0;border:0;background:transparent;cursor:zoom-in;scroll-margin-top:120px; }
 .clone-framework-visual img { display:block;width:auto;height:auto;max-width:100%;max-height:calc(100svh - 180px);object-fit:contain; }
 .clone-temple { max-width:1200px;margin:0 auto; }

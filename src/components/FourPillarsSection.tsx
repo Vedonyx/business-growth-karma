@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import MediaOverlay from "./MediaOverlay";
+import PillarRoof from "./PillarRoof";
 import WistiaVideo from "./WistiaVideo";
 import styles from "./FourPillarsSection.module.css";
 
@@ -38,10 +39,8 @@ const growthPillars = [
 
 export default function FourPillarsSection({
   solution = false,
-  diagramOnly = false,
 }: {
   solution?: boolean;
-  diagramOnly?: boolean;
 }) {
   const [reference, setReference] = useState(false);
   const diagram = "/brand/business-sales-growth-wide.png";
@@ -57,15 +56,17 @@ export default function FourPillarsSection({
         <p>{solution ? "4 Pillar Business Sales Growth Done for you Service" : "The setup. Strong branding. A strong sales team. Quality lead generation."}</p>
       </div>
 
-      <div className={diagramOnly ? styles.diagramLayout : styles.layout}>
+      <div className={styles.layout}>
         <div className={solution ? `${styles.temple} ${styles.solution}` : styles.temple} aria-label="The four pillars of business sales growth">
-          <div className={styles.roof}>
-            <span className={styles.roofIcon}><i className="fa-solid fa-chart-line" aria-hidden="true" /></span>
-            <div>
-              <span className={styles.roofLabel}>Four pillars. One sales goal.</span>
-              <h3>Business Sales Growth</h3>
+          {solution ? <PillarRoof /> : (
+            <div className={styles.roof}>
+              <span className={styles.roofIcon}><i className="fa-solid fa-chart-line" aria-hidden="true" /></span>
+              <div>
+                <span className={styles.roofLabel}>Four pillars. One sales goal.</span>
+                <h3>Business Sales Growth</h3>
+              </div>
             </div>
-          </div>
+          )}
           <ol className={styles.pillars}>
             {growthPillars.map((pillar, index) => (
               <li className={styles.pillar} key={pillar.title} style={{ animationDelay: `${index * 2}s` }}>
@@ -90,13 +91,11 @@ export default function FourPillarsSection({
           </div>
         </div>
 
-        {!diagramOnly && (
-          <div className={styles.videoStage}>
-            <div className={styles.video}>
-              <WistiaVideo mediaId="jr3983q8xn" title="The four-pillar business growth strategy video" />
-            </div>
+        <div className={styles.videoStage}>
+          <div className={styles.video}>
+            <WistiaVideo mediaId="jr3983q8xn" title="The four-pillar business growth strategy video" />
           </div>
-        )}
+        </div>
       </div>
 
       <button type="button" className="clone-action clone-reference-action" onClick={() => setReference(true)}>

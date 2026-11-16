@@ -5,7 +5,10 @@ import { reviewImages } from "@/lib/content";
 import MediaOverlay from "./MediaOverlay";
 import styles from "./ReviewsSection.module.css";
 
-export default function ReviewsSection({ leadConversionProof = false }: { leadConversionProof?: boolean }) {
+export default function ReviewsSection({ leadConversionProof = false, animatedPhotoOutline = false }: {
+  leadConversionProof?: boolean;
+  animatedPhotoOutline?: boolean;
+}) {
   const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
 
   return (
@@ -37,7 +40,7 @@ export default function ReviewsSection({ leadConversionProof = false }: { leadCo
       )}
       <div className={styles.grid}>
         {reviewImages.map((image, index) => (
-          <a className={styles.card} key={image.src} href={image.src} aria-label={`View client review ${index + 1}`} aria-haspopup="dialog"
+          <a className={animatedPhotoOutline ? `${styles.card} ${styles.animatedPhoto}` : styles.card} key={image.src} href={image.src} aria-label={`View client review ${index + 1}`} aria-haspopup="dialog"
             onClick={event => {
               event.preventDefault();
               setSelected({ src: image.src, title: `Client WhatsApp review ${index + 1}` });
