@@ -636,8 +636,14 @@ export default function Hero() {
           border-radius: 16px;
           z-index: 10;
           box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .float-card,
+        .founder-expertise {
           animation: floatCard 6s ease-in-out infinite;
         }
+
+        .founder-expertise { animation-delay: -4s; }
 
         @keyframes floatCard {
           0%, 100% { translate: 0 0; }
@@ -645,7 +651,8 @@ export default function Hero() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .float-card { animation: none; }
+          .float-card,
+          .founder-expertise { animation: none; }
         }
 
         .roi-badge {
