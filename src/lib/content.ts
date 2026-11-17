@@ -77,7 +77,21 @@ const warmLeadsReview = {
   alt: 'Warm leads closed between 2 and 12 months: Rs. 1.75 Crore, Rs. 40 Lakh, Rs. 1 Crore and Rs. 92 Lakh.',
 };
 
-export const reviewImages = importedReviewImages.map((image, index) => index === 4 ? warmLeadsReview : image);
+const repeatClientReview: (typeof images)[number] = {
+  source: 'repeat-client-orders-review.jpg',
+  src: '/brand/repeat-client-orders-review.jpg',
+  pages: ['/', '/4-pillar-access'],
+  width: 1080,
+  height: 1350,
+  alt: 'WhatsApp review showing a ₹35 lakh order closed in two months and a ₹2 crore repeat-client order in eight months.',
+};
+
+export const reviewImages = [
+  repeatClientReview,
+  ...importedReviewImages
+    .filter(image => imageIdentity(image) !== 'whatsapp-roi-16')
+    .map((image, index) => index === 4 ? warmLeadsReview : image),
+];
 
 export const clientCaseStudies = ['education', 'real-estate', 'manufacturing', 'consulting'].flatMap(id => {
   const industry = industries.find(industry => industry.id === id)!;
