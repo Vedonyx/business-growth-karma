@@ -1,30 +1,7 @@
 # Business Growth Karma
 
-Five-page website for Shweta Vallabh Shah and Business Growth Karma: Home, About, Work, Services and Contact.
+Open `index.html` for the homepage or `4-pillar-access/index.html` for the lesson page. Both pages use the bundled images, fonts, CSS, and JavaScript. Wistia videos, Meta Pixel, and the existing booking links need internet access.
 
-The interface is restored from the original Fobet Media clone (`a6a7b9f`). Its typography, responsive layouts, hero slider, floating cards, timeline, testimonial carousel, ticket effects and organic/inorganic summit animation are retained and recolored in the supplied golden-brown palette. The hero uses Shweta's actual TEDx stage photograph.
+To preview the original URL paths, run `python -m http.server 8080` from this folder and open `http://localhost:8080/`.
 
-The presentation's Why / How / What, four-pillar framework, service plans, annual sales goal prompt and client logo train extend the original visual style. Content is adapted from [shwetashah.in](https://shwetashah.in). The Work gallery includes all 96 imported source images; five client testimonial videos and the Sales Psychology System explainer are stored locally.
-
-## Development
-
-```sh
-npm install
-npm run dev
-npm run typecheck
-npm run build
-npm start
-```
-
-Vercel and other Linux builds use the standard `.next` output throughout deployment. Local Windows production builds use `.next-production`, separate from the development output. `NEXT_OUTPUT_DIR` can override this for isolated review sessions.
-
-## Content and assets
-
-- `src/lib/content.ts`: brand details, plans, services and source content.
-- `src/data/brand-assets.json`: source URLs, local images and video paths.
-- `scripts/import-brand-assets.mjs`: refresh source images.
-- `scripts/import-brand-videos.mjs`: refresh local video renditions after importing images.
-- `scripts/import-clone-fonts.mjs`: restore the clone's exact fonts and icon files locally.
-- `scripts/prepare-design-assets.mjs`: regenerate the social cover and framework illustrations from locally extracted presentation media.
-
-Historical case-study results retain their source context. The enquiry modal prepares an email draft for the visitor to send; it also links to Shweta's original strategy-session booking page. There is no simulated server submission.
+On a static host, publish this folder at the site root and configure `404.html` as the custom error page. The legacy URLs have HTML redirect pages. Configure permanent redirects on your host if you also need the original HTTP 308 responses.
