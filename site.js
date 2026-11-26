@@ -29,6 +29,33 @@
   const footerYear = document.querySelector("[data-footer-year]");
   if (footerYear) footerYear.textContent = new Date().getFullYear();
 
+  let wistiaPlayerRequested = false;
+  for (const video of document.querySelectorAll("template[data-lazy-wistia]")) {
+    const frame = video.parentElement;
+    function loadVideo() {
+      if (!wistiaPlayerRequested) {
+        wistiaPlayerRequested = true;
+        const script = document.createElement("script");
+        script.src = "https://fast.wistia.com/player.js";
+        script.async = true;
+        document.head.append(script);
+      }
+      frame.replaceChildren(video.content.cloneNode(true));
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      loadVideo();
+      continue;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+      loadVideo();
+    }, { rootMargin: video.dataset.lazyWistia });
+    observer.observe(frame);
+  }
+
   if (document.querySelector("base")) {
     const skipLink = document.querySelector(".clone-skip-link");
     skipLink.href = window.location.pathname + window.location.search + "#main-content";

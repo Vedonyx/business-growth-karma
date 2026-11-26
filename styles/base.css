@@ -2848,6 +2848,11 @@ div.reviews-proof-header {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.wistia-video-poster {
+  height: auto;
+  object-fit: contain;
+}
+.wistia-video-poster,
 .wistia-video-player:not(:defined) {
   filter: blur(5px);
 }

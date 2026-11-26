@@ -58,7 +58,8 @@
     </script>
 
     <link rel="preload" as="image" href="./brand/shweta-shah-founder-logo.webp" />
-    <link rel="preload" as="image" href="./brand/business-sales-growth-roof.webp" />
+    <link rel="preload" as="font" href="./fonts/clone-49e242afe5.woff2" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://fast.wistia.com" crossorigin />
     <link rel="icon" href="./icon.png" type="image/png" sizes="96x96" />
     <link rel="stylesheet" href="./styles/base.css" />
     <link rel="stylesheet" href="./styles/home-layout.css" />
@@ -87,9 +88,6 @@
       fbq("init", "3542667689389400");
       fbq("track", "PageView");
     </script>
-    <script src="https://fast.wistia.com/player.js" async></script>
-    <script src="https://fast.wistia.com/embed/jl0gke8f4q.js" type="module" async></script>
-    <script src="https://fast.wistia.com/embed/jr3983q8xn.js" type="module" async></script>
     <script src="./site.js" defer></script>
     <script src="./effects.js" defer></script>
   </head>
@@ -297,17 +295,25 @@
                         role="region"
                         aria-label="Business Growth Karma introduction by Shweta Shah"
                       >
-                        <wistia-player
-                          media-id="jl0gke8f4q"
-                          aspect="0.5625"
-                          player-color="dba22d"
-                          fit-strategy="contain"
-                          preload="none"
-                          class="wistia-video-player"
-                          style="
-                            background-image: url(https://fast.wistia.com/embed/medias/jl0gke8f4q/swatch);
-                          "
-                        ></wistia-player>
+                        <img
+                          class="wistia-video-player wistia-video-poster"
+                          src="https://fast.wistia.com/embed/medias/jl0gke8f4q/swatch"
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <template data-lazy-wistia="0px 0px -64px">
+                          <script src="https://fast.wistia.com/embed/jl0gke8f4q.js" type="module" async></script>
+                          <wistia-player
+                            media-id="jl0gke8f4q"
+                            aspect="0.5625"
+                            player-color="dba22d"
+                            fit-strategy="contain"
+                            preload="none"
+                            class="wistia-video-player"
+                            style="background-image: url(https://fast.wistia.com/embed/medias/jl0gke8f4q/swatch)"
+                          ></wistia-player>
+                        </template>
                       </div>
                     </div>
                     <div class="hero-scope float-card roi-badge">
@@ -660,6 +666,8 @@
                   alt="Business Sales Growth"
                   width="2172"
                   height="724"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <ol class="pillars-pillars">
                   <li class="pillars-pillar" style="animation-delay: 0s">
@@ -745,15 +753,25 @@
                     role="region"
                     aria-label="The four-pillar business growth strategy video"
                   >
-                    <wistia-player
-                      media-id="jr3983q8xn"
-                      aspect="0.5625"
-                      player-color="dba22d"
-                      fit-strategy="contain"
-                      preload="none"
-                      class="wistia-video-player"
-                      style="background-image: url(https://fast.wistia.com/embed/medias/jr3983q8xn/swatch)"
-                    ></wistia-player>
+                    <img
+                      class="wistia-video-player wistia-video-poster"
+                      src="https://fast.wistia.com/embed/medias/jr3983q8xn/swatch"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <template data-lazy-wistia="900px 0px">
+                      <script src="https://fast.wistia.com/embed/jr3983q8xn.js" type="module" async></script>
+                      <wistia-player
+                        media-id="jr3983q8xn"
+                        aspect="0.5625"
+                        player-color="dba22d"
+                        fit-strategy="contain"
+                        preload="none"
+                        class="wistia-video-player"
+                        style="background-image: url(https://fast.wistia.com/embed/medias/jr3983q8xn/swatch)"
+                      ></wistia-player>
+                    </template>
                   </div>
                 </div>
               </div>
