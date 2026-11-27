@@ -228,6 +228,10 @@
   display: block;
   color: #f5d18a;
 }
+.offer-investment.hero-scope {
+  display: block;
+  font-weight: 700;
+}
 .offer-promise.hero-scope {
   margin: 14px 0 16px;
 }
